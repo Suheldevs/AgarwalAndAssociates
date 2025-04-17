@@ -40,7 +40,7 @@ const Footer = () => {
               About Us
             </Link>
             <Link
-              to="/services/architecture"
+              to="/services"
               className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />
@@ -85,35 +85,35 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2">
             <Link
-              to="/services/architecture"
+              to="/services"
               className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />
               Architecture
             </Link>
             <Link
-              to="/services/sustainability"
+              to="/services"
               className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />
               Sustainability
             </Link>
             <Link
-              to="/services/architecture"
+              to="/services"
               className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />
               Interior Design
             </Link>
             <Link
-              to="/services/engineering"
+              to="/services"
               className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />
               Engineering
             </Link>
             <Link
-              to="/services/project-management"
+              to="/services"
               className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
             >
               <ChevronRight className="inline-block " />

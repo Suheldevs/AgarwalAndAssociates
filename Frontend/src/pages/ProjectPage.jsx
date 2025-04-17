@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ArrowRight, ExternalLink, Camera, Tag, Calendar } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
-export default function ProjectSection() {
+export default function ProjectPage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -87,10 +87,18 @@ export default function ProjectSection() {
     : projects.filter(project => project.category === activeFilter);
 
   return (
+    <>
+      <Breadcrumb 
+  title="Latest Projects" 
+  items={[
+    { name: "Project", path: "/projects" },
+  ]}
+  />
+   
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Diagonal Line */}
-        <div className="relative mb-16">
+        {/* <div className="relative mb-16">
           <div className="flex items-center">
             <div className="h-px bg-blue-500 flex-grow max-w-md"></div>
             <h2 className="text-4xl font-bold text-gray-900 px-6">Our Projects</h2>
@@ -99,7 +107,7 @@ export default function ProjectSection() {
           <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto text-center">
             Transforming visions into architectural masterpieces that redefine spaces and experiences.
           </p>
-        </div>
+        </div> */}
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center mb-12 gap-2">
@@ -229,16 +237,17 @@ export default function ProjectSection() {
         </div>
 
         {/* View All Projects Button */}
-        <div className="mt-16 text-center">
-          <Link  
-            to="/projects" 
+        {/* <div className="mt-16 text-center">
+          <a 
+            href="#" 
             className="inline-flex items-center px-8 py-3 border-2 border-blue-500 text-blue-500 font-medium rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300"
           >
             Explore All Projects
             <ArrowRight size={18} className="ml-2" />
-          </Link>
-        </div>
+          </a>
+        </div> */}
       </div>
     </section>
+    </>
   );
 }

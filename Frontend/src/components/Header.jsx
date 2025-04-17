@@ -36,10 +36,10 @@ export default function Header() {
       path: "#",
       isDropdown: true,
       dropdownItems: [
-        { name: "Residential", path: "/services/residential" },
-        { name: "Commercial", path: "/services/commercial" },
-        { name: "Interior Design", path: "/services/interior" },
-        { name: "Urban Planning", path: "/services/urban-planning" }
+        { name: "Residential", path: "/services" },
+        { name: "Commercial", path: "/services" },
+        { name: "Interior Design", path: "/services" },
+        { name: "Urban Planning", path: "/services" }
       ]
     },
     { name: "Gallery", path: "/gallery" },
@@ -73,7 +73,7 @@ export default function Header() {
                   {item.isDropdown ? (
                     <div>
                       <button 
-                        className="flex items-center text-gray-700 hover:text-gray-900 transition-colors"
+                        className="flex items-center text-gray-900 hover:text-gray-900 transition-colors"
                         onClick={toggleServices}
                       >
                         {item.name}
@@ -84,7 +84,7 @@ export default function Header() {
                           <Link 
                             key={idx}
                             to={dropdownItem.path} 
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                            className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 transition-colors"
                             onClick={() => setServicesOpen(false)}
                           >
                             {dropdownItem.name}
@@ -95,7 +95,7 @@ export default function Header() {
                   ) : (
                     <Link 
                       to={item.path} 
-                      className={`text-gray-700 hover:text-gray-900 transition-colors ${
+                      className={`text-gray-900 hover:text-gray-900 transition-colors ${
                         item.name === "Contact Us" ? "px-4 py-2 bg-gray-800 text-white hover:bg-gray-900 rounded-md" : ""
                       }`}
                     >
@@ -109,13 +109,13 @@ export default function Header() {
 
           {/* Contact Info - Desktop */}
           <div className="hidden lg:flex items-center">
-            <Phone size={16} className="text-gray-700" />
-            <span className="ml-2 text-gray-700">+91 98765 43210</span>
+            <Phone size={16} className="text-gray-900" />
+            <span className="ml-2 text-gray-900">+91 98765 43210</span>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-gray-700"
+            className="lg:hidden text-gray-900"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -132,7 +132,7 @@ export default function Header() {
                 {item.isDropdown ? (
                   <div>
                     <button 
-                      className="flex items-center justify-between w-full text-gray-700 py-2 hover:text-gray-900"
+                      className="flex items-center justify-between w-full text-gray-900 py-2 hover:text-gray-900"
                       onClick={toggleServices}
                     >
                       {item.name}
@@ -157,7 +157,7 @@ export default function Header() {
                 ) : (
                   <Link 
                     to={item.path} 
-                    className={`block py-2 text-gray-700 hover:text-gray-900 ${
+                    className={`block py-2 text-gray-900 hover:text-gray-900 ${
                       item.name === "Contact Us" ? "mt-4 px-4 py-2 bg-gray-800 text-white hover:bg-gray-900 rounded-md text-center" : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -171,8 +171,8 @@ export default function Header() {
           
           {/* Contact Info - Mobile */}
           <div className="flex items-center py-4 border-t border-gray-100">
-            <Phone size={16} className="text-gray-700" />
-            <span className="ml-2 text-gray-700">+91 98765 43210</span>
+            <Phone size={16} className="text-gray-900" />
+            <span className="ml-2 text-gray-900">+91 98765 43210</span>
           </div>
         </div>
       </div>

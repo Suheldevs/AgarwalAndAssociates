@@ -66,7 +66,7 @@ export default function ContactUsPage() {
       <Breadcrumb
         title="Contact Us"
         items={breadcrumbItems}
-        bgImage="/api/placeholder/1920/600"
+        // bgImage="/api/placeholder/1920/600"
       />
       
       {/* Main content */}

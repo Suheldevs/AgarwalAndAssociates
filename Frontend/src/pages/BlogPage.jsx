@@ -9,10 +9,10 @@ export default function BlogPage() {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of Web Development",
-      slug: "future-web-development",
-      category: "Technology",
-      description: "Exploring the upcoming trends in web development and how they'll shape the industry in the coming years.",
+      title: "The Future of Sustainable Architecture",
+      slug: "future-sustainable-architecture",
+      category: "Architecture",
+      description: "Exploring the latest trends in green building design and how sustainability is shaping modern architecture.",
       image: "https://picsum.photos/600/400?random=1",
       date: "April 15, 2025",
       readTime: "8 min read",
@@ -21,10 +21,10 @@ export default function BlogPage() {
     },
     {
       id: 2,
-      title: "Mastering State Management in React",
-      slug: "mastering-state-management",
-      category: "React",
-      description: "Deep dive into various state management approaches in React and when to use them for optimal performance.",
+      title: "Mastering Space Optimization in Modern Homes",
+      slug: "space-optimization-modern-homes",
+      category: "Interior Design",
+      description: "A deep dive into designing functional and aesthetic spaces, especially in urban homes where every square foot matters.",
       image: "https://picsum.photos/600/400?random=3",
       date: "April 10, 2025",
       readTime: "12 min read",
@@ -33,10 +33,10 @@ export default function BlogPage() {
     },
     {
       id: 3,
-      title: "Design Systems That Scale",
-      slug: "design-systems-scale",
-      category: "Design",
-      description: "How to build and maintain design systems that grow with your product and team while staying consistent.",
+      title: "Design Principles for Landmark Buildings",
+      slug: "design-principles-landmarks",
+      category: "Design Strategy",
+      description: "A guide to crafting architectural designs that not only stand out but also define a city’s identity for generations.",
       image: "https://picsum.photos/600/400?random=4",
       date: "April 5, 2025",
       readTime: "6 min read",
@@ -45,10 +45,10 @@ export default function BlogPage() {
     },
     {
       id: 4,
-      title: "The Art of Technical Writing",
-      slug: "art-technical-writing",
-      category: "Writing",
-      description: "Techniques to improve your technical documentation and make complex concepts accessible to everyone.",
+      title: "The Art of Creating Timeless Facades",
+      slug: "art-creating-facades",
+      category: "Architectural Aesthetics",
+      description: "How thoughtful material selection and proportion can lead to enduring, iconic building facades.",
       image: "https://picsum.photos/600/400?random=5",
       date: "March 29, 2025",
       readTime: "9 min read",
@@ -57,10 +57,10 @@ export default function BlogPage() {
     },
     {
       id: 5,
-      title: "Optimizing Your Development Workflow",
-      slug: "optimizing-development-workflow",
-      category: "Productivity",
-      description: "Tools and techniques to streamline your development process and ship features faster without sacrificing quality.",
+      title: "Optimizing Your Construction Workflow",
+      slug: "optimizing-construction-workflow",
+      category: "Project Management",
+      description: "Techniques to streamline collaboration between architects, engineers, and contractors to deliver projects on time and budget.",
       image: "https://picsum.photos/600/400?random=9",
       date: "March 25, 2025",
       readTime: "7 min read",
@@ -69,10 +69,10 @@ export default function BlogPage() {
     },
     {
       id: 6,
-      title: "Machine Learning for Front-end Developers",
-      slug: "ml-for-frontend",
-      category: "AI",
-      description: "An introduction to integrating machine learning capabilities into your front-end applications.",
+      title: "Integrating Smart Technology into Home Design",
+      slug: "smart-technology-home-design",
+      category: "Smart Homes",
+      description: "Exploring how IoT and automation are transforming modern homes into efficient, intuitive living spaces.",
       image: "https://picsum.photos/600/400?random=10",
       date: "March 20, 2025",
       readTime: "10 min read",
@@ -80,6 +80,7 @@ export default function BlogPage() {
       comments: 47
     }
   ];
+  
   
   const categories = Array.from(new Set(blogPosts.map(post => post.category)));
   
@@ -99,18 +100,16 @@ export default function BlogPage() {
   return (
     <>
     <Breadcrumb 
-  title="Product Features" 
+  title="Latest Insides" 
   items={[
-    { name: "Products", path: "/products" },
-    { name: "Enterprise Solutions", path: "/products/enterprise" },
-    { name: "Features", path: "/products/enterprise/features" }
+    { name: "Blogs", path: "/blog" },
   ]}
 //   bgImage="/path-to-your-image.jpg"
 />
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
       {/* Categories */}
-      <div className="mb-12">
+      {/* <div className="mb-12">
         <h2 className="text-2xl font-bold mb-6">Browse by Category</h2>
         <div className="flex flex-wrap gap-3">
           <button className="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-medium hover:bg-indigo-200 transition duration-300">
@@ -125,10 +124,10 @@ export default function BlogPage() {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
       
       {/* Blog posts */}
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">Latest Articles</h2>
+      {/* <h2 className="text-3xl font-bold mb-8 text-gray-800">Latest Articles</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map(post => (
           <div 
@@ -194,7 +193,7 @@ export default function BlogPage() {
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <Link 
                   to={`/blog-detail/${post.slug}`}
-                  className="flex items-center justify-between w-full px-6 py-3 bg-gray-50 hover:bg-indigo-600 text-gray-800 hover:text-white rounded-lg group-hover:shadow-md transition-all duration-300"
+                  className="flex items-center justify-between w-full px-6 py-3  bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg group-hover:shadow-md transition-all duration-300"
                 >
                   <span className="font-medium">Read Full Article</span>
                   <ArrowRight className="h-5 w-5 transform transition-transform duration-500 group-hover:translate-x-2" />
@@ -206,11 +205,11 @@ export default function BlogPage() {
       </div>
       
       {/* Load more button */}
-      <div className="mt-12 text-center">
+      {/* <div className="mt-12 text-center">
         <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg">
           Load More Articles
         </button>
-      </div>
+      </div> */}
     </div>
     </>
   );

@@ -6,6 +6,7 @@ import ProjectSection from '../components/ProjectSection'
 import TestimonialSection from '../components/TestimonialSection'
 import CTASection from '../components/CTASection'
 import BlogSection from '../components/BlogSection'
+import ServiceSection from '../components/ServiceSection'
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       {/* <UniqueHeroSection/> */}
       <AboutUsSection/>
       <DirectorSection/>
+      <ServiceSection/>
       <ProjectSection/>
       <TestimonialSection/>
       <CTASection/>

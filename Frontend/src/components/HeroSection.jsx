@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Award, Users, Clock, ChevronDown } from "lucide-react";
 import InquiryModal from "./InquiryModal";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -78,7 +79,7 @@ export default function HeroSection() {
 
       {/* Content Container */}
       <div className="relative z-20 h-full">
-        <div className="container mx-auto px-4 lg:px-8 h-full flex flex-col justify-center">
+        <div className="container mx-auto lg:mt-10 px-4 lg:px-8 h-full flex flex-col justify-center">
           {/* Animated text content */}
           <div 
             className={`max-w-3xl transition-all duration-1000 transform ${
@@ -97,10 +98,10 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <button className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
+              <Link to='/project' className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
                 Explore Our Projects
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               <button  onClick={() => setModalOpen(true)} className="px-6 py-3 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium rounded transition-all">
                 Get a Consultation
               </button>
@@ -144,13 +145,13 @@ export default function HeroSection() {
         </div> */}
 
         {/* Scroll Down Indicator */}
-        <button 
+        {/* <button 
           onClick={scrollToProjects}
           className="absolute bottom-32 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center animate-bounce"
         >
           <span className="mb-1 text-sm font-light">Discover More</span>
           <ChevronDown size={20} />
-        </button>
+        </button> */}
       </div>
 
       {/* Slide Navigation Dots */}

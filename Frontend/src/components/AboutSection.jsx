@@ -33,11 +33,11 @@ export default function AboutSection() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">About Agarwal & Associates</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto"></div>
+          {/* <div className="w-24 h-1 bg-blue-500 mx-auto"></div> */}
         </div>
 
         {/* Two Column Layout */}
@@ -65,11 +65,11 @@ export default function AboutSection() {
           {/* Right Column - Image */}
           <div className="relative h-96 rounded-lg overflow-hidden shadow-xl transform transition duration-500 hover:scale-105">
             <img 
-              src="/api/placeholder/800/600" 
+              src="https://picsum.photos/800/600?random=1" 
               alt="Agarwal & Associates Studio" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-blue-900 bg-opacity-20 hover:bg-opacity-10 transition duration-300"></div>
+            <div className="absolute inset-0 bg-blue-900/20 hover:bg-opacity-10 transition duration-300"></div>
           </div>
         </div>
 
