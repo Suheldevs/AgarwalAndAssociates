@@ -6,6 +6,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import BlogPage from './pages/BlogPage'
+import ContactUsPage from './pages/ContactUsPage'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='/blog' element={<BlogPage/>}/>
+      <Route path='/contact' element={<ContactUsPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>
