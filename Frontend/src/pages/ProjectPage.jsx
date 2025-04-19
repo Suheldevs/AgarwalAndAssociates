@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, ExternalLink, Camera, Tag, Calendar } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
+import { Link } from 'react-router-dom';
 
 export default function ProjectPage() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -18,6 +19,7 @@ export default function ProjectPage() {
     {
       id: 1,
       title: 'Azure Heights Residences',
+      slug: 'azure-heights-residences',
       category: 'residential',
       location: 'Mumbai, India',
       year: '2023',
@@ -28,6 +30,7 @@ export default function ProjectPage() {
     {
       id: 2,
       title: 'Evergreen Corporate Park',
+      slug: 'evergreen-corporate-park',
       category: 'commercial',
       location: 'Bangalore, India',
       year: '2022',
@@ -37,6 +40,7 @@ export default function ProjectPage() {
     {
       id: 3,
       title: 'Heritage Public Library',
+      slug: 'heritage-public-library',
       category: 'institutional',
       location: 'Delhi, India',
       year: '2021',
@@ -46,6 +50,7 @@ export default function ProjectPage() {
     {
       id: 4,
       title: 'Riverside Promenade',
+      slug: 'riverside-promenade',
       category: 'urban',
       location: 'Ahmedabad, India',
       year: '2023',
@@ -55,6 +60,7 @@ export default function ProjectPage() {
     {
       id: 5,
       title: 'Harmony Villas',
+      slug: 'harmony-villas',
       category: 'residential',
       location: 'Goa, India',
       year: '2022',
@@ -64,6 +70,7 @@ export default function ProjectPage() {
     {
       id: 8,
       title: 'Harmony Villas',
+      slug: 'harmony-villas',
       category: 'residential',
       location: 'Goa, India',
       year: '2022',
@@ -73,6 +80,7 @@ export default function ProjectPage() {
     {
       id: 6,
       title: 'Horizon Tech Center',
+      slug: 'horizon-tech-center',
       category: 'commercial',
       location: 'Hyderabad, India',
       year: '2021',
@@ -81,6 +89,7 @@ export default function ProjectPage() {
       featured: true
     }
   ];
+  
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
@@ -168,12 +177,12 @@ export default function ProjectPage() {
                       <p className="text-gray-500 mb-8">
                         <span className="font-medium">Location:</span> {project.location}
                       </p>
-                      <button className={`group self-start flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300 ${
+                      <Link to={`/project/${project.slug}`} className={`group self-start flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300 ${
                         hoveredProject === 'featured' ? 'translate-x-2' : ''
                       }`}>
                         View Project Details
                         <ArrowRight size={18} className="ml-2 transition-all duration-300 group-hover:translate-x-1" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

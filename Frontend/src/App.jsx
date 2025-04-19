@@ -14,6 +14,8 @@ import AboutUsPage from './pages/AboutPage'
 import ProjectPage from './pages/ProjectPage'
 import ServicePage from './pages/ServicePage'
 import ScrollToTop from './components/ScrollToTop'
+import BlogDetail from './pages/BlogDetailPage'
+import ProjectDetail from './pages/ProjectDetail'
 
 function App() {
   return (
@@ -23,11 +25,13 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/blog' element={<BlogPage/>}/>
+      <Route path='/blog-detail/:slug' element={<BlogDetail/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
       <Route path='/gallery' element={<Gallery/>}/>
       <Route path='/testimonials' element={<TestimonialsPage/>}/>
       <Route path='/about' element={<AboutUsPage/>}/>
       <Route path='/projects' element={<ProjectPage/>}/>
+      <Route path='/project/:slug' element={<ProjectDetail/>}/>
       <Route path='/services' element={<ServicePage/>}/>
     </Routes>
     <Footer/>
