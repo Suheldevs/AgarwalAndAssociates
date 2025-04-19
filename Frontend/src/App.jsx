@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogPage from './pages/BlogPage'
 import ContactUsPage from './pages/ContactUsPage'
-import Gallery from './pages/gallery'
+import Gallery from './pages/Gallery'
 import TestimonialsPage from './pages/Testimonial'
 import AboutUsPage from './pages/AboutPage'
 import ProjectPage from './pages/ProjectPage'
@@ -24,7 +24,6 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/blog' element={<BlogPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
-      <Route path='/gallery' element={<Gallery/>}/>
       <Route path='/gallery' element={<Gallery/>}/>
       <Route path='/testimonials' element={<TestimonialsPage/>}/>
       <Route path='/about' element={<AboutUsPage/>}/>
