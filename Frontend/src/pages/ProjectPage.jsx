@@ -229,10 +229,10 @@ export default function ProjectPage() {
                   <p className="text-gray-500 text-sm mb-3">{project.location}</p>
                   <p className="text-gray-600 mb-6">{project.description}</p>
                   <div className="flex justify-between items-center">
-                    <button className="group flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300">
+                    <Link to={`/project/${project.slug}`} className="group flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300">
                       Details
                       <ArrowRight size={16} className="ml-2 transition-all duration-300 group-hover:translate-x-1" />
-                    </button>
+                    </Link>
                     <button className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
                       <ExternalLink size={16} />
                     </button>
