@@ -18,6 +18,7 @@ export default function ProjectSection() {
     {
       id: 1,
       title: 'Azure Heights Residences',
+      slug: 'azure-heights-residences',
       category: 'residential',
       location: 'Mumbai, India',
       year: '2023',
@@ -28,6 +29,7 @@ export default function ProjectSection() {
     {
       id: 2,
       title: 'Evergreen Corporate Park',
+      slug: 'evergreen-corporate-park',
       category: 'commercial',
       location: 'Bangalore, India',
       year: '2022',
@@ -37,6 +39,7 @@ export default function ProjectSection() {
     {
       id: 3,
       title: 'Heritage Public Library',
+      slug: 'heritage-public-library',
       category: 'institutional',
       location: 'Delhi, India',
       year: '2021',
@@ -46,6 +49,7 @@ export default function ProjectSection() {
     {
       id: 4,
       title: 'Riverside Promenade',
+      slug: 'riverside-promenade',
       category: 'urban',
       location: 'Ahmedabad, India',
       year: '2023',
@@ -55,6 +59,7 @@ export default function ProjectSection() {
     {
       id: 5,
       title: 'Harmony Villas',
+      slug: 'harmony-villas',
       category: 'residential',
       location: 'Goa, India',
       year: '2022',
@@ -64,6 +69,7 @@ export default function ProjectSection() {
     {
       id: 8,
       title: 'Harmony Villas',
+      slug: 'harmony-villas',
       category: 'residential',
       location: 'Goa, India',
       year: '2022',
@@ -73,6 +79,7 @@ export default function ProjectSection() {
     {
       id: 6,
       title: 'Horizon Tech Center',
+      slug: 'horizon-tech-center',
       category: 'commercial',
       location: 'Hyderabad, India',
       year: '2021',
@@ -81,6 +88,7 @@ export default function ProjectSection() {
       featured: true
     }
   ];
+  
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
@@ -160,12 +168,12 @@ export default function ProjectSection() {
                       <p className="text-gray-500 mb-8">
                         <span className="font-medium">Location:</span> {project.location}
                       </p>
-                      <button className={`group self-start flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300 ${
+                      <Link to={`/project/${project.slug}`} className={`group self-start flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300 ${
                         hoveredProject === 'featured' ? 'translate-x-2' : ''
                       }`}>
                         View Project Details
                         <ArrowRight size={18} className="ml-2 transition-all duration-300 group-hover:translate-x-1" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -212,10 +220,10 @@ export default function ProjectSection() {
                   <p className="text-gray-500 text-sm mb-3">{project.location}</p>
                   <p className="text-gray-600 mb-6">{project.description}</p>
                   <div className="flex justify-between items-center">
-                    <button className="group flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300">
+                    <Link to={`/project/${project.slug}`} className="group flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300">
                       Details
                       <ArrowRight size={16} className="ml-2 transition-all duration-300 group-hover:translate-x-1" />
-                    </button>
+                    </Link>
                     <button className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
                       <ExternalLink size={16} />
                     </button>
