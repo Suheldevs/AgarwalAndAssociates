@@ -271,7 +271,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                     name="consent"
                     checked={formData.consent}
                     onChange={handleChange}
-                    className="rounded text-blue-600 focus:ring-amber-600" 
+                    className="rounded text-yellow-600 focus:ring-amber-600" 
                   />
                   <label htmlFor="consent" className="text-sm text-gray-600">I agree to the processing of my personal data</label>
                 </div>

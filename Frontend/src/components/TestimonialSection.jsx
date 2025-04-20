@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
+import bg from '../assets/testimonial.webp'
 export default function TestimonialSection() {
   const testimonials = [
     {
       id: 1,
       name: "Priya Sharma",
       position: "CEO, Horizon Development",
-      image: "https://picsum.photos/150/150?random=1",
+      image: "https://randomuser.me/api/portraits/women/75.jpg",
       quote: "Agarwal & Associates transformed our vision into an architectural masterpiece. Their attention to detail and innovative approach exceeded our expectations. The team's ability to blend aesthetics with functionality created spaces that truly inspire.",
       rating: 5,
       project: "Horizon Corporate Headquarters"
@@ -16,7 +16,7 @@ export default function TestimonialSection() {
       id: 2,
       name: "Rajiv Mehta",
       position: "Director, Greenfield Homes",
-      image: "https://picsum.photos/150/150?random=2",
+      image: "https://randomuser.me/api/portraits/men/75.jpg",
       quote: "Working with Agarwal & Associates on our residential complex was a seamless experience. Their sustainable design solutions and commitment to our project timeline made them the ideal partner. The finished project has received numerous accolades for its innovative design.",
       rating: 5,
       project: "Emerald Heights Residential Complex"
@@ -25,7 +25,7 @@ export default function TestimonialSection() {
       id: 3,
       name: "Dr. Anjali Patel",
       position: "Chairperson, National Education Trust",
-      image: "https://picsum.photos/150/150?random=3",
+      image: "https://randomuser.me/api/portraits/women/65.jpg",
       quote: "The team at Agarwal & Associates brought exceptional creativity to our university campus project. They understood our need for spaces that foster learning and collaboration. The result is a campus that inspires both students and faculty.",
       rating: 5,
       project: "Panorama University Campus"
@@ -34,7 +34,7 @@ export default function TestimonialSection() {
       id: 4,
       name: "Vikram Singhania",
       position: "Managing Director, Luxury Hospitality Group",
-      image: "https://picsum.photos/150/150?random=4",
+      image: "https://randomuser.me/api/portraits/men/95.jpg",
       quote: "From concept to completion, Agarwal & Associates delivered excellence at every stage. Their understanding of luxury hospitality design and ability to create memorable guest experiences sets them apart. Our hotel has become a landmark destination.",
       rating: 5,
       project: "Serenity Grand Hotel & Spa"
@@ -119,12 +119,12 @@ export default function TestimonialSection() {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 lg:py-12 md:py-10 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-3">Client Testimonials</h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
+          {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Discover what our clients say about their experience working with Agarwal & Associates
           </p>
@@ -133,7 +133,7 @@ export default function TestimonialSection() {
         {/* Testimonial Carousel */}
         <div className="relative">
           {/* Large quotes icon */}
-          <div className="absolute top-0 left-0 text-blue-100 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
+          <div className="absolute top-0 left-0 text-yellow-100 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
             <Quote size={120} />
           </div>
 
@@ -154,12 +154,12 @@ export default function TestimonialSection() {
               {/* Testimonial Content */}
               <div className="grid grid-cols-1 md:grid-cols-5 min-h-[400px]">
                 {/* Left Image Column (hidden on mobile) */}
-                <div className="hidden md:block md:col-span-2 bg-blue-600 relative">
-                  <div className="absolute inset-0 bg-blue-800 opacity-30"></div>
+                <div className="hidden md:block md:col-span-2 bg-yellow-600 relative">
+                  <div className="absolute inset-0 bg-black/40"></div>
                   <img 
-                    src="https://picsum.photos/600/600?random=4" 
+                    src={bg}
                     alt="Architecture Project" 
-                    className="w-full h-full object-cover mix-blend-overlay" 
+                    className="w-full h-full object-cover " 
                   />
                   <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
                     <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden mb-4">
@@ -176,7 +176,7 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* Right Content Column */}
-                <div className="p-6 md:p-12 md:col-span-3 flex flex-col justify-center">
+                <div className="p-6 md:p-12 bg-white md:col-span-3 flex flex-col justify-center">
                   {/* Mobile-Only Image */}
                   <div className="flex items-center mb-6 md:hidden">
                     <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
@@ -194,7 +194,7 @@ export default function TestimonialSection() {
                   </div>
 
                   {/* Quote Icon */}
-                  <div className="text-blue-500 mb-4">
+                  <div className="text-yellow-500 mb-4">
                     <Quote size={32} />
                   </div>
 
@@ -218,14 +218,14 @@ export default function TestimonialSection() {
             <div className="absolute bottom-6 right-6 flex space-x-3">
               <button 
                 onClick={goToPrevious}
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-blue-50 text-blue-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-yellow-50 text-yellow-500 transition-colors duration-300"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
               </button>
               <button 
                 onClick={goToNext}
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-blue-50 text-blue-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-yellow-50 text-yellow-500 transition-colors duration-300"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />
@@ -241,7 +241,7 @@ export default function TestimonialSection() {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex 
-                    ? 'bg-blue-500 w-8' 
+                    ? 'bg-yellow-500 w-8' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -251,12 +251,7 @@ export default function TestimonialSection() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold text-gray-800 mb-6">Ready to start your project with us?</h3>
-          <button className="px-8 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition duration-300 shadow-md">
-            Get in Touch
-          </button>
-        </div>
+       
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, Ruler, PenTool, Wrench, Compass, ClipboardList, Building, ArrowRight } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 import { Link } from 'react-router-dom';
+import InquiryModal from './InquiryModal';
 
 // Main App Component
 export default function ServiceSection() {
@@ -156,12 +157,12 @@ export default function ServiceSection() {
       onMouseLeave={() => setHoveredService(null)}
       onClick={() => handleServiceClick(service.id)}
     >
-      <div className="text-blue-600">
+      <div className="text-yellow-500">
         {service.icon}
       </div>
       <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
       <p className="text-gray-600 mb-4 flex-grow">{service.shortDesc}</p>
-      <div className={`flex items-center text-blue-600 transition-all duration-300 ${hoveredService === service.id ? 'translate-x-1' : ''}`}>
+      <div className={`flex items-center text-yellow-500 transition-all duration-300 ${hoveredService === service.id ? 'translate-x-1' : ''}`}>
         <span className="mr-2">Learn more</span>
         <ArrowRight size={16} />
       </div>
@@ -170,33 +171,33 @@ export default function ServiceSection() {
 
   // Service detail page component
   const ServiceDetail = ({ service }) => (
-    <div className="bg-white rounded-lg p-8 shadow-lg max-w-5xl mx-auto">
+    <div className="bg-white rounded-lg p-8 shadow-lg max-w-7xl mx-auto">
       <button 
         onClick={handleBackClick}
-        className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-all"
+        className="mb-6 flex items-center text-yellow-500 hover:text-yellow-600 transition-all"
       >
         <ChevronRight className="rotate-180 mr-1" size={18} />
         <span>Back to all services</span>
       </button>
       
       <div className="flex items-center mb-6">
-        <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
+        <div className="bg-yellow-100 p-3 rounded-full text-yellow-500 mr-4">
           {service.icon}
         </div>
         <h2 className="text-3xl font-bold">{service.title}</h2>
       </div>
       
-      <p className="text-lg text-gray-700 mb-8 border-l-4 border-blue-500 pl-4">
+      <p className="text-lg text-gray-700 mb-8 border-l-4 border-yellow-500 pl-4">
         {service.description}
       </p>
       
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4 text-blue-800">What We Offer</h3>
+          <h3 className="text-xl font-semibold mb-4 text-yellow-600">What We Offer</h3>
           <ul className="space-y-3">
             {service.features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <div className="mt-1 mr-3 text-blue-600">
+                <div className="mt-1 mr-3 text-yellow-500">
                   <ChevronRight size={16} />
                 </div>
                 <span>{feature}</span>
@@ -206,11 +207,11 @@ export default function ServiceSection() {
         </div>
         
         <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4 text-blue-800">Our Process</h3>
+          <h3 className="text-xl font-semibold mb-4 text-yellow-600">Our Process</h3>
           <ol className="space-y-3">
             {service.process.map((step, index) => (
               <li key={index} className="flex items-start">
-                <div className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 shrink-0">
+                <div className="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 shrink-0">
                   {index + 1}
                 </div>
                 <span className="mt-1">{step}</span>
@@ -220,19 +221,19 @@ export default function ServiceSection() {
         </div>
       </div>
       
-      <div className="bg-blue-50 p-6 rounded-lg border border-blue-100">
-        <h3 className="text-xl font-semibold mb-3 text-blue-800">Ready to Get Started?</h3>
+      <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
+        <h3 className="text-xl font-semibold mb-3 text-yellow-600">Ready to Get Started?</h3>
         <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+        <button onClick={() => setModalOpen(true)} className="cursor-pointer bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-lg transition-colors duration-300">
           Request Consultation
         </button>
       </div>
     </div>
   );
-
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
-     
+      <InquiryModal isOpen={modalOpen} closeModal={() => setModalOpen(false)} />
     <div className="min-h-screen bg-gray-50">
    
 
@@ -243,7 +244,7 @@ export default function ServiceSection() {
           <>
             {/* Services Hero Section */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-2">Our Services</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive architectural solutions tailored to your vision, from concept to completion
               </p>
@@ -262,7 +263,7 @@ export default function ServiceSection() {
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 Our team of experts is ready to help you create a tailored approach for your unique architectural project
               </p>
-              <Link to='/contact' className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300">
+              <Link to='/contact' className="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300">
                 Contact Us Today
               </Link>
             </div> */}

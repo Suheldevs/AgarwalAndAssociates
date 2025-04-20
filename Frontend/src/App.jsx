@@ -16,6 +16,7 @@ import ServicePage from './pages/ServicePage'
 import ScrollToTop from './components/ScrollToTop'
 import BlogDetail from './pages/BlogDetailPage'
 import ProjectDetail from './pages/ProjectDetail'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Route path='/projects' element={<ProjectPage/>}/>
       <Route path='/project/:slug' element={<ProjectDetail/>}/>
       <Route path='/services' element={<ServicePage/>}/>
+      <Route path='/privacy' element={<PrivacyPolicyPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

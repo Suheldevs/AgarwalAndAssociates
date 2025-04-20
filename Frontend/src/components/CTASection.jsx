@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CTASection() {
   const [formState, setFormState] = useState({
@@ -28,24 +29,24 @@ export default function CTASection() {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-8 lg:py-12 md:py-10 overflow-hidden">
       {/* Background with geometric patterns */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-500 opacity-5 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 opacity-5 rounded-full transform translate-x-1/3 translate-y-1/3"></div>
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-blue-300 opacity-5 rounded-full"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-500 opacity-5 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500 opacity-5 rounded-full transform translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-yellow-300 opacity-5 rounded-full"></div>
         
         {/* Diagonal line */}
         <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 to-transparent opacity-70"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-50 to-transparent opacity-70"></div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">Let's Bring Your Vision to Life</h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-2">Let's Bring Your Vision to Life</h2>
+          {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Ready to transform your space? Contact us today for a consultation and discover how Agarwal & Associates can 
             create architectural solutions tailored to your needs.
           </p>
@@ -53,12 +54,12 @@ export default function CTASection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
           {/* Left Contact Info Panel */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-xl p-8 shadow-xl">
+          <div className="lg:col-span-2 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl p-8 shadow-xl">
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
             
             <div className="space-y-8">
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-blue-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -69,7 +70,7 @@ export default function CTASection() {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-blue-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
                   <Mail size={24} />
                 </div>
                 <div>
@@ -80,7 +81,7 @@ export default function CTASection() {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-blue-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -95,7 +96,7 @@ export default function CTASection() {
             
             <div className="mt-12">
               <h4 className="font-medium text-lg mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 text-yellow-500">
                 <a href="#" className="p-2 bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all duration-300">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd"></path>
@@ -137,8 +138,8 @@ export default function CTASection() {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-                      placeholder="John Doe"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      placeholder="Full Name"
                       required
                     />
                   </div>
@@ -153,8 +154,8 @@ export default function CTASection() {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-                      placeholder="johndoe@example.com"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      placeholder="email@example.com"
                       required
                     />
                   </div>
@@ -171,7 +172,7 @@ export default function CTASection() {
                       name="phone"
                       value={formState.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -185,14 +186,17 @@ export default function CTASection() {
                       name="service"
                       value={formState.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
                       required
                     >
-                      <option value="residential">Residential Architecture</option>
-                      <option value="commercial">Commercial Architecture</option>
-                      <option value="interior">Interior Design</option>
-                      <option value="urban">Urban Planning</option>
-                      <option value="consultation">Consultation</option>
+                      <option value=""  selected>Select a Service</option>
+                     <option value="architectural-consultant">Architectural Consultant</option>
+<option value="interior-design">Interior Design</option>
+<option value="engineering-services">Engineering Services</option>
+<option value="vastu-services">Vastu Services</option>
+<option value="project-management">Project Management</option>
+<option value="urban-planning">Urban Planning</option>
+
                     </select>
                   </div>
                 </div>
@@ -207,29 +211,29 @@ export default function CTASection() {
                     value={formState.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>
                 </div>
                 
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <input
                     id="privacy"
                     name="privacy"
                     type="checkbox"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
                     required
                   />
                   <label htmlFor="privacy" className="ml-2 block text-sm text-gray-700">
-                    I agree to the <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
+                    I agree to the <a href="#" className="text-yellow-600 hover:underline">Privacy Policy</a>
                   </label>
-                </div>
+                </div> */}
                 
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg"
+                    className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
@@ -245,7 +249,7 @@ export default function CTASection() {
         </div>
 
         {/* Bottom Appointment Prompt */}
-        <div className="mt-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 shadow-md">
+        <div className="mt-12 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl p-8 md:p-12 shadow-md">
           <div className="md:flex items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Schedule a Consultation</h3>
@@ -255,13 +259,13 @@ export default function CTASection() {
               </p>
             </div>
             <div className="flex-shrink-0">
-              <a 
+              <Link 
                 href="#" 
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                Book Appointment 
+                Contact Us
                 <ArrowRight className="ml-2" size={18} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

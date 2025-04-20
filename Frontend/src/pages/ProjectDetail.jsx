@@ -127,14 +127,14 @@ export default function ProjectDetail() {
    
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Back Button */}
-      <Link to="/projects" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-6 group transition-all">
+      <Link to="/projects" className="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium mb-6 group transition-all">
         <ChevronLeft className="w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform" />
         Back to all projects
       </Link>
       
       {/* Project Header */}
       <div className="mb-10">
-        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium capitalize">{project.category}</span>
+        <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium capitalize">{project.category}</span>
         <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">{project.title}</h1>
         
         <div className="flex flex-wrap items-center text-gray-600 gap-6 mb-8">
@@ -175,7 +175,7 @@ export default function ProjectDetail() {
               {projectDetails.images.map((image, index) => (
                 <button 
                   key={index}
-                  className={`rounded-lg overflow-hidden ${activeImageIndex === index ? 'ring-2 ring-blue-500' : 'opacity-70 hover:opacity-100'}`}
+                  className={`rounded-lg overflow-hidden ${activeImageIndex === index ? 'ring-2 ring-yellow-500' : 'opacity-70 hover:opacity-100'}`}
                   onClick={() => setActiveImageIndex(index)}
                 >
                   <img 
@@ -195,19 +195,19 @@ export default function ProjectDetail() {
             {/* Tabs */}
             <div className="flex border-b mb-6">
               <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'overview' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`px-4 py-2 font-medium ${activeTab === 'overview' ? 'text-yellow-600 border-b-2 border-yellow-600' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={() => setActiveTab('overview')}
               >
                 Overview
               </button>
               <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'details' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`px-4 py-2 font-medium ${activeTab === 'details' ? 'text-yellow-600 border-b-2 border-yellow-600' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={() => setActiveTab('details')}
               >
                 Details
               </button>
               <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'services' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`px-4 py-2 font-medium ${activeTab === 'services' ? 'text-yellow-600 border-b-2 border-yellow-600' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={() => setActiveTab('services')}
               >
                 Services
@@ -267,7 +267,7 @@ export default function ProjectDetail() {
                   <ul className="space-y-2">
                     {projectDetails.services.map((service, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="mt-1 mr-2 h-2 w-2 rounded-full bg-blue-600"></div>
+                        <div className="mt-1 mr-2 h-2 w-2 rounded-full bg-yellow-600"></div>
                         {service}
                       </li>
                     ))}
@@ -278,7 +278,7 @@ export default function ProjectDetail() {
             
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col space-y-3">
-              <button className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center">
+              <button className="w-full px-4 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center">
                 Request Similar Project
               </button>
               <button className="w-full px-4 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 font-medium rounded-lg transition-colors flex items-center justify-center">
@@ -294,7 +294,7 @@ export default function ProjectDetail() {
       <div className="mt-24">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-2xl font-bold">Similar Projects</h2>
-          <Link to="/projects" className="flex items-center text-blue-600 hover:text-blue-800 font-medium group">
+          <Link to="/projects" className="flex items-center text-yellow-600 hover:text-yellow-800 font-medium group">
             View all projects
             <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -314,8 +314,8 @@ export default function ProjectDetail() {
                     <span className="text-white font-medium">View Project</span>
                   </div>
                 </div>
-                <span className="text-sm font-medium text-blue-600 capitalize">{project.category}</span>
-                <h3 className="font-bold text-xl mt-2 group-hover:text-blue-600 transition-colors">{project.title}</h3>
+                <span className="text-sm font-medium text-yellow-600 capitalize">{project.category}</span>
+                <h3 className="font-bold text-xl mt-2 group-hover:text-yellow-600 transition-colors">{project.title}</h3>
               </Link>
               <div className="flex items-center mt-3 text-gray-600 text-sm">
                 <MapPin className="w-4 h-4 mr-1" />

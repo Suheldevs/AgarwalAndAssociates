@@ -1,91 +1,122 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchBlogData } from "../redux/dataSlice";
-import BlogCard from "./BlogCard";
+import { useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
+import { Clock, Tag, ArrowRight, Heart, MessageSquare, Share2, Bookmark } from "lucide-react";
+import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
+import blogPosts from '../Data/BlogData';
+import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const BlogSection = () => {
-  const dispatch = useDispatch();
-  const { blogData, error, status } = useSelector((state) => state.data);
-
-  useEffect(() => {
-    dispatch(fetchBlogData());
-  }, [dispatch]);
+export default function BlogPage() {
+  const [hoveredId, setHoveredId] = useState(null);
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 }
       },
       {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+        breakpoint: 640,
+        settings: { slidesToShow: 1 }
+      }
+    ]
   };
 
-  if (status === "loading") {
-    return (
-      <div className="text-xl h-[50vh] flex justify-center items-center font-medium shadow-2xl rounded p-2">
-        Loading..
-      </div>
-    );
-  }
-
-  if (blogData.length === 0) {
-    return (
-      <div className="text-red-600 text-lg h-[50vh] flex justify-center items-center font-medium shadow-2xl rounded p-2">
-        Blog Data Not Found!
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-red-600 text-lg h-[50vh] flex justify-center items-center font-medium shadow-2xl rounded p-2">
-        {error}
-      </div>
-    );
-  }
-
   return (
-    <div className="lg:py-14 md:py-12 py-10">
-      <div className="container mx-auto px-4">
-        <h1 className="lg:text-5xl text-2xl font-semibold lora text-center lg:mb-12 mb-6">
-          Our Latest Insights
-        </h1>
+    <div className="bg-gray-50">
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-6 lg:py-12 py-8 md:py-10 ">
+      <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-3">Recent Articals</h2>
+          {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          Discover expert thoughts and project highlights on our blog
+          </p>
+        </div>
+
+
         <Slider {...settings}>
-          {Array.isArray(blogData) && blogData.length > 0 ? (
-            blogData.map((post) => (
-              <div key={post._id} className="px-2">
-                <BlogCard
-                  slug={post.slug}
-                  date={post.updatedAt}
-                  category={post.category}
-                  title={post.title}
-                  imageUrl={post.imageUrl}
-                />
+          {blogPosts.map(post => (
+            <div key={post.id} className="px-3">
+              <div 
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
+                onMouseEnter={() => setHoveredId(post.id)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <div className="relative overflow-hidden">
+                  <div className="h-48 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    />
+                  </div>
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-${hoveredId === post.id ? '90' : '60'} transition-opacity duration-500`}
+                  ></div>
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-flex items-center bg-yellow-500 px-3 py-1 rounded-full text-xs font-medium text-white">
+                      <Tag className="h-3 w-3 mr-1" />
+                      {post.category}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="font-bold text-xl text-white mb-2 transition-all duration-300 group-hover:text-2xl group-hover:mb-3">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center text-gray-200 text-xs space-x-3">
+                      <span className="flex items-center">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {post.date}
+                      </span>
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-600 mb-6 line-clamp-3">{post.description}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex space-x-4 text-gray-500">
+                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                        <Heart className="h-4 w-4 mr-1" />
+                        <span>{post.likes}</span>
+                      </button>
+                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                        <MessageSquare className="h-4 w-4 mr-1" />
+                        <span>{post.comments}</span>
+                      </button>
+                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                        <Share2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                    <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <Bookmark className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <div className="mt-4 pt-6 border-t border-gray-100">
+                    <Link 
+                      to={`/blog-detail/${post.slug}`}
+                      className="flex items-center justify-between w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg group-hover:shadow-md transition-all duration-300"
+                    >
+                      <span className="font-medium">Read Full Article</span>
+                      <ArrowRight className="h-5 w-5 transform transition-transform duration-500 group-hover:translate-x-2" />
+                    </Link>
+                  </div>
+                </div>
               </div>
-            ))
-          ) : (
-            <p>No blogs available.</p>
-          )}
+            </div>
+          ))}
         </Slider>
       </div>
     </div>
   );
-};
-
-export default BlogSection;
+}

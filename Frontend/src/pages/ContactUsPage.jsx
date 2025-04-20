@@ -1,7 +1,14 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Send, Clock, ArrowRight, CheckCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Send,
+  Clock,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
-
 
 export default function ContactUsPage() {
   const [formState, setFormState] = useState({
@@ -10,28 +17,27 @@ export default function ContactUsPage() {
     subject: "",
     message: "",
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     loading: false,
   });
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleChange = (e) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormStatus({ loading: true, submitted: false });
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus({ loading: false, submitted: true });
-      setFormState({ name: "", email: "", subject: "", message: "" });
-    }, 1500);
+    // Form submission logic would go here
+    console.log("Form submitted:", formState);
+    alert("Thank you for your interest! We will contact you shortly.");
   };
 
   const breadcrumbItems = [
@@ -68,63 +74,79 @@ export default function ContactUsPage() {
         items={breadcrumbItems}
         // bgImage="/api/placeholder/1920/600"
       />
-      
+
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Get in Touch
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have a question, feedback, or need assistance? We're here to help.
             Reach out to us using any of the methods below.
           </p>
         </div>
-        
+
         {/* Contact Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {contactMethods.map((method, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-indigo-500"
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-yellow-500"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-50 text-indigo-600 mb-5 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-50 text-yellow-600 mb-5 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300">
                 {method.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{method.title}</h3>
-              <p className="text-lg text-indigo-600 font-medium mb-1">{method.content}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {method.title}
+              </h3>
+              <p className="text-lg text-yellow-600 font-medium mb-1">
+                {method.content}
+              </p>
               <p className="text-sm text-gray-500">{method.details}</p>
             </div>
           ))}
         </div>
-        
+
         {/* Contact Form and Info */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {/* Form */}
           <div className="col-span-3 bg-white rounded-2xl shadow-lg p-8 lg:p-10">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-            
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Send us a Message
+            </h3>
+
             {formStatus.submitted ? (
               <div className="flex flex-col items-center justify-center h-80 text-center">
                 <div className="bg-green-100 rounded-full p-4 mb-6">
                   <CheckCircle className="h-12 w-12 text-green-600" />
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">Thank you for reaching out!</h4>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">
+                  Thank you for reaching out!
+                </h4>
                 <p className="text-gray-600 mb-6">
-                  We've received your message and will get back to you as soon as possible.
+                  We've received your message and will get back to you as soon
+                  as possible.
                 </p>
-                <button 
-                  onClick={() => setFormStatus({ submitted: false, loading: false })}
-                  className="flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors duration-300"
+                <button
+                  onClick={() =>
+                    setFormStatus({ submitted: false, loading: false })
+                  }
+                  className="flex items-center px-6 py-3 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition-colors duration-300"
                 >
                   Send Another Message
-                  <ArrowRight className="ml-2 h-4 w-4" />  
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Full Name
                     </label>
                     <input
                       type="text"
@@ -132,13 +154,17 @@ export default function ContactUsPage() {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      placeholder="Full Name"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300"
-                      placeholder="John Doe"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email Address
                     </label>
                     <input
@@ -147,85 +173,122 @@ export default function ContactUsPage() {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      placeholder="email@example.com"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300"
-                      placeholder="john@example.com"
                     />
                   </div>
                 </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formState.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300"
-                    placeholder="How can we help you?"
-                  />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formState.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Interested In
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formState.service}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      required
+                    >
+                      <option value="" selected>
+                        Select a Service
+                      </option>
+                      <option value="architectural-consultant">
+                        Architectural Consultant
+                      </option>
+                      <option value="interior-design">Interior Design</option>
+                      <option value="engineering-services">
+                        Engineering Services
+                      </option>
+                      <option value="vastu-services">Vastu Services</option>
+                      <option value="project-management">
+                        Project Management
+                      </option>
+                      <option value="urban-planning">Urban Planning</option>
+                    </select>
+                  </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Your Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows="5"
                     value={formState.message}
                     onChange={handleChange}
+                    rows="5"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                    placeholder="Tell us about your project..."
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300"
-                    placeholder="Tell us more about your query..."
                   ></textarea>
                 </div>
-                
+
                 <div>
                   <button
                     type="submit"
-                    disabled={formStatus.loading}
-                    className="px-8 py-4 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center w-full md:w-auto"
+                    className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                   >
-                    {formStatus.loading ? (
-                      <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="mr-2 h-5 w-5" />
-                        Send Message
-                      </span>
-                    )}
+                    Send Message
+                    <span
+                      className={`ml-2 transition-all duration-300 ${
+                        isHovered ? "translate-x-1" : ""
+                      }`}
+                    >
+                      <Send size={18} />
+                    </span>
                   </button>
                 </div>
               </form>
             )}
           </div>
-          
+
           {/* Business Info */}
           <div className="col-span-2 space-y-8">
             {/* Hours */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-indigo-500">
+            <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-yellow-500">
               <div className="flex items-start mb-5">
-                <div className="bg-indigo-50 p-3 rounded-lg">
-                  <Clock className="h-6 w-6 text-indigo-600" />
+                <div className="bg-yellow-50 p-3 rounded-lg">
+                  <Clock className="h-6 w-6 text-yellow-600" />
                 </div>
                 <div className="ml-4">
-                  <h4 className="text-lg font-bold text-gray-900 mb-1">Business Hours</h4>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">
+                    Business Hours
+                  </h4>
                   <p className="text-gray-500 text-sm">When you can reach us</p>
                 </div>
               </div>
-              
+
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Monday - Friday</span>
@@ -237,47 +300,63 @@ export default function ContactUsPage() {
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
                   <span className="text-gray-600">Sunday</span>
-                  <span className="font-medium text-indigo-600">Closed</span>
+                  <span className="font-medium text-yellow-600">Closed</span>
                 </div>
               </div>
             </div>
-            
+
             {/* FAQ */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h4 className="text-lg font-bold text-gray-900 mb-5">Frequently Asked Questions</h4>
-              
+              <h4 className="text-lg font-bold text-gray-900 mb-5">
+                Frequently Asked Questions
+              </h4>
+
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-medium text-gray-900 mb-1">How quickly will I get a response?</h5>
-                  <p className="text-sm text-gray-600">We typically respond to all inquiries within 24 hours during business days.</p>
+                  <h5 className="font-medium text-gray-900 mb-1">
+                    How quickly will I get a response?
+                  </h5>
+                  <p className="text-sm text-gray-600">
+                    We typically respond to all inquiries within 24 hours during
+                    business days.
+                  </p>
                 </div>
                 <div className="pt-3 border-t border-gray-200">
-                  <h5 className="font-medium text-gray-900 mb-1">Do you offer support on weekends?</h5>
-                  <p className="text-sm text-gray-600">Limited support is available on Saturdays. For urgent matters, please use our priority email.</p>
+                  <h5 className="font-medium text-gray-900 mb-1">
+                    Do you offer support on weekends?
+                  </h5>
+                  <p className="text-sm text-gray-600">
+                    Limited support is available on Saturdays. For urgent
+                    matters, please use our priority email.
+                  </p>
                 </div>
                 <div className="pt-3 border-t border-gray-200">
-                  <h5 className="font-medium text-gray-900 mb-1">Can I schedule a call with your team?</h5>
-                  <p className="text-sm text-gray-600">Yes! Use our form to request a call and we'll arrange a time that works for both parties.</p>
+                  <h5 className="font-medium text-gray-900 mb-1">
+                    Can I schedule a call with your team?
+                  </h5>
+                  <p className="text-sm text-gray-600">
+                    Yes! Use our form to request a call and we'll arrange a time
+                    that works for both parties.
+                  </p>
                 </div>
               </div>
-              
-              <button className="mt-6 text-indigo-600 font-medium flex items-center hover:text-indigo-800 transition-colors duration-300">
-                View all FAQs
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
             </div>
           </div>
         </div>
-        
+
         {/* Map Section */}
         <div className="mt-16 bg-white rounded-2xl shadow-lg p-6 overflow-hidden">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Location</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            Our Location
+          </h3>
           <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden h-96">
-            <img 
-              src="/api/placeholder/1200/600" 
-              alt="Map location" 
-              className="w-full h-full object-cover"
-            />
+            <iframe
+            className="w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.2906214547183!2d80.99697957468184!3d26.862506176677165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd35011967e7%3A0xc4a2515047590d2a!2sCode%20Crafter%20Web%20Solutions%20%7C%20Website%20%26%20Software%20Development%20%7C%20Popular%20IT%20Service%20Providers%20Company%20in%20Lucknow!5e0!3m2!1sen!2sin!4v1745153548894!5m2!1sen!2sin"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>

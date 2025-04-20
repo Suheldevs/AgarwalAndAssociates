@@ -47,12 +47,12 @@ export default function HeroSection() {
     { icon: <Users size={20} />, value: "45+", label: "Team Members" },
   ];
 
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToProjects = () => {
+  //   const projectsSection = document.getElementById("projects");
+  //   if (projectsSection) {
+  //     projectsSection.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -82,7 +82,7 @@ export default function HeroSection() {
         <div className="container mx-auto lg:mt-10 px-4 lg:px-8 h-full flex flex-col justify-center">
           {/* Animated text content */}
           <div 
-            className={`max-w-3xl transition-all duration-1000 transform ${
+            className={`max-w-3xl mt-12 transition-all duration-1000 transform ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
           >
@@ -90,15 +90,15 @@ export default function HeroSection() {
               AGARWAL & ASSOCIATES
             </h2>
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Crafting <span className="text-yellow-400">Architectural</span> Excellence
+              Crafting <span className="text-primari">Architectural</span> Excellence
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl">
               We transform visions into iconic structures, blending aesthetic brilliance with functional design to create spaces that inspire.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link to='/project' className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <Link to='/projects' className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
                 Explore Our Projects
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
               }`}
             >
-              <p className="text-yellow-400 text-sm mb-1">FEATURED PROJECT</p>
+              <p className="text-primari text-sm mb-1">FEATURED PROJECT</p>
               <h3 className="text-white text-2xl font-medium">
                 {featuredProjects[currentSlide].title}
               </h3>
@@ -121,37 +121,6 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-
-        {/* Stats Bar */}
-        {/* <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="flex flex-wrap justify-between py-6">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-center transition-all duration-1000 delay-${index + 3}00 transform ${
-                    isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                  }`}
-                >
-                  <div className="mr-3 text-yellow-400">{stat.icon}</div>
-                  <div>
-                    <p className="text-white font-bold text-2xl">{stat.value}</p>
-                    <p className="text-gray-300 text-sm">{stat.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
-        {/* Scroll Down Indicator */}
-        {/* <button 
-          onClick={scrollToProjects}
-          className="absolute bottom-32 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center animate-bounce"
-        >
-          <span className="mb-1 text-sm font-light">Discover More</span>
-          <ChevronDown size={20} />
-        </button> */}
       </div>
 
       {/* Slide Navigation Dots */}
@@ -162,7 +131,7 @@ export default function HeroSection() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-8 rounded-full transition-all ${
-                index === currentSlide ? "bg-yellow-400" : "bg-white/30 h-2"
+                index === currentSlide ? "bg-primary" : "bg-white/30 h-2"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

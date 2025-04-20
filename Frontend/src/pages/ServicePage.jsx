@@ -156,12 +156,12 @@ export default function ServicePage() {
       onMouseLeave={() => setHoveredService(null)}
       onClick={() => handleServiceClick(service.id)}
     >
-      <div className="text-blue-600">
+      <div className="text-yellow-600">
         {service.icon}
       </div>
       <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
       <p className="text-gray-600 mb-4 flex-grow">{service.shortDesc}</p>
-      <div className={`flex items-center text-blue-600 transition-all duration-300 ${hoveredService === service.id ? 'translate-x-1' : ''}`}>
+      <div className={`flex items-center text-yellow-600 transition-all duration-300 ${hoveredService === service.id ? 'translate-x-1' : ''}`}>
         <span className="mr-2">Learn more</span>
         <ArrowRight size={16} />
       </div>
@@ -173,30 +173,30 @@ export default function ServicePage() {
     <div className="bg-white rounded-lg p-8 shadow-lg max-w-5xl mx-auto">
       <button 
         onClick={handleBackClick}
-        className="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-all"
+        className="mb-6 flex items-center text-yellow-600 hover:text-yellow-800 transition-all"
       >
         <ChevronRight className="rotate-180 mr-1" size={18} />
         <span>Back to all services</span>
       </button>
       
       <div className="flex items-center mb-6">
-        <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
+        <div className="bg-yellow-100 p-3 rounded-full text-yellow-600 mr-4">
           {service.icon}
         </div>
         <h2 className="text-3xl font-bold">{service.title}</h2>
       </div>
       
-      <p className="text-lg text-gray-700 mb-8 border-l-4 border-blue-500 pl-4">
+      <p className="text-lg text-gray-700 mb-8 border-l-4 border-yellow-500 pl-4">
         {service.description}
       </p>
       
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4 text-blue-800">What We Offer</h3>
+          <h3 className="text-xl font-semibold mb-4 text-yellow-800">What We Offer</h3>
           <ul className="space-y-3">
             {service.features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <div className="mt-1 mr-3 text-blue-600">
+                <div className="mt-1 mr-3 text-yellow-600">
                   <ChevronRight size={16} />
                 </div>
                 <span>{feature}</span>
@@ -206,11 +206,11 @@ export default function ServicePage() {
         </div>
         
         <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4 text-blue-800">Our Process</h3>
+          <h3 className="text-xl font-semibold mb-4 text-yellow-800">Our Process</h3>
           <ol className="space-y-3">
             {service.process.map((step, index) => (
               <li key={index} className="flex items-start">
-                <div className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 shrink-0">
+                <div className="bg-yellow-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 shrink-0">
                   {index + 1}
                 </div>
                 <span className="mt-1">{step}</span>
@@ -220,10 +220,10 @@ export default function ServicePage() {
         </div>
       </div>
       
-      <div className="bg-blue-50 p-6 rounded-lg border border-blue-100">
-        <h3 className="text-xl font-semibold mb-3 text-blue-800">Ready to Get Started?</h3>
+      <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
+        <h3 className="text-xl font-semibold mb-3 text-yellow-800">Ready to Get Started?</h3>
         <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+        <button className="bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
           Request Consultation
         </button>
       </div>
@@ -262,12 +262,12 @@ export default function ServicePage() {
             </div>
 
             {/* Call to Action */}
-            <div className="mt-20 text-center">
+            <div className="mt-12 text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 Our team of experts is ready to help you create a tailored approach for your unique architectural project
               </p>
-              <Link to='/contact' className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300">
+              <Link to='/contact' className="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300">
                 Contact Us Today
               </Link>
             </div>

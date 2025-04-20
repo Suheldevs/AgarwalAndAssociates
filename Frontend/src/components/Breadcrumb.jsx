@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronRight, Home } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import bread from '../assets/bread.jpg'
 // Modern Breadcrumb Component with 3 props:
 // - title: string (page title)
 // - items: array of {name: string, path: string} (navigation items)
 // - bgImage: string (URL for background image)
-export default function Breadcrumb({ title = "Page Title", items = [], bgImage = "https://picsum.photos/1200/400?random=1" }) {
+export default function Breadcrumb({ title = "Page Title", items = [], bgImage = `${bread}` }) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -35,10 +35,10 @@ export default function Breadcrumb({ title = "Page Title", items = [], bgImage =
       />
       
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/30 to-black/20" />
       
       {/* Content container */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black/30">
+      <div className="absolute bottom-0 left-0 right-0 bg-black/20">
         <div className="max-w-6xl mx-auto px-6 py-6">
           {/* Navigation path */}
           <div className="flex items-center mb-2 text-gray-200 text-sm overflow-x-auto whitespace-nowrap pb-2">

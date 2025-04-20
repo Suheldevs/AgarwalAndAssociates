@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus, Briefcase, GraduationCap } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
+import { Link } from "react-router-dom";
 
 export default function AboutUsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,13 +65,13 @@ export default function AboutUsPage() {
       <section ref={sectionRef} id="about" className="py-12 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
           {/* Hero Section with Architectural Background */}
-          <div className="relative mb-24 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <div className="relative mb-12 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 bg-black/20 z-10"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10"></div>
             <img 
-              src="https://picsum.photos/id/1070/1600/500" 
+              src="https://cdn.pixabay.com/photo/2014/03/04/21/26/building-279769_640.jpg" 
               alt="Architectural Design"
-              className="w-full h-80 lg:h-96 object-cover"
+              className="w-full h-[30rem] object-cover"
             />
             <div className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16">
               <div className="max-w-2xl">
@@ -82,16 +83,16 @@ export default function AboutUsPage() {
                   technical precision, and sustainable practices.
                 </p>
                 <div className={`mt-8 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-6'}`}>
-                  <button className="px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg transition-colors shadow-lg">
-                    Our Portfolio
-                  </button>
+                  <Link to='/projects' className="px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg transition-colors shadow-lg">
+                    Our Projects
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Vision & Mission Tabs - Improved UI */}
-          <div className={`mb-24 transition-all duration-1000 delay-400 transform ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div className={`mb-12 transition-all duration-1000 delay-400 transform ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Our Foundation</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4"></div>
@@ -142,7 +143,7 @@ export default function AboutUsPage() {
                 </div>
                 
                 {/* Tab Content - Fixed positioning issues */}
-                <div className="md:w-2/3 p-10 lg:p-12 relative min-h-[400px]">
+                <div className="md:w-2/3 p-6 relative min-h-[410px]">
                   <div className={`absolute inset-0 p-10 lg:p-12 transition-all duration-500 ${activeTab === "vision" ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <h3 className="text-3xl font-bold mb-6">Our Vision</h3>
                     <p className="text-gray-600 mb-8 text-lg">
@@ -171,7 +172,7 @@ export default function AboutUsPage() {
                     </div>
                   </div>
                   
-                  <div className={`absolute inset-0 p-10 lg:p-12 transition-all duration-500 ${activeTab === "mission" ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
+                  <div className={`absolute inset-0 p-6 transition-all duration-500 ${activeTab === "mission" ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
                     <p className="text-gray-600 mb-8 text-lg">
                       To deliver architectural solutions that exceed client expectations through collaborative processes, technical excellence, and unwavering 
@@ -199,7 +200,7 @@ export default function AboutUsPage() {
                     </div>
                   </div>
                   
-                  <div className={`absolute inset-0 p-10 lg:p-12 transition-all duration-500 ${activeTab === "values" ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
+                  <div className={`absolute inset-0 p-6 transition-all duration-500 ${activeTab === "values" ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <h3 className="text-3xl font-bold mb-6">Our Values</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="p-5 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
@@ -226,7 +227,7 @@ export default function AboutUsPage() {
           </div>
 
           {/* Founder's Message - Improved Design */}
-          <div className={`mb-24 transition-all duration-1000 delay-600 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`mb-12 transition-all duration-1000 delay-600 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Director's Message</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4"></div>
@@ -300,7 +301,7 @@ export default function AboutUsPage() {
           </div>
 
           {/* Team Section - Enhanced Design */}
-          <div className={`mb-24 transition-all duration-1000 delay-800 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`mb-12 transition-all duration-1000 delay-800 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Our Leadership Team</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4 mb-6"></div>
@@ -345,15 +346,15 @@ export default function AboutUsPage() {
               ))}
             </div>
             
-            <div className="mt-12 text-center">
+            {/* <div className="mt-12 text-center">
               <button className="inline-flex items-center px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded-lg transition-colors shadow-lg">
                 Meet Our Complete Team <ChevronRight size={16} className="ml-2" />
               </button>
-            </div>
+            </div> */}
           </div>
           
           {/* Company Timeline - Improved Design */}
-          <div className={`mb-24 transition-all duration-1000 delay-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`mb-12 transition-all duration-1000 delay-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Our Journey</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4 mb-6"></div>
@@ -415,11 +416,11 @@ export default function AboutUsPage() {
                 ))}
               </div>
               
-              <div className="mt-12 text-center">
+              {/* <div className="mt-12 text-center">
                 <a href="#" className="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors text-lg font-medium">
                   Discover our achievements <ChevronRight size={16} className="ml-1" />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
           

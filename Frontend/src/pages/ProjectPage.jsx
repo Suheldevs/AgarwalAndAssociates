@@ -104,14 +104,14 @@ export default function ProjectPage() {
   ]}
   />
    
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Diagonal Line */}
         {/* <div className="relative mb-16">
           <div className="flex items-center">
-            <div className="h-px bg-blue-500 flex-grow max-w-md"></div>
+            <div className="h-px bg-yellow-500 flex-grow max-w-md"></div>
             <h2 className="text-4xl font-bold text-gray-900 px-6">Our Projects</h2>
-            <div className="h-px bg-blue-500 flex-grow"></div>
+            <div className="h-px bg-yellow-500 flex-grow"></div>
           </div>
           <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto text-center">
             Transforming visions into architectural masterpieces that redefine spaces and experiences.
@@ -119,14 +119,14 @@ export default function ProjectPage() {
         </div> */}
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center mb-12 gap-2">
+        <div className="flex flex-wrap justify-center mb-10 gap-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveFilter(category.id)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2 border border-gray-100 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === category.id
-                  ? 'bg-blue-500 text-white shadow-md'
+                  ? 'bg-yellow-500 text-white shadow-md'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
@@ -159,7 +159,7 @@ export default function ProjectPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                       <div className="absolute bottom-6 left-6 flex items-center space-x-3">
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                        <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
                           <Tag size={14} className="mr-1" /> {project.category}
                         </span>
                         <span className="bg-gray-900 bg-opacity-70 text-white px-3 py-1 rounded-full text-sm flex items-center">
@@ -169,15 +169,15 @@ export default function ProjectPage() {
                     </div>
                     <div className="p-8 lg:p-12 bg-white flex flex-col justify-center">
                       <div className="mb-2 flex items-center">
-                        <div className="h-px w-12 bg-blue-500 mr-4"></div>
-                        <h3 className="text-sm font-medium text-blue-500 uppercase tracking-wider">Featured Project</h3>
+                        <div className="h-px w-12 bg-yellow-500 mr-4"></div>
+                        <h3 className="text-sm font-medium text-yellow-500 uppercase tracking-wider">Featured Project</h3>
                       </div>
                       <h2 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h2>
                       <p className="text-gray-600 mb-6 text-lg">{project.description}</p>
                       <p className="text-gray-500 mb-8">
                         <span className="font-medium">Location:</span> {project.location}
                       </p>
-                      <Link to={`/project/${project.slug}`} className={`group self-start flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300 ${
+                      <Link to={`/project/${project.slug}`} className={`group self-start flex items-center font-medium text-yellow-500 hover:text-yellow-700 transition-all duration-300 ${
                         hoveredProject === 'featured' ? 'translate-x-2' : ''
                       }`}>
                         View Project Details
@@ -211,7 +211,7 @@ export default function ProjectPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                   <div className="absolute bottom-4 left-4 transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex space-x-2">
-                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs flex items-center">
+                    <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs flex items-center">
                       <Tag size={12} className="mr-1" /> {project.category}
                     </span>
                     <span className="bg-gray-900 bg-opacity-70 text-white px-3 py-1 rounded-full text-xs flex items-center">
@@ -219,7 +219,7 @@ export default function ProjectPage() {
                     </span>
                   </div>
                   <div className="absolute top-4 right-4 transform translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <div className="bg-white rounded-full p-2 shadow-md hover:bg-blue-500 hover:text-white transition-colors duration-300">
+                    <div className="bg-white rounded-full p-2 shadow-md hover:bg-yellow-500 hover:text-white transition-colors duration-300">
                       <Camera size={16} />
                     </div>
                   </div>
@@ -229,16 +229,16 @@ export default function ProjectPage() {
                   <p className="text-gray-500 text-sm mb-3">{project.location}</p>
                   <p className="text-gray-600 mb-6">{project.description}</p>
                   <div className="flex justify-between items-center">
-                    <Link to={`/project/${project.slug}`} className="group flex items-center font-medium text-blue-500 hover:text-blue-700 transition-all duration-300">
+                    <Link to={`/project/${project.slug}`} className="group flex items-center font-medium text-yellow-500 hover:text-yellow-700 transition-all duration-300">
                       Details
                       <ArrowRight size={16} className="ml-2 transition-all duration-300 group-hover:translate-x-1" />
                     </Link>
-                    <button className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                    <button className="text-gray-400 hover:text-yellow-500 transition-colors duration-300">
                       <ExternalLink size={16} />
                     </button>
                   </div>
                 </div>
-                <div className={`absolute top-0 left-0 w-full h-1 bg-blue-500 transform transition-transform duration-500 ${
+                <div className={`absolute top-0 left-0 w-full h-1 bg-yellow-500 transform transition-transform duration-500 ${
                   hoveredProject === project.id ? 'scale-x-100' : 'scale-x-0'
                 }`}></div>
               </div>
@@ -249,7 +249,7 @@ export default function ProjectPage() {
         {/* <div className="mt-16 text-center">
           <a 
             href="#" 
-            className="inline-flex items-center px-8 py-3 border-2 border-blue-500 text-blue-500 font-medium rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300"
+            className="inline-flex items-center px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition-all duration-300"
           >
             Explore All Projects
             <ArrowRight size={18} className="ml-2" />
