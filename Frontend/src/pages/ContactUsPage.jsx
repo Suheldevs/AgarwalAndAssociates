@@ -26,6 +26,7 @@ export default function ContactUsPage() {
   });
 
   const [isHovered, setIsHovered] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,10 +38,21 @@ export default function ContactUsPage() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted:", formState);
-    const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formState);
-    setFormStatus({submitted:true})
+    
+    try{
+      setFormStatus({loading:true})
+      const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formState);
+      setFormStatus({submitted:true})
+setFormState({
+  name: "",
+  email: "",
+  phone:'',
+  message: "",
+})
+    }
+    catch(err){
+setError('Something Went Wrong , Try Later !')
+    }
   };
 
   const breadcrumbItems = [
@@ -143,6 +155,9 @@ export default function ContactUsPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (<div className="text-lg font-medium text-center text-red-600">
+                  {error}
+                </div>)}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -195,10 +210,15 @@ export default function ContactUsPage() {
                       type="tel"
                       id="phone"
                       name="phone"
+                      required
+                      pattern="^[6-9]\d{9}$" 
+                      title="Phone Number should be 10 digits and start with 6 to 9" 
+                      inputMode="numeric" 
+                      maxLength="10"
                       value={formState.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
-                      placeholder="+91 98765 43210"
+                      placeholder="Enter 10 Digit Phone Number"
                     />
                   </div>
 
@@ -257,12 +277,13 @@ export default function ContactUsPage() {
 
                 <div>
                   <button
+                  disabled={formStatus.loading}
                     type="submit"
                     className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
-                    Send Message
+                   {formStatus.loading ? 'Sending..':'Send Message'} 
                     <span
                       className={`ml-2 transition-all duration-300 ${
                         isHovered ? "translate-x-1" : ""

@@ -287,16 +287,7 @@ export default function ProjectPage() {
      </div>
      
 
-        {/* View All Projects Button */}
-        {/* <div className="mt-16 text-center">
-          <a 
-            href="#" 
-            className="inline-flex items-center px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition-all duration-300"
-          >
-            Explore All Projects
-            <ArrowRight size={18} className="ml-2" />
-          </a>
-        </div> */}
+     
       </div>
     </section>
     </>

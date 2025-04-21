@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus, Briefcase, GraduationCap } from "lucide-react";
+import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus, Briefcase, GraduationCap, WholeWord, LaptopMinimalCheck } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ export default function AboutUsPage() {
   const stats = [
     { icon: <Users size={24} />, value: "45+", label: "Team Members" },
     { icon: <Building size={24} />, value: "120+", label: "Completed Projects" },
-    { icon: <MapPin size={24} />, value: "12", label: "Countries" },
+    { icon: <LaptopMinimalCheck size={24} />, value: "100%", label: "Client Satisfaction" },
     { icon: <Award size={24} />, value: "28", label: "Awards" }
   ];
 
