@@ -9,12 +9,14 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
+import axios from "axios";
 
 export default function ContactUsPage() {
+  const backend_url = import.meta.env.VITE_BACKEND_URL
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    subject: "",
+    phone:'',
     message: "",
   });
 
@@ -33,11 +35,12 @@ export default function ContactUsPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Form submission logic would go here
     console.log("Form submitted:", formState);
-    alert("Thank you for your interest! We will contact you shortly.");
+    const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formState);
+    setFormStatus({submitted:true})
   };
 
   const breadcrumbItems = [

@@ -26,9 +26,9 @@ export default function AboutSection() {
     },
     {
       icon: <Globe size={24} />,
-      count: "12",
-      title: "Countries",
-      description: "Global presence across continents",
+      count: "100%",
+      title: "Client satisfaction",
+      description: "Client satisfaction is our priority",
     },
   ];
 

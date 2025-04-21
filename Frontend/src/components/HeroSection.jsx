@@ -19,7 +19,7 @@ export default function HeroSection() {
       id: 2,
       title: "Serenity Gardens Complex",
       location: "Bangalore, India",
-      imageUrl: "https://picsum.photos/id/1040/1600/900"
+      imageUrl: "https://cdn.pixabay.com/photo/2015/12/03/01/05/architect-1073607_640.jpg"
     },
     {
       id: 3,
@@ -108,7 +108,7 @@ export default function HeroSection() {
             </div>
 
             {/* Current Project Info */}
-            <div 
+            {/* <div 
               className={`bg-white/10 backdrop-blur-md rounded-lg p-4 inline-block transition-all duration-1000 delay-500 transform ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
               }`}
@@ -118,7 +118,7 @@ export default function HeroSection() {
                 {featuredProjects[currentSlide].title}
               </h3>
               <p className="text-gray-300">{featuredProjects[currentSlide].location}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

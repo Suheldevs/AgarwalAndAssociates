@@ -260,7 +260,7 @@ export default function CTASection() {
             </div>
             <div className="flex-shrink-0">
               <Link 
-                href="#" 
+                to='/contact' 
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 Contact Us

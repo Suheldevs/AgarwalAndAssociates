@@ -3,17 +3,15 @@ import axios from 'axios';
 
 const InquiryModal = ({ isOpen, closeModal }) => {
   const backend_url = import.meta.env.VITE_BACKEND_URL
+  console.log(backend_url)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     service: '',
     location: '',
-    siteArea: '',
     projectType: '',
-    buildUpArea: '',
     message: '',
-    consent: false
   });
 
   const [errors, setErrors] = useState({});
@@ -76,8 +74,10 @@ const InquiryModal = ({ isOpen, closeModal }) => {
     
     if (validateForm()) {
       setIsSubmitting(true);
+      console.log(formData)
       try {
-        const response = await axios.post(`${backend_url}/inquiry/save`, formData);
+        const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formData);
+        console.log(response)
         setSubmitStatus('success');
         setTimeout(() => {
           closeModal();
@@ -87,11 +87,8 @@ const InquiryModal = ({ isOpen, closeModal }) => {
             phone: '',
             service: '',
             location: '',
-            siteArea: '',
             projectType: '',
-            buildUpArea: '',
             message: '',
-            consent: false
           });
           setSubmitStatus(null);
         }, 4000);
@@ -110,8 +107,8 @@ const InquiryModal = ({ isOpen, closeModal }) => {
     <>
       {/* Full Screen Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] bg-black/80 flex items-center justify-center p-2 lg:p-4" onClick={closeModal}>
-          <div className="bg-white w-full max-w-xl lg:max-h-[95vh] max-h-[80vh] overflow-y-auto rounded-xl lg:rounded-none animate-fade-in" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[1000] bg-black/70 flex items-center justify-center p-2 lg:p-4" onClick={closeModal}>
+          <div className="bg-white w-full max-w-xl lg:max-h-[95vh] max-h-[80vh] overflow-y-auto rounded-xl animate-fade-in" onClick={(e) => e.stopPropagation()}>
             <div className="p-4 lg:px-6 px-3">
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-2xl font-bold text-gray-900 lora">Let's Discuss Your Project</h2>
@@ -146,8 +143,8 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`p-2 w-full bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
-                      placeholder="John Doe"
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      placeholder="Enter Your Full Name"
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
@@ -158,8 +155,8 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`p-2 w-full bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
-                      placeholder="john@example.com"
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      placeholder="email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
@@ -173,8 +170,8 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`p-2 w-full bg-gray-50 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
-                      placeholder="9876543210"
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      placeholder="Enter Your 10 Digit Number"
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
@@ -184,13 +181,23 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="p-2 w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
                     >
-                      <option value="">Select a Service</option>
-                      <option value="design">Architectural Design</option>
-                      <option value="consulting">Construction Consulting</option>
-                      <option value="planning">Urban Planning</option>
-                      <option value="interior">Interior Design</option>
+                      <option value="" selected>
+                        Select a Service
+                      </option>
+                      <option value="architectural-consultant">
+                        Architectural Consultant
+                      </option>
+                      <option value="interior-design">Interior Design</option>
+                      <option value="engineering-services">
+                        Engineering Services
+                      </option>
+                      <option value="vastu-services">Vastu Services</option>
+                      <option value="project-management">
+                        Project Management
+                      </option>
+                      <option value="urban-planning">Urban Planning</option>
                     </select>
                   </div>
                 </div>
@@ -203,31 +210,21 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="p-2 w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all"
                       placeholder="City, Country"
                     />
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-sm font-medium text-gray-700">Site Area (sqm)</label>
-                    <input
-                      type="text"
-                      name="siteArea"
-                      value={formData.siteArea}
-                      onChange={handleChange}
-                      className="p-2 w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all"
-                      placeholder="1000"
-                    />
-                  </div>
-                </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+                
+            
                   <div className="space-y-1">
                     <label className="text-sm font-medium text-gray-700">Project Type</label>
                     <select 
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="p-2 w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
                     >
                       <option value="">Select Project Type</option>
                       <option value="residential">Residential</option>
@@ -239,18 +236,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       <option value="urban">Urban Design</option>
                     </select>
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-sm font-medium text-gray-700">Build Up Area (sqm)</label>
-                    <input
-                      type="text"
-                      name="buildUpArea"
-                      value={formData.buildUpArea}
-                      onChange={handleChange}
-                      className="p-2 w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all"
-                      placeholder="800"
-                    />
-                  </div>
-                </div>
+          </div>
                 
                 <div className="space-y-1">
                   <label className="text-sm font-medium text-gray-700">Message *</label>
@@ -258,23 +244,13 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className={`p-2 w-full bg-gray-50 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded- h-16 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                    className={`p-2 rounded-md min-h-24 w-full bg-gray-50 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded- h-16 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
                     placeholder="Tell us about your project or inquiry..."
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
                 
-                <div className="flex items-center space-x-2">
-                  <input 
-                    type="checkbox" 
-                    id="consent" 
-                    name="consent"
-                    checked={formData.consent}
-                    onChange={handleChange}
-                    className="rounded text-yellow-600 focus:ring-amber-600" 
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">I agree to the processing of my personal data</label>
-                </div>
+            
                 
                 <button 
                   type="submit"
