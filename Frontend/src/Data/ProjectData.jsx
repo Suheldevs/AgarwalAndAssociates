@@ -17,7 +17,7 @@ const ProjectData = [
       category: 'commercial',
       location: 'Bangalore, India',
       year: '2022',
-      image: 'https://picsum.photos/800/600?random=2',
+      image: 'https://picsum.photos/800/600?random=56',
       description: 'Biophilic design principles integrated into a modern office campus.'
     },
     {

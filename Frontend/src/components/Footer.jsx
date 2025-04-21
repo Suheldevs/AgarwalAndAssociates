@@ -122,7 +122,7 @@ const Footer = () => {
                 BlogData?.slice(1, 3)?.map((blog, i) => (
                   <Link
                     key={i}
-                    to={`/blog/${blog.slug}`}
+                    to={`/blog-detail/${blog.slug}`}
                     className="flex items-start space-x-3 group cursor-pointer"
                   >
                     <img
