@@ -78,7 +78,7 @@ export default function Breadcrumb({ title = "Page Title", items = [], bgImage =
           </h1>
           
           {/* Simple accent line */}
-          <div className="h-1 w-16 bg-indigo-500 rounded-full mt-4" />
+          <div className="h-2 w-20 bg-gradient-to-l from from-yellow-600 to-yellow-500 rounded-full mt-2" />
         </div>
       </div>
     </div>

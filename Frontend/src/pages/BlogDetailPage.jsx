@@ -121,7 +121,7 @@ export default function BlogDetail() {
         <div className="flex flex-wrap items-center text-gray-600 gap-6 mb-8">
           <div className="flex items-center">
             <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
-            <span className="font-medium">Editorial Team</span>
+            <span className="font-medium">Admin</span>
           </div>
           <div className="flex items-center">
             <Clock className="w-4 h-4 mr-1" />
@@ -187,12 +187,12 @@ export default function BlogDetail() {
           </div>
           
           {/* Author Section */}
-          <div className="mt-16 p-6 bg-gray-50 rounded-xl">
+          <div className="mt-1 p-6 bg-gray-50 rounded-xl">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gray-300"></div>
+              {/* <div className="w-16 h-16 rounded-full bg-gray-300"></div> */}
               <div>
-                <h3 className="font-bold text-lg">Editorial Team</h3>
-                <p className="text-gray-600">Experts in architecture and sustainable design with over 10 years of experience in the field.</p>
+                {/* <h3 className="font-bold text-lg">Admin</h3> */}
+                <p className="text-gray-700">Description: {blog.description}</p>
               </div>
             </div>
           </div>

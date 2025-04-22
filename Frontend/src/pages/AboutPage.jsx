@@ -43,6 +43,13 @@ export default function AboutUsPage() {
       image: "https://picsum.photos/id/1074/400/500",
       education: "MSc. Structural Engineering, IIT Mumbai",
       experience: "20+ years"
+    },
+    {
+      name: "Mohit Mishra",
+      position: "Technical Director",
+      image: "https://picsum.photos/id/1077/400/500",
+      education: "MSc. Structural Engineering, IIT Mumbai",
+      experience: "20+ years"
     }
   ];
 
@@ -58,7 +65,7 @@ export default function AboutUsPage() {
       <Breadcrumb 
         title="ABOUT AGARWAL & ASSOCIATES" 
         items={[
-          { name: "about", path: "/about" },
+          { name: "About", path: "/about" },
         ]}
       />
     
@@ -301,14 +308,14 @@ export default function AboutUsPage() {
           </div>
 
           {/* Team Section - Enhanced Design */}
-          <div className={`mb-12 transition-all duration-1000 delay-800 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`mb-12 bg-white transition-all duration-1000 delay-800 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Our Leadership Team</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4 mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">Meet the creative minds behind our architectural innovations who combine expertise with vision to deliver exceptional results</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {coreTeam.map((member, index) => (
                 <div key={index} className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="relative overflow-hidden">
@@ -333,7 +340,7 @@ export default function AboutUsPage() {
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full aspect-[3/4] h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                   

@@ -1,150 +1,42 @@
-import React, { useState } from 'react';
-import { ChevronRight, Ruler, PenTool, Wrench, Compass, ClipboardList, Building, ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import services from '../Data/ServiceData'
 // Main App Component
 export default function ServicePage() {
   const [hoveredService, setHoveredService] = useState(null);
   const [activeService, setActiveService] = useState(null);
 
   // Service data with icons, descriptions, and details
-  const services = [
-    {
-      id: 'architectural-consultant',
-      title: 'Architectural Consultant',
-      icon: <Ruler className="mb-2" size={28} />,
-      shortDesc: 'Expert architectural guidance for your project needs',
-      description: 'Our architectural consultation services provide expert guidance throughout your project lifecycle, from concept development to final construction.',
-      features: [
-        'Conceptual design development',
-        'Feasibility studies and site analysis',
-        'Building code and regulatory consultation',
-        'Design review and optimization',
-        'Sustainable design strategies'
-      ],
-      process: [
-        'Initial project assessment',
-        'Design concept development',
-        'Detailed consultation sessions',
-        'Recommendation documentation',
-        'Implementation guidance'
-      ]
-    },
-    {
-      id: 'interior-design',
-      title: 'Interior Design',
-      icon: <PenTool className="mb-2" size={28} />,
-      shortDesc: 'Creating beautiful, functional interior spaces',
-      description: 'Our interior design services transform spaces into beautiful, functional environments that reflect your vision and requirements.',
-      features: [
-        'Space planning and layout design',
-        'Material and finish selection',
-        'Custom furniture design',
-        'Lighting design and specification',
-        'Color and texture consultation'
-      ],
-      process: [
-        'Space analysis and client interview',
-        'Concept board development',
-        'Material and finish selection',
-        'Detailed design documentation',
-        'Implementation oversight'
-      ]
-    },
-    {
-      id: 'service-engineering',
-      title: 'Service Engineering',
-      icon: <Wrench className="mb-2" size={28} />,
-      shortDesc: 'Comprehensive building systems engineering',
-      description: 'Our service engineering team ensures all building systems are efficiently designed, integrated, and optimized for performance.',
-      features: [
-        'HVAC system design and optimization',
-        'Electrical systems engineering',
-        'Plumbing and sanitary engineering',
-        'Fire safety systems design',
-        'Energy efficiency analysis'
-      ],
-      process: [
-        'System requirements assessment',
-        'Preliminary systems design',
-        'Coordination with architectural plans',
-        'Detailed engineering documentation',
-        'Commissioning support'
-      ]
-    },
-    {
-      id: 'vastu',
-      title: 'Vastu',
-      icon: <Compass className="mb-2" size={28} />,
-      shortDesc: 'Ancient architectural science for harmony',
-      description: 'Our Vastu consulting services incorporate ancient architectural science principles to create harmonized spaces that promote well-being.',
-      features: [
-        'Site selection and layout analysis',
-        'Building orientation optimization',
-        'Room placement and zoning',
-        'Element balance and energy flow',
-        'Remedial solutions for existing structures'
-      ],
-      process: [
-        'Vastu assessment and analysis',
-        'Detailed recommendations report',
-        'Integration with modern design principles',
-        'Implementation guidance',
-        'Post-implementation evaluation'
-      ]
-    },
-    {
-      id: 'project-management',
-      title: 'Project Management',
-      icon: <ClipboardList className="mb-2" size={28} />,
-      shortDesc: 'End-to-end project coordination and delivery',
-      description: 'Our project management services ensure your architectural project is delivered on time, within budget, and to the highest quality standards.',
-      features: [
-        'Comprehensive project planning',
-        'Budget management and cost control',
-        'Contractor selection and coordination',
-        'Schedule management and monitoring',
-        'Quality assurance and control'
-      ],
-      process: [
-        'Project initiation and planning',
-        'Team assembly and coordination',
-        'Progress monitoring and reporting',
-        'Issue resolution and risk management',
-        'Project closeout and evaluation'
-      ]
-    },
-    {
-      id: 'urban-planning',
-      title: 'Urban Planning',
-      icon: <Building className="mb-2" size={28} />,
-      shortDesc: 'Strategic planning for sustainable urban development',
-      description: 'Our urban planning services create sustainable, functional, and aesthetically pleasing urban environments through strategic planning and design.',
-      features: [
-        'Master planning and land use design',
-        'Transportation and infrastructure planning',
-        'Public space and landscape design',
-        'Sustainability and resilience strategies',
-        'Community engagement and participatory design'
-      ],
-      process: [
-        'Site analysis and context assessment',
-        'Stakeholder consultation',
-        'Concept development and visualization',
-        'Detailed planning documentation',
-        'Implementation strategy development'
-      ]
+ 
+
+  const {id} = useParams();
+  console.log(id)
+  useEffect(() => {
+    if (id) {
+      const foundService = services.find(service => service.id === id);
+      setActiveService(foundService || null);
     }
-  ];
+    
+  }, [id]);
+  
+
 
   // Handle service card click
   const handleServiceClick = (serviceId) => {
-    setActiveService(services.find(service => service.id === serviceId));
+    if(serviceId){
+      setActiveService(services.find(service => service.id === serviceId));
+    }
+    else{
+      setActiveService(null)
+    }
   };
 
+  const navigate = useNavigate()
   // Handle back button click
   const handleBackClick = () => {
+    navigate('/services')
     setActiveService(null);
   };
 
@@ -223,9 +115,9 @@ export default function ServicePage() {
       <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
         <h3 className="text-xl font-semibold mb-3 text-yellow-800">Ready to Get Started?</h3>
         <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <button className="bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+        <Link to='/contact' className="bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
           Request Consultation
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -255,7 +255,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-amber-700 hover:bg-amber-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-amber-500 hover:bg-amber-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>

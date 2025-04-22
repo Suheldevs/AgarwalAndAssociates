@@ -67,42 +67,42 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <Link
-                to="/services"
+                to="/services/architectural-consultant"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Architectural Consultant
               </Link>
               <Link
-                to="/services"
+                to="/services/interior-design"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Interior Design
               </Link>
               <Link
-                to="/services"
+                to="/services/engineering-services"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Engineering Services
               </Link>
               <Link
-                to="/services"
+                to="/services/vastu"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Vastu Services
               </Link>
               <Link
-                to="/services"
+                to="/services/project-management"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Project Management
               </Link>
               <Link
-                to="/services"
+                to="/services/urban-planning"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
@@ -159,7 +159,7 @@ const Footer = () => {
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Mail size={18} /> <span>sgssandassociates@gmail.com</span>
+                <Mail size={18} className=""/> <span>agarwal@gmail.com</span>
               </a>
               <a
                 href="https://maps.app.goo.gl/VXkYGdK97YTe3Xvq5"
@@ -168,7 +168,7 @@ const Footer = () => {
               >
                 <MapPin size={18} />{" "}
                 <span>
-                  F-141, Indralok colony, Krishna Nagar, Lucknow, Uttar Pradesh
+                  Krishna Nagar, Lucknow, <br/> Uttar Pradesh
                 </span>
               </a>
               <li>

@@ -3,6 +3,7 @@ import { MapPin, Calendar, ChevronLeft, ArrowRight, ExternalLink, Share2 } from 
 import { Link, useParams } from 'react-router-dom';
 import projectsData from '../Data/ProjectData';
 import Breadcrumb from '../components/Breadcrumb';
+import InquiryModal from '../components/InquiryModal';
 // Mock project data - in a real app, this would come from a data source
 // const projectsData = [
 //   {
@@ -68,6 +69,7 @@ export default function ProjectDetail() {
   const [relatedProjects, setRelatedProjects] = useState([]);
   const [activeTab, setActiveTab] = useState('overview');
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
   
   useEffect(() => {
     // Find the current project by slug
@@ -113,9 +115,10 @@ export default function ProjectDetail() {
     result: 'Information not available',
     images: [project.image]
   };
-
+ 
   return (
     <>
+      <InquiryModal isOpen={modalOpen} closeModal={() => setModalOpen(false)} />
     <Breadcrumb 
           title="Project Detail" 
           items={[
@@ -278,13 +281,13 @@ export default function ProjectDetail() {
             
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col space-y-3">
-              <button className="w-full px-4 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center">
+              <button onClick={() => setModalOpen(true)} className="w-full px-4 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center">
                 Request Similar Project
               </button>
-              <button className="w-full px-4 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 font-medium rounded-lg transition-colors flex items-center justify-center">
+              {/* <button className="w-full px-4 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 font-medium rounded-lg transition-colors flex items-center justify-center">
                 <Share2 className="w-4 h-4 mr-2" />
                 Share Project
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function BlogPage() {
             onMouseLeave={() => setHoveredId(null)}
           >
             <div className="relative overflow-hidden">
-              <div className="h-48 overflow-hidden">
+              <div className="h-56 overflow-hidden">
                 <img 
                   src={post.image} 
                   alt={post.title} 
@@ -79,7 +79,7 @@ export default function BlogPage() {
             </div>
             
             <div className="p-6">
-              <p className="text-gray-600 mb-6 line-clamp-3">{post.description}</p>
+              <p className="text-gray-600 mb-6 line-clamp-2">{post.description}</p>
               
               <div className="flex items-center justify-between">
                 <div className="flex space-x-4 text-gray-500">
