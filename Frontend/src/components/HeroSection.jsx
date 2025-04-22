@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { ArrowRight, Award, Users, Clock, ChevronDown } from "lucide-react";
 import InquiryModal from "./InquiryModal";
 import { Link } from "react-router-dom";
-
+import first from '../assets/banner/1.webp'
+import second from '../assets/banner/2.webp'
+import third from '../assets/banner/3.webp'
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -13,19 +15,19 @@ export default function HeroSection() {
       id: 1,
       title: "Urban Harmony Tower",
       location: "Mumbai, India",
-      imageUrl: "https://picsum.photos/id/1031/1600/900"
+      imageUrl: first
     },
     {
       id: 2,
       title: "Serenity Gardens Complex",
       location: "Bangalore, India",
-      imageUrl: "https://cdn.pixabay.com/photo/2015/12/03/01/05/architect-1073607_640.jpg"
+      imageUrl: second
     },
     {
       id: 3,
       title: "Azure Sky Residences",
       location: "Delhi, India",
-      imageUrl: "https://picsum.photos/id/1076/1600/900"
+      imageUrl: third
     }
   ];
 

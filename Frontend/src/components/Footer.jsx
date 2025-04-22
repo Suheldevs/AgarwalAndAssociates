@@ -1,6 +1,5 @@
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaPhone, FaXTwitter } from "react-icons/fa6";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BlogData from "../Data/BlogData";
 import cclogo from "../assets/ccogo-suhel.webp";
@@ -152,21 +151,21 @@ const Footer = () => {
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Phone size={18} /> <span>+91-7499666661</span>
+                <Phone size={18} className="self-center"/> <span>+91-7499666661</span>
               </a>
               <a
                 href="mailto:sgssandassociates@gmail.com"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Mail size={18} className=""/> <span>agarwal@gmail.com</span>
+                <Mail size={18} className="self-center"/> <span>  agarwal@gmail.com</span>
               </a>
               <a
                 href="https://maps.app.goo.gl/VXkYGdK97YTe3Xvq5"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <MapPin size={18} />{" "}
+                <MapPin size={20} className="self-center"/>{" "}
                 <span>
                   Krishna Nagar, Lucknow, <br/> Uttar Pradesh
                 </span>
@@ -174,7 +173,7 @@ const Footer = () => {
               <li>
                 <div className="flex space-x-3">
                   <a
-                    href="https://www.facebook.com/profile.php?id=61552954928198"
+                    href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
@@ -188,7 +187,7 @@ const Footer = () => {
                     <FaXTwitter size={18} />
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/sgss-and-associates/"
+                    href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
@@ -210,7 +209,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className=" bg-black text-white  border-t border-gray-400 py-2 text-center flex lg:flex-row flex-col justify-center items-center">
         <p className=" lg:text-sm text-xs px-2">
-          Copyright 2025 SGSS Architects || All Rights Reserved || Designed By
+          Copyright 2025 Agarwal & Associates || All Rights Reserved || Designed By
         </p>
         <Link to="https://www.codecrafter.co.in/" target="_blank">
           <img

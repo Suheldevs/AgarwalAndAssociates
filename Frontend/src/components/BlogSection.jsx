@@ -34,9 +34,9 @@ export default function BlogPage() {
   return (
     <div className="bg-gray-50">
       
-      <div className="container mx-auto  sm:px-6 lg:px-6 lg:py-12 py-8 md:py-10 ">
+      <div className="container mx-auto  sm:px-6 lg:px-6 lg:py-12 py-8 md:py-10 lg:pb-16">
       <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-3">Recent Articals</h2>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-2">Recent Articals</h2>
           {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           Discover expert thoughts and project highlights on our blog

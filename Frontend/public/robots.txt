@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /private/
 Allow: /
 
-Sitemap: https://sgss-architects.com/sitemap.xml
+Sitemap: https://agarwal-associates.netlify.app/sitemap.xml

@@ -33,7 +33,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="lg:py-12 md:py-10 py-8 bg-white">
+    <section className="lg:pt-12 md:pt-10 py-8 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
