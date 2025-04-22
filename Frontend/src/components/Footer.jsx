@@ -14,27 +14,34 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <Link
+              <li>
+              <Link aria-label="Link"
                 to="/about"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 About Us
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Link"
                 to="/services"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Our Services
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Link"
                 to="/projects"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Our Projects
               </Link>
+              </li>
+              <li>
               <Link
                 to="/blog"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
@@ -42,20 +49,26 @@ const Footer = () => {
                 <ChevronRight className="inline-block " />
                 Our Blogs
               </Link>
-              <Link
+              
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/contact"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Contact Us
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/privacy"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Privacy Policy
               </Link>
+              </li>
             </ul>
           </div>
 
@@ -65,48 +78,60 @@ const Footer = () => {
               Our Services
             </h3>
             <ul className="space-y-2">
-              <Link
+            <li>
+              <Link aria-label="Li"
                 to="/services/architectural-consultant"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Architectural Consultant
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/services/interior-design"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Interior Design
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/services/engineering-services"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Engineering Services
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/services/vastu"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Vastu Services
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/services/project-management"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Project Management
               </Link>
-              <Link
+              </li>
+              <li>
+              <Link aria-label="Li"
                 to="/services/urban-planning"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
                 Urban Planning
               </Link>
+              </li>
             </ul>
           </div>
 
@@ -119,7 +144,7 @@ const Footer = () => {
               {Array.isArray(BlogData) &&
                 BlogData.length > 0 &&
                 BlogData?.slice(1, 3)?.map((blog, i) => (
-                  <Link
+                  <Link aria-label="Li"
                     key={i}
                     to={`/blog-detail/${blog.slug}`}
                     className="flex items-start space-x-3 group cursor-pointer"
@@ -127,7 +152,7 @@ const Footer = () => {
                     <img
                       src={blog.image}
                       alt="news"
-                      className="w-16 h-16 rounded group-hover:rounded-tl-2xl group-hover:rounded-br-2xl group-hove:scale-105 transition-all ease-in-out duration-500"
+                      className="w-16 aspect-square rounded group-hover:rounded-tl-2xl group-hover:rounded-br-2xl group-hove:scale-105 transition-all ease-in-out duration-500"
                     />
                     <div>
                       {/* <p className="text-sm text-gray-400"></p> */}
@@ -193,7 +218,7 @@ const Footer = () => {
                   >
                     <FaLinkedin size={18} />
                   </a>
-                  <a
+                  <a 
                     href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
@@ -211,7 +236,7 @@ const Footer = () => {
         <p className=" lg:text-sm text-xs px-2">
           Copyright 2025 Agarwal & Associates || All Rights Reserved || Designed By
         </p>
-        <Link to="https://www.codecrafter.co.in/" target="_blank">
+        <Link  aria-label="Code Crafter" to="https://www.codecrafter.co.in/" target="_blank">
           <img
             src={cclogo}
             className="lg:w-28 w-20 transition transform hover:scale-105"

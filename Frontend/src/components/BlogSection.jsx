@@ -85,24 +85,25 @@ export default function BlogPage() {
                   <p className="text-gray-600 mb-6 line-clamp-2">{post.description}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex space-x-4 text-gray-500">
-                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button"  className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
                         <Heart className="h-4 w-4 mr-1" />
                         <span>{post.likes}</span>
                       </button>
-                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
                         <MessageSquare className="h-4 w-4 mr-1" />
                         <span>{post.comments}</span>
                       </button>
-                      <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
                         <Share2 className="h-4 w-4" />
                       </button>
                     </div>
-                    <button className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                    <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
                       <Bookmark className="h-4 w-4" />
                     </button>
                   </div>
                   <div className="mt-4 pt-6 border-t border-gray-100">
                     <Link 
+                    aria-label="Blog detail"
                       to={`/blog-detail/${post.slug}`}
                       className="flex items-center justify-between w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg group-hover:shadow-md transition-all duration-300"
                     >

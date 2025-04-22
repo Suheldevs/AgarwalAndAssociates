@@ -15,7 +15,7 @@ export default function HeroSection() {
       id: 1,
       title: "Urban Harmony Tower",
       location: "Mumbai, India",
-      imageUrl: first
+      imageUrl: third
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export default function HeroSection() {
       id: 3,
       title: "Azure Sky Residences",
       location: "Delhi, India",
-      imageUrl: third
+      imageUrl: first
     }
   ];
 
@@ -71,9 +71,10 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 bg-black/40 z-10" />
             <img
+            loading="eager"
               src={project.imageUrl}
               alt={project.title}
-              className="object-cover w-full h-full"
+              className="object-cover  w-full h-full"
             />
           </div>
         ))}
@@ -84,9 +85,7 @@ export default function HeroSection() {
         <div className="container mx-auto lg:mt-10 px-4 lg:px-8 h-full flex flex-col justify-center">
           {/* Animated text content */}
           <div 
-            className={`max-w-3xl mt-12 transition-all duration-1000 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-            }`}
+            className={`max-w-3xl mt-12 transition-all duration-1000 transform translate-y-0 opacity-100 `}
           >
             <h2 className="text-white text-lg md:text-xl font-light mb-2 tracking-wider">
               AGARWAL & ASSOCIATES
@@ -100,27 +99,16 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Link to='/projects' className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
+              <Link aria-label="Projects" to='/projects' className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded flex items-center justify-center transition-all group">
                 Explore Our Projects
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button  onClick={() => setModalOpen(true)} className="px-6 py-3 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium rounded transition-all">
+              <button aria-label="get a consultation"  onClick={() => setModalOpen(true)} className="px-6 py-3 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium rounded transition-all">
                 Get a Consultation
               </button>
             </div>
 
-            {/* Current Project Info */}
-            {/* <div 
-              className={`bg-white/10 backdrop-blur-md rounded-lg p-4 inline-block transition-all duration-1000 delay-500 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-              }`}
-            >
-              <p className="text-primari text-sm mb-1">FEATURED PROJECT</p>
-              <h3 className="text-white text-2xl font-medium">
-                {featuredProjects[currentSlide].title}
-              </h3>
-              <p className="text-gray-300">{featuredProjects[currentSlide].location}</p>
-            </div> */}
+            
           </div>
         </div>
       </div>
@@ -130,6 +118,7 @@ export default function HeroSection() {
         <div className="flex flex-col gap-2">
           {featuredProjects.map((_, index) => (
             <button
+            aria-level="navigation"
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-8 rounded-full transition-all ${

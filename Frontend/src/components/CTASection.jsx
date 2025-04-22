@@ -211,6 +211,7 @@ export default function CTASection() {
                   as possible.
                 </p>
                 <button
+                aria-label="send another message"
                   onClick={() =>
                     setFormStatus({ submitted: false, loading: false })
                   }
@@ -344,6 +345,7 @@ export default function CTASection() {
 
                 <div>
                   <button
+                  aria-label="Submit"
                   disabled={formStatus.loading}
                     type="submit"
                     className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
@@ -381,6 +383,7 @@ export default function CTASection() {
             </div>
             <div className="flex-shrink-0">
               <Link
+              aria-label="contact"
                 to="/contact"
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >

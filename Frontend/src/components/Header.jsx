@@ -62,7 +62,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link aria-label=" Logo" to="/" className="flex items-center">
               <Building2 size={28} className="" />
               <div className="ml-2">
                 <h1 className="text-xl font-bold  leading-none">
@@ -83,6 +83,7 @@ export default function Header() {
                   {item.isDropdown ? (
                     <div>
                       <button
+                      aria-label="dropdown"
                         className="flex items-center  transition-colors"
                         onClick={toggleServices}
                       >
@@ -99,6 +100,7 @@ export default function Header() {
                       >
                         {item.dropdownItems.map((dropdownItem, idx) => (
                           <Link
+                          aria-label="dropdwon-items"
                             key={idx}
                             to={dropdownItem.path}
                             className="block px-4 py-1 hover:bg-slate-100 text-sm  transition-colors"
@@ -111,10 +113,11 @@ export default function Header() {
                     </div>
                   ) : (
                     <Link
+                    aria-label="items"
                       to={item.path}
                       className={` transition-colors ${
                         item.name === "Contact Us"
-                          ? "px-4 py-2 bg-primary text-white hover:bg-gray-900 rounded-md"
+                          ? "px-4 py-2 bg-primary text-black hover:bg-gray-900 rounded-md"
                           : ""
                       }`}
                     >
@@ -133,7 +136,7 @@ export default function Header() {
           </a>
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden " onClick={toggleMenu}>
+          <button aria-label="Menu" title="Nav-Menu" className="lg:hidden " onClick={toggleMenu}>
             {isMenuOpen ? <X size={30} /> : <ListFilter size={30} />}
           </button>
         </div>
@@ -152,6 +155,7 @@ export default function Header() {
                 {item.isDropdown ? (
                   <div>
                     <button
+                    aria-label="Nav-item"
                       className="flex items-center justify-between w-full text-gray-900 py-2 hover:text-gray-900"
                       onClick={toggleServices}
                     >
@@ -170,6 +174,7 @@ export default function Header() {
                     >
                       {item.dropdownItems.map((dropdownItem, idx) => (
                         <Link
+                        aria-label="dropdown"
                           key={idx}
                           to={dropdownItem.path}
                           className="block py-0.5 text-gray-600 hover:text-gray-900"
@@ -185,6 +190,7 @@ export default function Header() {
                   </div>
                 ) : (
                   <Link
+                  aria-label="Nav-item"
                     to={item.path}
                     className={`block py-2 text-gray-900 hover:text-gray-900 ${
                       item.name === "Contact Us"

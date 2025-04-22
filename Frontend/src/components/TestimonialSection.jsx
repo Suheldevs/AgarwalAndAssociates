@@ -179,7 +179,7 @@ export default function TestimonialSection() {
                 <div className="p-6 md:p-12 bg-white md:col-span-3 flex flex-col justify-center">
                   {/* Mobile-Only Image */}
                   <div className="flex items-center mb-6 md:hidden">
-                    <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <div className="w-16 aspect-square rounded-full overflow-hidden mr-4">
                       <img 
                         src={testimonials[activeIndex].image} 
                         alt={testimonials[activeIndex].name} 
@@ -217,6 +217,7 @@ export default function TestimonialSection() {
             {/* Navigation Arrows */}
             <div className="absolute lg:bottom-6 bottom-2 right-6 flex space-x-3">
               <button 
+              aria-level='privios'
                 onClick={goToPrevious}
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-yellow-50 text-yellow-500 transition-colors duration-300"
                 aria-label="Previous testimonial"
@@ -224,6 +225,7 @@ export default function TestimonialSection() {
                 <ChevronLeft size={20} />
               </button>
               <button 
+               aria-level='next'
                 onClick={goToNext}
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-yellow-50 text-yellow-500 transition-colors duration-300"
                 aria-label="Next testimonial"
@@ -237,6 +239,7 @@ export default function TestimonialSection() {
           <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
+               aria-level='go to'
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${

@@ -68,6 +68,7 @@ export default function AboutSection() {
             </p>
             <div className="pt-2">
               <Link
+              aria-label="Services"
                 to="/services"
                 className="px-6 inline-flex py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded items-center justify-center transition-all group"
               >

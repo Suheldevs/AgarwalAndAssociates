@@ -37,6 +37,7 @@ export default function ProjectSection() {
         <div className="flex flex-wrap justify-center mb-12 gap-2">
           {categories.map((category) => (
             <button
+            aria-label='category'
               key={category.id}
               onClick={() => setActiveFilter(category.id)}
               className={`px-5 py-2 border border-gray-100 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -106,7 +107,8 @@ export default function ProjectSection() {
                         <span className="font-medium">{project.location}</span>
                       </p>
                       
-                      <Link 
+                      <Link
+                      aria-label="project-detail" 
                         to={`/project/${project.slug}`} 
                         className="self-start flex items-center font-medium text-gray-800 hover:text-yellow-500 transition-all duration-300 relative group/btn"
                       >
@@ -129,6 +131,7 @@ export default function ProjectSection() {
     .filter(project => !project.featured || activeFilter !== 'all')
     .map(project => (
       <Link
+      aria-label="project-detail"
       to={`/project/${project.slug}`} 
         key={project.id}
         className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
@@ -180,6 +183,7 @@ export default function ProjectSection() {
             {/* Action buttons */}
             <div className="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
               <Link 
+              aria-label="project-detail"
                 to={`/project/${project.slug}`} 
                 className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center transition-all duration-300 hover:pl-5"
               >
@@ -188,6 +192,7 @@ export default function ProjectSection() {
               </Link>
               
               <Link 
+               aria-label="project-detail"
                 to={`/project/${project.slug}`} 
                 className="bg-white/30 backdrop-blur-sm hover:bg-white/50 text-white p-2 rounded-full transition-all duration-300"
               >
@@ -202,7 +207,8 @@ export default function ProjectSection() {
 
         {/* View All Projects Button - Slightly Updated */}
         <div className="mt-12 text-center">
-          <Link  
+          <Link
+          aria-label="Projects"  
             to="/projects" 
             className="inline-flex items-center px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition-all duration-300 group relative overflow-hidden"
           >

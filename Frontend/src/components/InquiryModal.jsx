@@ -113,6 +113,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-2xl font-bold text-gray-900 lora">Let's Discuss Your Project</h2>
                 <button 
+                aria-label='close'
                   onClick={closeModal}
                   className="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-200 bg-gray-100 cursor-pointer transition-all"
                 >
@@ -253,6 +254,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
             
                 
                 <button 
+                 aria-label='sumbit'
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full py-3 bg-amber-500 hover:bg-amber-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"

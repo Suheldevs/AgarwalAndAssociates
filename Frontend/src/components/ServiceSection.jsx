@@ -173,6 +173,7 @@ export default function ServiceSection() {
   const ServiceDetail = ({ service }) => (
     <div className="bg-white rounded-lg lg:p-8 md:p-6 p-4 shadow-lg max-w-7xl mx-auto">
       <button 
+      aria-label='All Aervices'
         onClick={handleBackClick}
         className="mb-6 flex items-center text-yellow-500 hover:text-yellow-600 transition-all"
       >
@@ -224,7 +225,7 @@ export default function ServiceSection() {
       <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
         <h3 className="text-xl font-semibold mb-3 text-yellow-600">Ready to Get Started?</h3>
         <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <button onClick={() => setModalOpen(true)} className="cursor-pointer bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+        <button aria-label='Request Consultation' onClick={() => setModalOpen(true)} className="cursor-pointer bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-lg transition-colors duration-300">
           Request Consultation
         </button>
       </div>
@@ -257,16 +258,6 @@ export default function ServiceSection() {
               ))}
             </div>
 
-            {/* Call to Action */}
-            {/* <div className="mt-20 text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Our team of experts is ready to help you create a tailored approach for your unique architectural project
-              </p>
-              <Link to='/contact' className="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300">
-                Contact Us Today
-              </Link>
-            </div> */}
           </>
         )}
       </main>
