@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Building2, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Building2, Phone, ListFilter } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,10 +52,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300  ${
         isScrolled
           ? "bg-white shadow-md py-3"
-          : "bg-transparent text-white  py-4"
+          : "lg:bg-transparent bg-white lg:text-white  py-4"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -127,14 +127,14 @@ export default function Header() {
           </nav>
 
           {/* Contact Info - Desktop */}
-          <div className="hidden lg:flex items-center">
+          <a href='tel:9876543210' className="hidden lg:flex items-center">
             <Phone size={16} className="" />
             <span className="ml-2 ">+91 98765 43210</span>
-          </div>
+          </a>
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden " onClick={toggleMenu}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={30} /> : <ListFilter size={30} />}
           </button>
         </div>
       </div>
@@ -146,7 +146,7 @@ export default function Header() {
         }`}
       >
         <div className="container mx-auto px-4 py-2">
-          <ul className="space-y-4 py-4">
+          <ul className=" py-4">
             {navItems.map((item, index) => (
               <li key={index}>
                 {item.isDropdown ? (
@@ -172,7 +172,7 @@ export default function Header() {
                         <Link
                           key={idx}
                           to={dropdownItem.path}
-                          className="block py-2 text-gray-600 hover:text-gray-900"
+                          className="block py-0.5 text-gray-600 hover:text-gray-900"
                           onClick={() => {
                             setServicesOpen(false);
                             setIsMenuOpen(false);
@@ -188,7 +188,7 @@ export default function Header() {
                     to={item.path}
                     className={`block py-2 text-gray-900 hover:text-gray-900 ${
                       item.name === "Contact Us"
-                        ? "mt-4 px-4 py-2 bg-gray-800 text-white hover:bg-gray-900 rounded-md text-center"
+                        ? "mt-4 px-4 py-2 bg-yellow-500  rounded-md text-center"
                         : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}

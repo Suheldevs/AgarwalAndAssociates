@@ -91,8 +91,8 @@ setError('Something Went Wrong , Try Later !')
       />
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 lg:py-12 py-10">
+        <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Get in Touch
           </h2>
@@ -103,7 +103,7 @@ setError('Something Went Wrong , Try Later !')
         </div>
 
         {/* Contact Methods */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-8 gap-4 mb-10">
           {contactMethods.map((method, index) => (
             <div
               key={index}
@@ -126,7 +126,7 @@ setError('Something Went Wrong , Try Later !')
         {/* Contact Form and Info */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {/* Form */}
-          <div className="col-span-3 bg-white rounded-2xl shadow-lg p-8 lg:p-10">
+          <div className="col-span-3 bg-white rounded-2xl shadow-lg md:p-6 p-4 lg:p-10">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h3>
@@ -298,9 +298,9 @@ setError('Something Went Wrong , Try Later !')
           </div>
 
           {/* Business Info */}
-          <div className="col-span-2 space-y-8">
+          <div className="lg:col-span-2 col-span-3 space-y-8 ">
             {/* Hours */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-yellow-500">
+            <div className="bg-white  rounded-2xl shadow-lg p-8 border-l-4 border-yellow-500">
               <div className="flex items-start mb-5">
                 <div className="bg-yellow-50 p-3 rounded-lg">
                   <Clock className="h-6 w-6 text-yellow-600" />
@@ -330,7 +330,7 @@ setError('Something Went Wrong , Try Later !')
             </div>
 
             {/* FAQ */}
-            <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="bg-white rounded-2xl shadow-lg lg:p-8 p-6">
               <h4 className="text-lg font-bold text-gray-900 mb-5">
                 Frequently Asked Questions
               </h4>
@@ -369,11 +369,11 @@ setError('Something Went Wrong , Try Later !')
         </div>
 
         {/* Map Section */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-6 overflow-hidden">
+        <div className="lg:mt-16 mt-10 bg-white rounded-2xl shadow-lg lg:p-6 p-4 overflow-hidden">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Our Location
           </h3>
-          <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden h-96">
+          <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden lg:h-96">
             <iframe
             className="w-full h-full"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.2906214547183!2d80.99697957468184!3d26.862506176677165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd35011967e7%3A0xc4a2515047590d2a!2sCode%20Crafter%20Web%20Solutions%20%7C%20Website%20%26%20Software%20Development%20%7C%20Popular%20IT%20Service%20Providers%20Company%20in%20Lucknow!5e0!3m2!1sen!2sin!4v1745153548894!5m2!1sen!2sin"

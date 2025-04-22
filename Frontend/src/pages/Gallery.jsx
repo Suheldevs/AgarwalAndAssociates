@@ -56,10 +56,10 @@ export default function Gallery() {
               ]}
             // bgImage="/api/placeholder/1920/600"
           />
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100 lg:p-8 p-4">
       <div className="max-w-7xl mx-auto">
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
             <div 
               key={image.id} 
@@ -69,7 +69,7 @@ export default function Gallery() {
               <img 
                 src={image.src} 
                 alt={image.alt} 
-                className="w-full h-64 object-cover"
+                className="w-full lg:h-64 object-cover"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30  flex items-center justify-center transition-all duration-300">
                 <div className="text-white opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100 transition-all duration-300 text-center">

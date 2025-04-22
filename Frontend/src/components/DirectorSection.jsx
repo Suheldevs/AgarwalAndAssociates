@@ -2,7 +2,7 @@ import React from "react";
 
 function DirectorSection() {
   return (
-    <div className="container mx-auto px-6">
+    <div className="container mx-auto lg:px-6 px-4">
       <div
         className={` transition-all duration-1000 delay-600 transform opacity-100 translate-y-0`}
       >
@@ -25,7 +25,7 @@ function DirectorSection() {
           </div>
 
           {/* Message Content */}
-          <div className="lg:w-3/5 p-8 lg:p-12">
+          <div className="lg:w-3/5 md:p-8 p-4 lg:p-12">
             <div className="mb-8">
               <h3 className="text-3xl font-bold mb-6">Director's Message</h3>
               <div className="relative pl-6 border-l-2 border-yellow-400">

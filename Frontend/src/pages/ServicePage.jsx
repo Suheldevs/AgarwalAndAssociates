@@ -62,7 +62,7 @@ export default function ServicePage() {
 
   // Service detail page component
   const ServiceDetail = ({ service }) => (
-    <div className="bg-white rounded-lg p-8 shadow-lg max-w-5xl mx-auto">
+    <div className="bg-white rounded-lg lg:p-8 p-4 shadow-lg max-w-5xl mx-auto">
       <button 
         onClick={handleBackClick}
         className="mb-6 flex items-center text-yellow-600 hover:text-yellow-800 transition-all"
@@ -83,7 +83,7 @@ export default function ServicePage() {
       </p>
       
       <div className="grid md:grid-cols-2 gap-8 mb-8">
-        <div className="bg-gray-50 p-6 rounded-lg">
+        <div className="bg-gray-50 lg:p-6 p-4 rounded-lg">
           <h3 className="text-xl font-semibold mb-4 text-yellow-800">What We Offer</h3>
           <ul className="space-y-3">
             {service.features.map((feature, index) => (
@@ -97,7 +97,7 @@ export default function ServicePage() {
           </ul>
         </div>
         
-        <div className="bg-gray-50 p-6 rounded-lg">
+        <div className="bg-gray-50 lg:p-6 p-4 rounded-lg">
           <h3 className="text-xl font-semibold mb-4 text-yellow-800">Our Process</h3>
           <ol className="space-y-3">
             {service.process.map((step, index) => (

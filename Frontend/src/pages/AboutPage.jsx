@@ -100,7 +100,7 @@ export default function AboutUsPage() {
 
           {/* Vision & Mission Tabs - Improved UI */}
           <div className={`mb-12 transition-all duration-1000 delay-400 transform ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="text-center mb-12">
+            <div className="text-center lg:mb-12 mb-6">
               <h3 className="text-3xl font-bold">Our Foundation</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4"></div>
             </div>
@@ -108,7 +108,7 @@ export default function AboutUsPage() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="flex flex-col md:flex-row">
                 {/* Tab Navigation - Improved */}
-                <div className="md:w-1/3 bg-gray-900 text-white p-8 space-y-4">
+                <div className="md:w-1/3 bg-gray-900 text-white lg:p-8 p-4 space-y-4">
                   <button 
                     onClick={() => setActiveTab("vision")}
                     className={`w-full text-left py-5 px-6 rounded-xl transition-all flex items-center justify-between ${activeTab === "vision" ? "bg-yellow-400 text-gray-900 shadow-lg" : "hover:bg-gray-800"}`}
@@ -235,7 +235,7 @@ export default function AboutUsPage() {
 
           {/* Founder's Message - Improved Design */}
           <div className={`mb-12 transition-all duration-1000 delay-600 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <div className="text-center mb-12">
+            <div className="text-center lg:mb-12 mb-6">
               <h3 className="text-3xl font-bold">Director's Message</h3>
               <div className="w-24 h-1 bg-yellow-400 mx-auto mt-4"></div>
             </div>
@@ -250,7 +250,7 @@ export default function AboutUsPage() {
                   alt={coreTeam[0].name}
                   className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 p-8 z-20">
+                <div className="absolute bottom-0 left-0 lg:p-8 p-4 z-20">
                   <h3 className="text-white text-2xl font-bold">{coreTeam[0].name}</h3>
                   <p className="text-yellow-300 font-medium">{coreTeam[0].position}</p>
                   <div className="flex items-center mt-4 text-white/80 text-sm">
@@ -265,7 +265,7 @@ export default function AboutUsPage() {
               </div>
               
               {/* Message Content - Enhanced */}
-              <div className="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
+              <div className="lg:w-3/5  p-4 lg:p-12 flex flex-col justify-center">
                 <div className="mb-8">
                   <div className="relative pl-6 border-l-4 border-yellow-400 py-2">
                     <svg className="absolute top-0 left-0 transform -translate-x-4 -translate-y-3 w-8 h-8 text-yellow-400 opacity-50" fill="currentColor" viewBox="0 0 32 32">
@@ -381,7 +381,7 @@ export default function AboutUsPage() {
                   >
                     {/* Content */}
                     <div className={`md:w-5/12 w-full ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} mb-6 md:mb-0`}>
-                      <div className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow relative group transform hover:-translate-y-1 hover:bg-yellow-50 duration-300">
+                      <div className="bg-white lg:p-8 p-4 rounded-xl shadow-xl hover:shadow-2xl transition-shadow relative group transform hover:-translate-y-1 hover:bg-yellow-50 duration-300">
                         <div className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 hidden md:block ${
                           index % 2 === 0 ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'
                         } bg-white rotate-45 z-0 group-hover:bg-yellow-50 transition-colors`}></div>
@@ -411,7 +411,7 @@ export default function AboutUsPage() {
           {/* Stats Counter - Enhanced Design */}
           <div className={`transition-all duration-1000 delay-1200 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl py-16 px-8 shadow-2xl">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center group">
                     <div className="w-20 h-20 rounded-2xl bg-yellow-400/20 flex items-center justify-center mx-auto mb-6 text-yellow-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-yellow-400/30 group-hover:rotate-6 shadow-lg">

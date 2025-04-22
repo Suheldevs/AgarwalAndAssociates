@@ -124,7 +124,7 @@ export default function HeroSection() {
       </div>
 
       {/* Slide Navigation Dots */}
-      <div className="absolute bottom-32 right-8 z-30">
+      <div className="absolute hidden lg:block bottom-32 right-8 z-30">
         <div className="flex flex-col gap-2">
           {featuredProjects.map((_, index) => (
             <button

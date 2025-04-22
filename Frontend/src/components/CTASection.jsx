@@ -64,7 +64,7 @@ export default function CTASection() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-2">
             Let's Bring Your Vision to Life
@@ -79,7 +79,7 @@ export default function CTASection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
           {/* Left Contact Info Panel */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl p-8 shadow-xl">
+          <div className="lg:col-span-2 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl lg:p-8 p-4 shadow-xl">
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
             <div className="space-y-8">
@@ -101,7 +101,7 @@ export default function CTASection() {
                 <div>
                   <h4 className="font-medium text-lg">Email Us</h4>
                   <p className="mt-1 opacity-90">info@agarwalassociates.com</p>
-                  <p className="opacity-90">projects@agarwalassociates.com</p>
+                  <p className="opacity-90">projects@agarwal.com</p>
                 </div>
               </div>
 
@@ -193,7 +193,7 @@ export default function CTASection() {
 
           {/* Right Form Panel */}
           <div className="lg:col-span-3 bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="p-8">
+            <div className="lg:p-8 p-4">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h3>
@@ -370,7 +370,7 @@ export default function CTASection() {
         <div className="mt-12 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl p-8 md:p-12 shadow-md">
           <div className="md:flex items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="lg:text-2xl text-xl font-bold text-gray-900 mb-3">
                 Schedule a Consultation
               </h3>
               <p className="text-gray-600 max-w-2xl">

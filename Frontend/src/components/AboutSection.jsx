@@ -43,10 +43,10 @@ export default function AboutSection() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center mb-10">
           {/* Left Column - Text */}
           <div className="space-y-2">
-            <h3 className="text-2xl font-semibold text-gray-800">
+            <h3 className="lg:text-2xl text-xl font-semibold text-gray-800">
               Creating Spaces That Inspire
             </h3>
             <p className="text-gray-700 text-justify">

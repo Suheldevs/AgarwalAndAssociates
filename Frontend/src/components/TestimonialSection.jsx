@@ -215,7 +215,7 @@ export default function TestimonialSection() {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="absolute bottom-6 right-6 flex space-x-3">
+            <div className="absolute lg:bottom-6 bottom-2 right-6 flex space-x-3">
               <button 
                 onClick={goToPrevious}
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-yellow-50 text-yellow-500 transition-colors duration-300"

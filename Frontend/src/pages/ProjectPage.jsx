@@ -215,7 +215,8 @@ export default function ProjectPage() {
        {filteredProjects
          .filter(project => !project.featured || activeFilter !== 'all')
          .map(project => (
-           <div 
+          <Link
+          to={`/project/${project.slug}`}  
              key={project.id}
              className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
              onMouseEnter={() => setHoveredProject(project.id)}
@@ -282,7 +283,7 @@ export default function ProjectPage() {
                  </div>
                </div>
              </div>
-           </div>
+           </Link>
          ))}
      </div>
      

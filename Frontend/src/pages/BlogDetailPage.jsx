@@ -108,7 +108,7 @@ export default function BlogDetail() {
     
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Back Button */}
-      <Link to="/blog" className="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium mb-6 group transition-all">
+      <Link to="/blog" className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-medium mb-6 group transition-all">
         <ChevronLeft className="w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform" />
         Back to all articles
       </Link>
@@ -165,7 +165,7 @@ export default function BlogDetail() {
           <div className="prose lg:prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }}></div>
           
           {/* Mobile Social Bar */}
-          <div className="flex justify-between items-center mt-12 lg:hidden p-4 bg-gray-50 rounded-lg">
+          <div className="flex justify-between items-center lg:mt-12 mt-6 lg:hidden p-4 bg-gray-50 rounded-lg">
             <div className="flex items-center gap-2">
               <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
                 <Heart className="w-5 h-5" />
@@ -192,7 +192,7 @@ export default function BlogDetail() {
               {/* <div className="w-16 h-16 rounded-full bg-gray-300"></div> */}
               <div>
                 {/* <h3 className="font-bold text-lg">Admin</h3> */}
-                <p className="text-gray-700">Description: {blog.description}</p>
+                <p className="text-gray-700 text-justify">Description: {blog.description}</p>
               </div>
             </div>
           </div>

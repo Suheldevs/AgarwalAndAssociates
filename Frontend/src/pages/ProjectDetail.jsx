@@ -161,7 +161,7 @@ export default function ProjectDetail() {
       </div>
       
       {/* Main Content Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
         {/* Project Gallery - Takes 2/3 of the space on desktop */}
         <div className="lg:col-span-2">
           <div className="rounded-xl overflow-hidden mb-6">
@@ -294,11 +294,11 @@ export default function ProjectDetail() {
       </div>
       
       {/* Related Projects Section */}
-      <div className="mt-24">
+      <div className="mt-12">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-2xl font-bold">Similar Projects</h2>
           <Link to="/projects" className="flex items-center text-yellow-600 hover:text-yellow-800 font-medium group">
-            View all projects
+            View all
             <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
