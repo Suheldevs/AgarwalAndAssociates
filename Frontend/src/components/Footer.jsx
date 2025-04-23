@@ -15,7 +15,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-              <Link aria-label="Link"
+              <Link aria-label="about"
                 to="/about"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -24,7 +24,7 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Link"
+              <Link aria-label="services"
                 to="/services"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -33,7 +33,7 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Link"
+              <Link aria-label=""
                 to="/projects"
                 className=" block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -79,7 +79,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
             <li>
-              <Link aria-label="Li"
+              <Link aria-label="Architectural Consultant"
                 to="/services/architectural-consultant"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -88,7 +88,7 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Li"
+              <Link aria-label="Interior Design"
                 to="/services/interior-design"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -97,7 +97,7 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Li"
+              <Link aria-label=" Engineering Services"
                 to="/services/engineering-services"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -106,7 +106,7 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Li"
+              <Link aria-label=" Vastu Services"
                 to="/services/vastu"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -115,16 +115,16 @@ const Footer = () => {
               </Link>
               </li>
               <li>
-              <Link aria-label="Li"
+              <Link aria-label="Vastu Services"
                 to="/services/project-management"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
-                Project Management
+                Vastu Services
               </Link>
               </li>
               <li>
-              <Link aria-label="Li"
+              <Link aria-label="Urban Planning"
                 to="/services/urban-planning"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
@@ -144,7 +144,7 @@ const Footer = () => {
               {Array.isArray(BlogData) &&
                 BlogData.length > 0 &&
                 BlogData?.slice(1, 3)?.map((blog, i) => (
-                  <Link aria-label="Li"
+                  <Link aria-label="Blog-details"
                     key={i}
                     to={`/blog-detail/${blog.slug}`}
                     className="flex items-start space-x-3 group cursor-pointer"
@@ -171,21 +171,26 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-3">
-              <a
+              <li>
+              <a aria-label="Phone number"
                 href="tel:7499666661"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
                 <Phone size={18} className="self-center"/> <span>+91-7499666661</span>
               </a>
-              <a
+              </li>
+              <li>
+              <a aria-label="gmail"
                 href="mailto:sgssandassociates@gmail.com"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Mail size={18} className="self-center"/> <span>  agarwal@gmail.com</span>
+                <Mail size={18} className="self-center"/> <span>agarwal@gmail.com</span>
               </a>
-              <a
+              </li>
+              <li>
+              <a aria-label="map"
                 href="https://maps.app.goo.gl/VXkYGdK97YTe3Xvq5"
                 target="_blank"
                 className="flex items-center space-x-3"
@@ -195,30 +200,31 @@ const Footer = () => {
                   Krishna Nagar, Lucknow, <br/> Uttar Pradesh
                 </span>
               </a>
+              </li>
               <li>
                 <div className="flex space-x-3">
-                  <a
+                  <a aria-label="facebook"
                     href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
                     <FaFacebook size={18} />
                   </a>
-                  <a
+                  <a aria-label="Twitter"
                     href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
                     <FaXTwitter size={18} />
                   </a>
-                  <a
+                  <a aria-label="Linkedin"
                     href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
                     <FaLinkedin size={18} />
                   </a>
-                  <a 
+                  <a  aria-label="Phone"
                     href="#"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"

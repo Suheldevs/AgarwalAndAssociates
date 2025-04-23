@@ -13,6 +13,7 @@ import axios from "axios";
 
 export default function ContactUsPage() {
   const backend_url = import.meta.env.VITE_BACKEND_URL
+  console.log(backend_url)
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -52,6 +53,9 @@ setFormState({
     }
     catch(err){
 setError('Something Went Wrong , Try Later !')
+    }
+    finally{
+      setFormStatus({loading:false})
     }
   };
 
