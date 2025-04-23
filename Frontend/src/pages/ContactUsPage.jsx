@@ -13,7 +13,6 @@ import axios from "axios";
 
 export default function ContactUsPage() {
   const backend_url = import.meta.env.VITE_BACKEND_URL
-  console.log(backend_url)
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -44,6 +43,7 @@ export default function ContactUsPage() {
       setFormStatus({loading:true})
       const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formState);
       setFormStatus({submitted:true})
+      alert('Your Form Has Been Submitted!')
 setFormState({
   name: "",
   email: "",

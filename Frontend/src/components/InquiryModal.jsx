@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const InquiryModal = ({ isOpen, closeModal }) => {
   const backend_url = import.meta.env.VITE_BACKEND_URL
-  console.log(backend_url)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -71,13 +70,11 @@ const InquiryModal = ({ isOpen, closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+   
     if (validateForm()) {
       setIsSubmitting(true);
-      console.log(formData)
       try {
         const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formData);
-        console.log(response)
         setSubmitStatus('success');
         setTimeout(() => {
           closeModal();

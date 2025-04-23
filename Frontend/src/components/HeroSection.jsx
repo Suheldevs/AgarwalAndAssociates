@@ -118,13 +118,12 @@ export default function HeroSection() {
         <div className="flex flex-col gap-2">
           {featuredProjects.map((_, index) => (
             <button
-            aria-level={`Go to slide ${index}`}
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-8 rounded-full transition-all ${
                 index === currentSlide ? "bg-primary" : "bg-white/30 h-2"
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Go to project slide ${index + 1}`}
             />
           ))}
         </div>

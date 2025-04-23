@@ -12,7 +12,6 @@ export default function ServicePage() {
  
 
   const {id} = useParams();
-  console.log(id)
   useEffect(() => {
     if (id) {
       const foundService = services.find(service => service.id === id);
