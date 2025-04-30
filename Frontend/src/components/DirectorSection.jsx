@@ -17,7 +17,7 @@ function DirectorSection() {
               className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-8 z-20">
-              <h3 className="text-white text-2xl font-bold">Amit Agarwal</h3>
+              <h3 className="text-white text-2xl font-bold">Director Name</h3>
               <p className="text-yellow-300">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}
               <p className="text-white/70 text-sm">25+ years</p>

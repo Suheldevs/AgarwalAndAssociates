@@ -1,197 +1,114 @@
 import React, { useState } from 'react';
-import { ChevronRight, Ruler, PenTool, Wrench, Compass, ClipboardList, Building, ArrowRight } from 'lucide-react';
-import Breadcrumb from '../components/Breadcrumb';
-import { Link } from 'react-router-dom';
+import {
+  ChevronRight,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
+import services from '../Data/ServiceData';
 import InquiryModal from './InquiryModal';
+import pattern from '../assets/pattern.webp';
 
-// Main App Component
 export default function ServiceSection() {
   const [hoveredService, setHoveredService] = useState(null);
   const [activeService, setActiveService] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // Service data with icons, descriptions, and details
-  const services = [
-    {
-      id: 'architectural-consultant',
-      title: 'Architectural Consultant',
-      icon: <Ruler className="mb-2" size={28} />,
-      shortDesc: 'Expert architectural guidance for your project needs',
-      description: 'Our architectural consultation services provide expert guidance throughout your project lifecycle, from concept development to final construction.',
-      features: [
-        'Conceptual design development',
-        'Feasibility studies and site analysis',
-        'Building code and regulatory consultation',
-        'Design review and optimization',
-        'Sustainable design strategies'
-      ],
-      process: [
-        'Initial project assessment',
-        'Design concept development',
-        'Detailed consultation sessions',
-        'Recommendation documentation',
-        'Implementation guidance'
-      ]
-    },
-    {
-      id: 'interior-design',
-      title: 'Interior Design',
-      icon: <PenTool className="mb-2" size={28} />,
-      shortDesc: 'Creating beautiful, functional interior spaces',
-      description: 'Our interior design services transform spaces into beautiful, functional environments that reflect your vision and requirements.',
-      features: [
-        'Space planning and layout design',
-        'Material and finish selection',
-        'Custom furniture design',
-        'Lighting design and specification',
-        'Color and texture consultation'
-      ],
-      process: [
-        'Space analysis and client interview',
-        'Concept board development',
-        'Material and finish selection',
-        'Detailed design documentation',
-        'Implementation oversight'
-      ]
-    },
-    {
-      id: 'service-engineering',
-      title: 'Service Engineering',
-      icon: <Wrench className="mb-2" size={28} />,
-      shortDesc: 'Comprehensive building systems engineering',
-      description: 'Our service engineering team ensures all building systems are efficiently designed, integrated, and optimized for performance.',
-      features: [
-        'HVAC system design and optimization',
-        'Electrical systems engineering',
-        'Plumbing and sanitary engineering',
-        'Fire safety systems design',
-        'Energy efficiency analysis'
-      ],
-      process: [
-        'System requirements assessment',
-        'Preliminary systems design',
-        'Coordination with architectural plans',
-        'Detailed engineering documentation',
-        'Commissioning support'
-      ]
-    },
-    {
-      id: 'vastu',
-      title: 'Vastu',
-      icon: <Compass className="mb-2" size={28} />,
-      shortDesc: 'Ancient architectural science for harmony',
-      description: 'Our Vastu consulting services incorporate ancient architectural science principles to create harmonized spaces that promote well-being.',
-      features: [
-        'Site selection and layout analysis',
-        'Building orientation optimization',
-        'Room placement and zoning',
-        'Element balance and energy flow',
-        'Remedial solutions for existing structures'
-      ],
-      process: [
-        'Vastu assessment and analysis',
-        'Detailed recommendations report',
-        'Integration with modern design principles',
-        'Implementation guidance',
-        'Post-implementation evaluation'
-      ]
-    },
-    {
-      id: 'project-management',
-      title: 'Project Management',
-      icon: <ClipboardList className="mb-2" size={28} />,
-      shortDesc: 'End-to-end project coordination and delivery',
-      description: 'Our project management services ensure your architectural project is delivered on time, within budget, and to the highest quality standards.',
-      features: [
-        'Comprehensive project planning',
-        'Budget management and cost control',
-        'Contractor selection and coordination',
-        'Schedule management and monitoring',
-        'Quality assurance and control'
-      ],
-      process: [
-        'Project initiation and planning',
-        'Team assembly and coordination',
-        'Progress monitoring and reporting',
-        'Issue resolution and risk management',
-        'Project closeout and evaluation'
-      ]
-    },
-    {
-      id: 'urban-planning',
-      title: 'Urban Planning',
-      icon: <Building className="mb-2" size={28} />,
-      shortDesc: 'Strategic planning for sustainable urban development',
-      description: 'Our urban planning services create sustainable, functional, and aesthetically pleasing urban environments through strategic planning and design.',
-      features: [
-        'Master planning and land use design',
-        'Transportation and infrastructure planning',
-        'Public space and landscape design',
-        'Sustainability and resilience strategies',
-        'Community engagement and participatory design'
-      ],
-      process: [
-        'Site analysis and context assessment',
-        'Stakeholder consultation',
-        'Concept development and visualization',
-        'Detailed planning documentation',
-        'Implementation strategy development'
-      ]
-    }
-  ];
-
-  // Handle service card click
   const handleServiceClick = (serviceId) => {
     setActiveService(services.find(service => service.id === serviceId));
   };
 
-  // Handle back button click
   const handleBackClick = () => {
     setActiveService(null);
   };
 
-  // Service card component
-  const ServiceCard = ({ service }) => (
-    <div 
-      className="bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col h-full"
-      onMouseEnter={() => setHoveredService(service.id)}
-      onMouseLeave={() => setHoveredService(null)}
-      onClick={() => handleServiceClick(service.id)}
-    >
-      <div className="text-yellow-500">
-        {service.icon}
-      </div>
-      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-      <p className="text-gray-600 mb-4 flex-grow">{service.shortDesc}</p>
-      <div className={`flex items-center text-yellow-500 transition-all duration-300 ${hoveredService === service.id ? 'translate-x-1' : ''}`}>
-        <span className="mr-2">Learn more</span>
-        <ArrowRight size={16} />
-      </div>
-    </div>
-  );
+  const ServiceCard = ({ service, hoveredService, setHoveredService, handleServiceClick }) => {
+    const isHovered = hoveredService === service.id;
 
-  // Service detail page component
+    return (
+      <div
+        className="relative border border-gray-200 overflow-hidden rounded-xl py-4 px-6 transition-all duration-500 cursor-pointer flex flex-col h-full group"
+        style={{
+          background: "white",
+          boxShadow: isHovered
+            ? "0 20px 30px -10px rgba(249, 168, 37, 0.15)"
+            : "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+        }}
+        onMouseEnter={() => setHoveredService(service.id)}
+        onMouseLeave={() => setHoveredService(null)}
+        onClick={() => handleServiceClick(service.id)}
+        role="button"
+        aria-label={`View details about ${service.title}`}
+      >
+        {/* Pattern background */}
+        <div
+          className="absolute inset-0 opacity-20 transition-opacity duration-500 "
+          style={{ backgroundImage: `url(${pattern})`, zIndex: 1 }}
+        ></div>
+
+        {/* Top accent bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 transform origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100"
+          style={{ zIndex: 2 }}
+        ></div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full">
+          <div className="mb-6">
+            <div className="inline-flex p-3 text-center rounded-full h-14 w-14  transition-all duration-500 bg-yellow-500 text-white">
+              {service.icon || <Sparkles size={22} />}
+            </div>
+          </div>
+
+          <div className="relative">
+            <h3 className="text-xl font-bold  text-gray-800 transition-colors duration-300 group-hover:text-yellow-600">
+              {service.title}
+            </h3>
+            {/* <div className="absolute bottom-0 left-0 h-0.5 bg-yellow-500 transition-all duration-500 ease-out w-0 group-hover:w-16" /> */}
+          </div>
+
+          <p className="text-gray-600 my-2 mb-4 flex-grow leading-relaxed">
+            {service.shortDesc}
+          </p>
+
+          <div className="flex items-center text-yellow-500 font-medium mt-auto">
+            <span className="mr-2 transition-all duration-300">Learn more</span>
+            <div
+              className={`flex items-center justify-center w-6 h-6 rounded-full bg-yellow-100 transition-all duration-500 ${
+                isHovered
+                  ? 'bg-yellow-500 text-white translate-x-1'
+                  : 'text-yellow-500'
+              }`}
+            >
+              <ArrowRight size={14} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const ServiceDetail = ({ service }) => (
     <div className="bg-white rounded-lg lg:p-8 md:p-6 p-4 shadow-lg max-w-7xl mx-auto">
-      <button 
-      aria-label='All Aervices'
+      <button
+        aria-label="All Services"
         onClick={handleBackClick}
         className="mb-6 flex items-center text-yellow-500 hover:text-yellow-600 transition-all"
       >
         <ChevronRight className="rotate-180 mr-1" size={18} />
         <span>Back to all services</span>
       </button>
-      
+
       <div className="flex items-center mb-6">
         <div className="bg-yellow-100 p-3 rounded-full text-yellow-500 mr-4">
           {service.icon}
         </div>
         <h2 className="text-3xl font-bold">{service.title}</h2>
       </div>
-      
+
       <p className="text-lg text-gray-700 mb-8 border-l-4 border-yellow-500 pl-4">
         {service.description}
       </p>
-      
+
       <div className="grid md:grid-cols-2 lg:gap-8 gap-4 mb-8">
         <div className="bg-gray-50 lg:p-6 p-3 rounded-lg">
           <h3 className="text-xl font-semibold mb-4 text-yellow-600">What We Offer</h3>
@@ -206,7 +123,7 @@ export default function ServiceSection() {
             ))}
           </ul>
         </div>
-        
+
         <div className="bg-gray-50 lg:p-6 p-3 rounded-lg">
           <h3 className="text-xl font-semibold mb-4 text-yellow-600">Our Process</h3>
           <ol className="space-y-3">
@@ -221,50 +138,55 @@ export default function ServiceSection() {
           </ol>
         </div>
       </div>
-      
+
       <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-100">
         <h3 className="text-xl font-semibold mb-3 text-yellow-600">Ready to Get Started?</h3>
-        <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <button aria-label='Request Consultation' onClick={() => setModalOpen(true)} className="cursor-pointer bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+        <p className="mb-4">
+          Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.
+        </p>
+        <button
+          aria-label="Request Consultation"
+          onClick={() => setModalOpen(true)}
+          className="cursor-pointer bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-lg transition-colors duration-300"
+        >
           Request Consultation
         </button>
       </div>
     </div>
   );
-  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <InquiryModal isOpen={modalOpen} closeModal={() => setModalOpen(false)} />
-    <div className="min-h-screen bg-gray-50">
-   
 
-      <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        {activeService ? (
-          <ServiceDetail service={activeService} />
-        ) : (
-          <>
-            {/* Services Hero Section */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-2">Our Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive architectural solutions tailored to your vision, from concept to completion
-              </p>
-            </div>
+      <div className="min-h-screen bg-gray-50">
+        <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+          {activeService ? (
+            <ServiceDetail service={activeService} />
+          ) : (
+            <>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-2">Our Services</h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Comprehensive architectural solutions tailored to your vision, from concept to completion
+                </p>
+              </div>
 
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-            </div>
-
-          </>
-        )}
-      </main>
-
-      {/* Footer */}
-     
-    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => (
+                  <ServiceCard
+                    key={service.id}
+                    service={service}
+                    hoveredService={hoveredService}
+                    setHoveredService={setHoveredService}
+                    handleServiceClick={handleServiceClick}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </main>
+      </div>
     </>
   );
 }

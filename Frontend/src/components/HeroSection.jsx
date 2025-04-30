@@ -13,20 +13,14 @@ export default function HeroSection() {
   const featuredProjects = [
     {
       id: 1,
-      title: "Urban Harmony Tower",
-      location: "Mumbai, India",
       imageUrl: third
     },
     {
       id: 2,
-      title: "Serenity Gardens Complex",
-      location: "Bangalore, India",
       imageUrl: second
     },
     {
       id: 3,
-      title: "Azure Sky Residences",
-      location: "Delhi, India",
       imageUrl: first
     }
   ];
@@ -49,12 +43,6 @@ export default function HeroSection() {
     { icon: <Users size={20} />, value: "45+", label: "Team Members" },
   ];
 
-  // const scrollToProjects = () => {
-  //   const projectsSection = document.getElementById("projects");
-  //   if (projectsSection) {
-  //     projectsSection.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -90,9 +78,12 @@ export default function HeroSection() {
             <h2 className="text-white text-lg md:text-xl font-light mb-2 tracking-wider">
               AGARWAL & ASSOCIATES
             </h2>
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Crafting <span className="text-primari">Architectural</span> Excellence
-            </h1>
+            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Crafting <span className="relative">
+                  <span className="relative z-10">Architectural</span>
+                  <span className="absolute bottom-2 left-0 w-full h-4 bg-yellow-500/70 -rotate-1 z-0"></span>
+                </span> Excellence
+              </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl">
               We transform visions into iconic structures, blending aesthetic brilliance with functional design to create spaces that inspire.
             </p>
