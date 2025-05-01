@@ -42,7 +42,7 @@ export default function ProjectSection() {
               onClick={() => setActiveFilter(category.id)}
               className={`px-5 py-2 border border-gray-100 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === category.id
-                  ? 'bg-yellow-500 text-white shadow-md'
+                  ? 'bg-red-500 text-white shadow-md'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
@@ -76,7 +76,7 @@ export default function ProjectSection() {
                       {/* Animated tags that slide up on hover */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 ease-out group-hover:translate-y-0 translate-y-4">
                         <div className="flex flex-wrap gap-3">
-                          <span className="bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm bg-opacity-90 shadow-lg">
+                          <span className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm bg-opacity-90 shadow-lg">
                             <Tag size={14} className="mr-2" /> {project.category}
                           </span>
                           <span className="bg-gray-900 bg-opacity-80 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm shadow-lg">
@@ -91,14 +91,14 @@ export default function ProjectSection() {
                     
                     <div className="p-8 lg:p-12 bg-white flex flex-col justify-center relative overflow-hidden">
                       {/* Decorative element */}
-                      <div className="absolute top-0 left-0 w-2 h-full bg-yellow-500 transform transition-all duration-500 ease-out group-hover:h-full group-hover:w-full group-hover:opacity-5"></div>
+                      <div className="absolute top-0 left-0 w-2 h-full bg-red-500 transform transition-all duration-500 ease-out group-hover:h-full group-hover:w-full group-hover:opacity-5"></div>
                       
                       <div className="mb-4 flex items-center">
-                        <div className="h-px w-12 bg-yellow-500 mr-4"></div>
-                        <h3 className="text-sm font-medium text-yellow-500 uppercase tracking-wider">Featured Project</h3>
+                        <div className="h-px w-12 bg-red-500 mr-4"></div>
+                        <h3 className="text-sm font-medium text-red-500 uppercase tracking-wider">Featured Project</h3>
                       </div>
                       
-                      <h2 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">{project.title}</h2>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">{project.title}</h2>
                       
                       <p className="text-gray-600 mb-6 text-lg line-clamp-3">{project.description}</p>
                       
@@ -110,13 +110,13 @@ export default function ProjectSection() {
                       <Link
                       aria-label="project-detail" 
                         to={`/project/${project.slug}`} 
-                        className="self-start flex items-center font-medium text-gray-800 hover:text-yellow-500 transition-all duration-300 relative group/btn"
+                        className="self-start flex items-center font-medium text-gray-800 hover:text-red-500 transition-all duration-300 relative group/btn"
                       >
                         <span className="relative z-10">View Project Details</span>
                         <span className="ml-2 transition-all duration-300 group-hover/btn:translate-x-1 relative z-10">
                           <ArrowRight size={18} />
                         </span>
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover/btn:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover/btn:w-full"></span>
                       </Link>
                     </div>
                   </div>
@@ -151,11 +151,11 @@ export default function ProjectSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-30 group-hover:opacity-80 transition-all duration-500"></div>
           
           {/* Top accent bar */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-yellow-500 transform origin-left transition-transform duration-500 ease-out scale-x-0 group-hover:scale-x-100"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-red-500 transform origin-left transition-transform duration-500 ease-out scale-x-0 group-hover:scale-x-100"></div>
           
           {/* Category Badge - Always visible */}
           <div className="absolute top-4 left-4 z-20">
-            <span className="bg-yellow-500 text-white px-3 py-1 rounded-lg text-xs font-medium flex items-center">
+            <span className="bg-red-500 text-white px-3 py-1 rounded-lg text-xs font-medium flex items-center">
               <Tag size={12} className="mr-1.5" /> {project.category}
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function ProjectSection() {
               <Link 
               aria-label="project-detail"
                 to={`/project/${project.slug}`} 
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center transition-all duration-300 hover:pl-5"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center transition-all duration-300 hover:pl-5"
               >
                 View Details
                 <ArrowRight size={16} className="ml-2 transition-all duration-300" />
@@ -210,9 +210,9 @@ export default function ProjectSection() {
           <Link
           aria-label="Projects"  
             to="/projects" 
-            className="inline-flex items-center px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-medium rounded-lg hover:bg-yellow-500 hover:text-white transition-all duration-300 group relative overflow-hidden"
+            className="inline-flex items-center px-8 py-3 border-2 border-red-500 text-red-500 font-medium rounded-lg hover:bg-red-500 hover:text-white transition-all duration-300 group relative overflow-hidden"
           >
-            <span className="absolute inset-0 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="absolute inset-0 bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             <span className="relative z-10 group-hover:text-white transition-colors duration-300">Explore All Projects</span>
             <ArrowRight size={18} className="ml-2 relative z-10 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1" />
           </Link>

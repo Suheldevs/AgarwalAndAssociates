@@ -17,10 +17,10 @@ const Step = ({ id, title, Icon, description, index }) => (
     data-aos-delay={index * 300}
   >
     {/* Icon Container */}
-    <div className="w-24 h-24 group flex items-center border justify-center rounded-full transition-all duration-1000 border-primary text-yellow-500 bg-white hover:bg-transparent hover:text-white relative">
+    <div className="w-24 h-24 group flex items-center border justify-center rounded-full transition-all duration-1000 border-primary text-red-500 bg-white hover:bg-transparent hover:text-white relative">
       <Icon size={60} aria-hidden="true" />
       {/* Number Badge */}
-      <div className="absolute top-0 -right-2 group-hover:bg-black px-3 py-1 text-yellow-500 group-hover:text-white font-bold rounded-full border border-primary transition-all duration-300 group-hover:-top-2 group-hover:right-0 group-hover:border-white bg-white">
+      <div className="absolute top-0 -right-2 group-hover:bg-black px-3 py-1 text-red-500 group-hover:text-white font-bold rounded-full border border-primary transition-all duration-300 group-hover:-top-2 group-hover:right-0 group-hover:border-white bg-white">
         {id}
       </div>
     </div>

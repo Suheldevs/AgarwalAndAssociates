@@ -56,13 +56,13 @@ export default function CTASection() {
     <section className="relative py-8 lg:py-12 md:py-10 overflow-hidden">
       {/* Background with geometric patterns */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-500 opacity-5 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500 opacity-5 rounded-full transform translate-x-1/3 translate-y-1/3"></div>
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-yellow-300 opacity-5 rounded-full"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 bg-red-500 opacity-5 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 opacity-5 rounded-full transform translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-red-300 opacity-5 rounded-full"></div>
 
         {/* Diagonal line */}
         <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-50 to-transparent opacity-70"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-50 to-transparent opacity-70"></div>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ export default function CTASection() {
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-2">
             Let's Bring Your Vision to Life
           </h2>
-          {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
+          {/* <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div> */}
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Ready to transform your space? Contact us today for a consultation
             and discover how Agarwal & Associates can create architectural
@@ -81,12 +81,12 @@ export default function CTASection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
           {/* Left Contact Info Panel */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl lg:p-8 p-4 shadow-xl">
+          <div className="lg:col-span-2 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-xl lg:p-8 p-4 shadow-xl">
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
             <div className="space-y-8">
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-red-500 bg-opacity-20 rounded-lg mr-4">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -97,7 +97,7 @@ export default function CTASection() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-red-500 bg-opacity-20 rounded-lg mr-4">
                   <Mail size={24} />
                 </div>
                 <div>
@@ -108,7 +108,7 @@ export default function CTASection() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-white text-yellow-500 bg-opacity-20 rounded-lg mr-4">
+                <div className="flex-shrink-0 p-2 bg-white text-red-500 bg-opacity-20 rounded-lg mr-4">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -124,7 +124,7 @@ export default function CTASection() {
 
             <div className="mt-12">
               <h4 className="font-medium text-lg mb-4">Follow Us</h4>
-              <div className="flex space-x-4 text-yellow-500">
+              <div className="flex space-x-4 text-red-500">
                 <a aria-label="facebook"
                   href="#"
                   className="p-2 bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all duration-300"
@@ -210,7 +210,7 @@ export default function CTASection() {
                   onClick={() =>
                     setFormStatus({ submitted: false, loading: false })
                   }
-                  className="flex items-center px-6 py-3 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition-colors duration-300"
+                  className="flex items-center px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors duration-300"
                 >
                   Send Another Message
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -235,7 +235,7 @@ export default function CTASection() {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="Full Name"
                       required
                     />
@@ -254,7 +254,7 @@ export default function CTASection() {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="email@example.com"
                       required
                     />
@@ -280,7 +280,7 @@ export default function CTASection() {
                       maxLength="10"
                       value={formState.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="Enter 10 Digit Phone Number"
                     />
                   </div>
@@ -297,7 +297,7 @@ export default function CTASection() {
                       name="service"
                       value={formState.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       required
                     >
                       <option value="" selected>
@@ -332,7 +332,7 @@ export default function CTASection() {
                     value={formState.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>
@@ -343,7 +343,7 @@ export default function CTASection() {
                   aria-label="Submit"
                   disabled={formStatus.loading}
                     type="submit"
-                    className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
+                    className="w-full flex items-center justify-center px-6 py-3 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-all duration-300 shadow-lg"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
@@ -364,7 +364,7 @@ export default function CTASection() {
         </div>
 
         {/* Bottom Appointment Prompt */}
-        <div className="mt-12 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl p-8 md:p-12 shadow-md">
+        <div className="mt-12 bg-gradient-to-r from-red-50 to-red-100 rounded-2xl p-8 md:p-12 shadow-md">
           <div className="md:flex items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
               <h3 className="lg:text-2xl text-xl font-bold text-gray-900 mb-3">
@@ -380,7 +380,7 @@ export default function CTASection() {
               <Link
               aria-label="contact"
                 to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 Contact Us
                 <ArrowRight className="ml-2" size={18} />

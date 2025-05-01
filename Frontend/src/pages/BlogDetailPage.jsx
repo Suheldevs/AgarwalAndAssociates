@@ -108,14 +108,14 @@ export default function BlogDetail() {
     
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Back Button */}
-      <Link to="/blog" className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-medium mb-6 group transition-all">
+      <Link to="/blog" className="inline-flex items-center text-red-600 hover:text-red-700 font-medium mb-6 group transition-all">
         <ChevronLeft className="w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform" />
         Back to all articles
       </Link>
       
       {/* Blog Header */}
       <div className="mb-10">
-        <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">{blog.category}</span>
+        <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">{blog.category}</span>
         <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">{blog.title}</h1>
         
         <div className="flex flex-wrap items-center text-gray-600 gap-6 mb-8">
@@ -203,7 +203,7 @@ export default function BlogDetail() {
       <div className="mt-24">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-2xl font-bold">More Articles</h2>
-          <Link to="/blog" className="flex items-center text-yellow-600 hover:text-yellow-800 font-medium group">
+          <Link to="/blog" className="flex items-center text-red-600 hover:text-red-800 font-medium group">
             View all 
             <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -220,8 +220,8 @@ export default function BlogDetail() {
                     className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <span className="text-sm font-medium text-yellow-600">{article.category}</span>
-                <h3 className="font-bold text-xl mt-2 group-hover:text-yellow-600 transition-colors">{article.title}</h3>
+                <span className="text-sm font-medium text-red-600">{article.category}</span>
+                <h3 className="font-bold text-xl mt-2 group-hover:text-red-600 transition-colors">{article.title}</h3>
               </Link>
               <div className="flex items-center mt-4 text-gray-600 text-sm">
                 <span>{article.date}</span>

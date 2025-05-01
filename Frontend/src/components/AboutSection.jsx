@@ -101,11 +101,11 @@ export default function ModernAboutSection() {
 
         {/* Stats Banner */}
         <div className="bg-black text-white rounded-2xl p-8 mb-10 shadow-xl overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-full h-full bg-yellow-400 opacity-5 clip-diagonal"></div>
+          <div className="absolute top-0 right-0 w-full h-full bg-red-500 opacity-5 clip-diagonal"></div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-yellow-400 border border-yellow-500 inline-flex mb-4 p-2 rounded-full justify-center">
+                <div className="text-white border border-white inline-flex mb-4 p-2 rounded-full justify-center">
                   {stat.icon}
                 </div>
                 <h4 className="text-3xl font-bold mb-1">{stat.count}</h4>
@@ -119,7 +119,7 @@ export default function ModernAboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-10">
           {/* Left Column - Image with Overlay */}
           <div className="lg:col-span-2 relative h-96 lg:h-auto rounded-2xl overflow-hidden group">
-            <div className="absolute inset-0 bg-yellow-400 opacity-20 group-hover:opacity-10 transition-opacity z-10"></div>
+            <div className="absolute inset-0 bg-red-500 opacity-20 group-hover:opacity-10 transition-opacity z-10"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-20"></div>
             <img
               src={image}
@@ -127,7 +127,7 @@ export default function ModernAboutSection() {
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute bottom-6 left-6 z-30">
-              <span className="bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">EST. 2005</span>
+              <span className="bg-red-500 text-slate-100 text-xs font-bold px-3 py-1 rounded-full">EST. 2005</span>
               <h3 className="text-white text-2xl font-bold mt-3">Agarwal & Associates</h3>
               <p className="text-gray-200">Award-winning architectural firm</p>
             </div>
@@ -143,7 +143,7 @@ export default function ModernAboutSection() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`pb-4 px-6 font-medium text-lg transition-colors relative ${
                     activeTab === tab.id
-                      ? "text-yellow-500 border-b-2 border-yellow-500 -mb-px"
+                      ? "text-red-500 border-b-2 border-red-500 -mb-px"
                       : "text-gray-500 hover:text-gray-800"
                   }`}
                 >
@@ -161,7 +161,7 @@ export default function ModernAboutSection() {
             <div className="mt-8">
               <a
                 href="/services"
-                className="inline-flex items-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium rounded-lg group transition-all"
+                className="inline-flex items-center px-6 py-3 bg-red-500 hover:bg-red-500 text-gray-100 font-medium rounded-lg group transition-all"
               >
                 Explore Our Services
                 <ChevronRight
@@ -180,9 +180,9 @@ export default function ModernAboutSection() {
             {values.map((value, index) => (
               <div 
                 key={index} 
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-yellow-400 relative overflow-hidden group"
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-red-500 relative overflow-hidden group"
               >
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-100 rounded-full opacity-30 group-hover:scale-150 transition-transform duration-500"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-red-100 rounded-full opacity-30 group-hover:scale-150 transition-transform duration-500"></div>
                 <h4 className="text-xl font-bold text-gray-800 mb-4 relative z-10">{value.title}</h4>
                 <p className="text-gray-600 relative z-10">{value.description}</p>
               </div>

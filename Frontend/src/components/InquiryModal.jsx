@@ -141,7 +141,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all`}
                       placeholder="Enter Your Full Name"
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -153,7 +153,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all`}
                       placeholder="email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -168,7 +168,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                      className={`p-2 rounded-md w-full bg-gray-50 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all`}
                       placeholder="Enter Your 10 Digit Number"
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -179,7 +179,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all appearance-none"
                     >
                       <option value="" selected>
                         Select a Service
@@ -208,7 +208,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all"
                       placeholder="City, Country"
                     />
                   </div>
@@ -222,7 +222,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all appearance-none"
+                      className="p-2 rounded-md w-full bg-gray-50 border border-gray-300 rounded- focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all appearance-none"
                     >
                       <option value="">Select Project Type</option>
                       <option value="residential">Residential</option>
@@ -242,7 +242,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className={`p-2 rounded-md min-h-24 w-full bg-gray-50 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded- h-16 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition-all`}
+                    className={`p-2 rounded-md min-h-24 w-full bg-gray-50 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded- h-16 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all`}
                     placeholder="Tell us about your project or inquiry..."
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -254,7 +254,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                  aria-label='sumbit'
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-amber-500 hover:bg-amber-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-red-500 hover:bg-red-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>

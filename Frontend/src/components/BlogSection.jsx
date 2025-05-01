@@ -37,7 +37,7 @@ export default function BlogPage() {
       <div className="container mx-auto  sm:px-6 lg:px-6 lg:py-12 py-8 md:py-10 lg:pb-16">
       <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-2">Recent Articals</h2>
-          {/* <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div> */}
+          {/* <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div> */}
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           Discover expert thoughts and project highlights on our blog
           </p>
@@ -63,7 +63,7 @@ export default function BlogPage() {
                     className={`absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-${hoveredId === post.id ? '90' : '60'} transition-opacity duration-500`}
                   ></div>
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center bg-yellow-500 px-3 py-1 rounded-full text-xs font-medium text-white">
+                    <span className="inline-flex items-center bg-red-500 px-3 py-1 rounded-full text-xs font-medium text-white">
                       <Tag className="h-3 w-3 mr-1" />
                       {post.category}
                     </span>
@@ -85,19 +85,19 @@ export default function BlogPage() {
                   <p className="text-gray-600 mb-6 line-clamp-2">{post.description}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex space-x-4 text-gray-500">
-                      <button aria-label="Button"  className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button"  className="flex items-center text-sm hover:text-red-500 transition-colors duration-300">
                         <Heart className="h-4 w-4 mr-1" />
                         <span>{post.likes}</span>
                       </button>
-                      <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button" className="flex items-center text-sm hover:text-red-500 transition-colors duration-300">
                         <MessageSquare className="h-4 w-4 mr-1" />
                         <span>{post.comments}</span>
                       </button>
-                      <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                      <button aria-label="Button" className="flex items-center text-sm hover:text-red-500 transition-colors duration-300">
                         <Share2 className="h-4 w-4" />
                       </button>
                     </div>
-                    <button aria-label="Button" className="flex items-center text-sm hover:text-yellow-500 transition-colors duration-300">
+                    <button aria-label="Button" className="flex items-center text-sm hover:text-red-500 transition-colors duration-300">
                       <Bookmark className="h-4 w-4" />
                     </button>
                   </div>
@@ -105,7 +105,7 @@ export default function BlogPage() {
                     <Link 
                     aria-label="Blog detail"
                       to={`/blog-detail/${post.slug}`}
-                      className="flex items-center justify-between w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg group-hover:shadow-md transition-all duration-300"
+                      className="flex items-center justify-between w-full px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg group-hover:shadow-md transition-all duration-300"
                     >
                       <span className="font-medium">Read Full Article</span>
                       <ArrowRight className="h-5 w-5 transform transition-transform duration-500 group-hover:translate-x-2" />

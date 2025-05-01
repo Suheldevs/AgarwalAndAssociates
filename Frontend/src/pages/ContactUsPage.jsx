@@ -111,15 +111,15 @@ setError('Something Went Wrong , Try Later !')
           {contactMethods.map((method, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-yellow-500"
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-red-500"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-50 text-yellow-600 mb-5 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-50 text-red-600 mb-5 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
                 {method.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {method.title}
               </h3>
-              <p className="text-lg text-yellow-600 font-medium mb-1">
+              <p className="text-lg text-red-600 font-medium mb-1">
                 {method.content}
               </p>
               <p className="text-sm text-gray-500">{method.details}</p>
@@ -151,7 +151,7 @@ setError('Something Went Wrong , Try Later !')
                   onClick={() =>
                     setFormStatus({ submitted: false, loading: false })
                   }
-                  className="flex items-center px-6 py-3 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition-colors duration-300"
+                  className="flex items-center px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors duration-300"
                 >
                   Send Another Message
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -176,7 +176,7 @@ setError('Something Went Wrong , Try Later !')
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="Full Name"
                       required
                     />
@@ -195,7 +195,7 @@ setError('Something Went Wrong , Try Later !')
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="email@example.com"
                       required
                     />
@@ -221,7 +221,7 @@ setError('Something Went Wrong , Try Later !')
                       maxLength="10"
                       value={formState.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       placeholder="Enter 10 Digit Phone Number"
                     />
                   </div>
@@ -238,7 +238,7 @@ setError('Something Went Wrong , Try Later !')
                       name="service"
                       value={formState.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                       required
                     >
                       <option value="" selected>
@@ -273,7 +273,7 @@ setError('Something Went Wrong , Try Later !')
                     value={formState.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300"
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>
@@ -283,7 +283,7 @@ setError('Something Went Wrong , Try Later !')
                   <button
                   disabled={formStatus.loading}
                     type="submit"
-                    className="w-full flex items-center justify-center px-6 py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition-all duration-300 shadow-lg"
+                    className="w-full flex items-center justify-center px-6 py-3 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-all duration-300 shadow-lg"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
@@ -304,10 +304,10 @@ setError('Something Went Wrong , Try Later !')
           {/* Business Info */}
           <div className="lg:col-span-2 col-span-3 space-y-8 ">
             {/* Hours */}
-            <div className="bg-white  rounded-2xl shadow-lg p-8 border-l-4 border-yellow-500">
+            <div className="bg-white  rounded-2xl shadow-lg p-8 border-l-4 border-red-500">
               <div className="flex items-start mb-5">
-                <div className="bg-yellow-50 p-3 rounded-lg">
-                  <Clock className="h-6 w-6 text-yellow-600" />
+                <div className="bg-red-50 p-3 rounded-lg">
+                  <Clock className="h-6 w-6 text-red-600" />
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-bold text-gray-900 mb-1">
@@ -328,7 +328,7 @@ setError('Something Went Wrong , Try Later !')
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
                   <span className="text-gray-600">Sunday</span>
-                  <span className="font-medium text-yellow-600">Closed</span>
+                  <span className="font-medium text-red-600">Closed</span>
                 </div>
               </div>
             </div>

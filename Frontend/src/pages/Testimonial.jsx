@@ -117,7 +117,7 @@ export default function TestimonialsPage() {
       <Star 
         key={i} 
         size={16} 
-        className={i < rating ? "fill-amber-400 text-amber-400" : "text-gray-300"} 
+        className={i < rating ? "fill-red-400 text-red-400" : "text-gray-300"} 
       />
     ))
   }

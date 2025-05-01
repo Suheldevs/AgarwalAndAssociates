@@ -5,8 +5,8 @@ import Breadcrumb from '../components/Breadcrumb';
 // Section Header component
 const SectionHeader = ({ icon: Icon, title }) => (
   <div className="flex items-center mb-4 mt-8">
-    <Icon className="mr-2 text-yellow-600 w-6 h-6" />
-    <h2 className="text-xl font-bold text-yellow-800">{title}</h2>
+    <Icon className="mr-2 text-red-600 w-6 h-6" />
+    <h2 className="text-xl font-bold text-red-800">{title}</h2>
   </div>
 );
 
@@ -29,33 +29,33 @@ const PrivacyPolicyPage = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Sidebar Navigation */}
           <div className="md:w-1/4">
-            <div className="bg-yellow-50 p-6 rounded-lg sticky top-8">
-              <h3 className="font-bold text-yellow-800 mb-4 flex items-center">
+            <div className="bg-red-50 p-6 rounded-lg sticky top-8">
+              <h3 className="font-bold text-red-800 mb-4 flex items-center">
                 <Shield className="mr-2 w-5 h-5" />
                 Document Sections
               </h3>
               <nav className="space-y-2">
-                <a href="#privacy-policy" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2 border-b border-yellow-100">
+                <a href="#privacy-policy" className="flex items-center text-red-700 hover:text-red-900 py-2 border-b border-red-100">
                   <Eye className="w-4 h-4 mr-2" />
                   Privacy Policy
                 </a>
-                <a href="#data-collection" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2 border-b border-yellow-100">
+                <a href="#data-collection" className="flex items-center text-red-700 hover:text-red-900 py-2 border-b border-red-100">
                   <FileText className="w-4 h-4 mr-2" />
                   Data Collection
                 </a>
-                <a href="#data-use" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2 border-b border-yellow-100">
+                <a href="#data-use" className="flex items-center text-red-700 hover:text-red-900 py-2 border-b border-red-100">
                   <Info className="w-4 h-4 mr-2" />
                   Use of Information
                 </a>
-                <a href="#data-security" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2 border-b border-yellow-100">
+                <a href="#data-security" className="flex items-center text-red-700 hover:text-red-900 py-2 border-b border-red-100">
                   <Lock className="w-4 h-4 mr-2" />
                   Data Security
                 </a>
-                <a href="#terms" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2 border-b border-yellow-100">
+                <a href="#terms" className="flex items-center text-red-700 hover:text-red-900 py-2 border-b border-red-100">
                   <BookOpen className="w-4 h-4 mr-2" />
                   Terms & Conditions
                 </a>
-                <a href="#disclaimers" className="flex items-center text-yellow-700 hover:text-yellow-900 py-2">
+                <a href="#disclaimers" className="flex items-center text-red-700 hover:text-red-900 py-2">
                   <AlertTriangle className="w-4 h-4 mr-2" />
                   Disclaimers
                 </a>
@@ -65,18 +65,18 @@ const PrivacyPolicyPage = () => {
           
           {/* Main Content */}
           <div className="md:w-3/4">
-            <div className="bg-yellow-50 p-8 rounded-lg mb-8">
+            <div className="bg-red-50 p-8 rounded-lg mb-8">
               <div className="flex items-center justify-center mb-6">
-                <Shield className="text-yellow-600 w-12 h-12" />
+                <Shield className="text-red-600 w-12 h-12" />
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-center text-yellow-800 mb-4">
+              <h1 className="text-2xl md:text-3xl font-bold text-center text-red-800 mb-4">
                 Privacy Policy & Terms of Service
               </h1>
-              <p className="text-center text-yellow-700">
+              <p className="text-center text-red-700">
                 Last Updated: April 20, 2025
               </p>
               <div className="mt-6 text-center">
-                <p className="text-yellow-700">
+                <p className="text-red-700">
                   Agarwal and Associates is committed to protecting your privacy and ensuring a secure experience.
                   Please read our privacy policy and terms of service carefully.
                 </p>
@@ -153,7 +153,7 @@ const PrivacyPolicyPage = () => {
                 all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.
               </p>
               
-              <h3 className="font-semibold text-yellow-800 mt-6 mb-2">Use License</h3>
+              <h3 className="font-semibold text-red-800 mt-6 mb-2">Use License</h3>
               <p className="text-gray-700 mb-4">
                 Permission is granted to temporarily download one copy of the materials on Agarwal and Associates' website for personal, 
                 non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
@@ -166,7 +166,7 @@ const PrivacyPolicyPage = () => {
                 <li>Transfer the materials to another person or "mirror" the materials on any other server.</li>
               </ul>
               
-              <h3 className="font-semibold text-yellow-800 mt-6 mb-2">Intellectual Property</h3>
+              <h3 className="font-semibold text-red-800 mt-6 mb-2">Intellectual Property</h3>
               <p className="text-gray-700 mb-4">
                 All content included on this site, such as text, graphics, logos, button icons, images, digital downloads, data compilations, 
                 and software, is the property of Agarwal and Associates or its content suppliers and protected by international copyright laws.
@@ -189,12 +189,12 @@ const PrivacyPolicyPage = () => {
             
             {/* Contact Section */}
             <section className="mb-10">
-              <div className="bg-yellow-100 p-6 rounded-lg border border-yellow-200">
+              <div className="bg-red-100 p-6 rounded-lg border border-red-200">
                 <SectionHeader icon={Scale} title="Contact Us" />
                 <p className="text-gray-700 mb-4">
                   If you have any questions about this Privacy Policy or Terms and Conditions, please contact us at:
                 </p>
-                <div className="font-medium text-yellow-800">
+                <div className="font-medium text-red-800">
                   <p>Agarwal and Associates</p>
                   <p>Email: privacy@agarwalassociates.com</p>
                   <p>Phone: +1 (555) 123-4567</p>

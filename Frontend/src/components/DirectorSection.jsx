@@ -10,7 +10,7 @@ function DirectorSection() {
           {/* Founder's Photo */}
           <div className="lg:w-2/5 h-full relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60 z-10"></div>
-            <div className="absolute inset-0 bg-yellow-500 opacity-20 z-0 transition-opacity group-hover:opacity-30"></div>
+            <div className="absolute inset-0 bg-red-500 opacity-20 z-0 transition-opacity group-hover:opacity-30"></div>
             <img
               src="https://picsum.photos/id/1005/400/350"
               alt="director"
@@ -18,7 +18,7 @@ function DirectorSection() {
             />
             <div className="absolute bottom-0 left-0 p-8 z-20">
               <h3 className="text-white text-2xl font-bold">Director Name</h3>
-              <p className="text-yellow-300">Founder & Principal Architect</p>
+              <p className="text-red-300">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}
               <p className="text-white/70 text-sm">25+ years</p>
             </div>
@@ -28,9 +28,9 @@ function DirectorSection() {
           <div className="lg:w-3/5 md:p-8 p-4 lg:p-12">
             <div className="mb-8">
               <h3 className="text-3xl font-bold mb-6">Director's Message</h3>
-              <div className="relative pl-6 border-l-2 border-yellow-400">
+              <div className="relative pl-6 border-l-2 border-red-500">
                 <svg
-                  className="absolute top-0 left-0 transform -translate-x-4 -translate-y-3 w-8 h-8 text-yellow-400 opacity-50"
+                  className="absolute top-0 left-0 transform -translate-x-4 -translate-y-3 w-8 h-8 text-red-500 opacity-50"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >

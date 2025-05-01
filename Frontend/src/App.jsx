@@ -24,7 +24,7 @@ const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 // Spinner Component
 const Spinner = () => (
   <div className="flex justify-center items-center h-screen">
-    <div className="w-12 h-12 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 

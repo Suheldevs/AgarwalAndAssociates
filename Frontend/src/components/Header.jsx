@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Building2, Phone, ListFilter } from "lucide-react";
-
+import logo from '../assets/logo-removebg.png'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,8 +54,8 @@ export default function Header() {
     <header
       className={`fixed w-full z-50 transition-all duration-300  ${
         isScrolled
-          ? "bg-white shadow-md py-3"
-          : "lg:bg-transparent bg-white lg:text-white  py-4"
+          ? "bg-white shadow-md pt-1"
+          : "lg:bg-transparent bg-white lg:text-white pt-1"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -63,20 +63,23 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link aria-label=" Logo" to="/" className="flex items-center">
-              <Building2 size={28} className="" />
-              <div className="ml-2">
-                <h1 className="text-xl font-bold  leading-none">
+
+            <img src={logo} alt="logo" className="h-20" />
+
+              {/* <Building2 size={28} className="" />
+              <div className="ml-2"> */}
+                {/* <h1 className="text-xl font-bold  leading-none">
                   AGARWAL <span className=" font-light">&</span>
                 </h1>
                 <p className="text-xs  font-light tracking-widest">
                   ASSOCIATES
-                </p>
-              </div>
+                </p> */}
+              {/* </div> */}
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center">
+          <nav className="hidden lg:flex items-center lg:ml-10">
             <ul className="flex space-x-8">
               {navItems.map((item, index) => (
                 <li key={index} className="relative group">
@@ -117,7 +120,7 @@ export default function Header() {
                       to={item.path}
                       className={` transition-colors ${
                         item.name === "Contact Us"
-                          ? "px-4 py-2 bg-primary text-black hover:bg-gray-900 rounded-md"
+                          ? "px-4 py-2 bg-red-500 text-slate-100 hover:bg-red-600 rounded-md"
                           : ""
                       }`}
                     >
@@ -194,7 +197,7 @@ export default function Header() {
                     to={item.path}
                     className={`block py-2 text-gray-900 hover:text-gray-900 ${
                       item.name === "Contact Us"
-                        ? "mt-4 px-4 py-2 bg-yellow-500  rounded-md text-center"
+                        ? "mt-4 px-4 py-2 bg-red-500  rounded-md text-center"
                         : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}

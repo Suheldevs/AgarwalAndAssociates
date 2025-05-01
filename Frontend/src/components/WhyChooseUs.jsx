@@ -46,7 +46,7 @@ export default function WhyChooseUs() {
             <h2 className="text-3xl md:text-4xl  font-bold">
               Why Choose Us
             </h2>
-            {/* <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-yellow-400 rounded-full"></div> */}
+            {/* <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-red-500 rounded-full"></div> */}
           </div>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
             Architectural Excellence With Unparalleled Vision
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
                   onClick={() => setActiveItem(reason.id)}
                 >
                   <div className={`w-12 h-12 flex items-center justify-center rounded-full ${
-                    activeItem === reason.id ? 'bg-yellow-400 text-black' : 'bg-gray-800 text-gray-400 group-hover:text-yellow-400'
+                    activeItem === reason.id ? 'bg-red-500 text-black' : 'bg-gray-800 text-gray-400 group-hover:text-red-500'
                   } transition-colors duration-300`}>
                     {reason.icon}
                   </div>
@@ -86,9 +86,9 @@ export default function WhyChooseUs() {
               {reasons.map((reason) => (
                 activeItem === reason.id && (
                   <div key={reason.id} className="animate-fadeIn">
-                    <h3 className="text-3xl font-bold text-yellow-400 mb-6">{reason.title}</h3>
+                    <h3 className="text-3xl font-bold text-red-500 mb-6">{reason.title}</h3>
                     <p className="text-xl text-gray-300 leading-relaxed mb-8">{reason.description}</p>
-                    <div className="p-6 bg-white rounded-lg border-l-4 border-yellow-400">
+                    <div className="p-6 bg-white rounded-lg border-l-4 border-red-500">
                       <p className="text-gray-900 italic">
                         "Our {reason.title.toLowerCase()} approach has transformed how clients experience the architectural process, creating both stunning outcomes and memorable journeys."
                       </p>
