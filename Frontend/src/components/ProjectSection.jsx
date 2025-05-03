@@ -60,7 +60,7 @@ export default function ProjectSection() {
               .map(project => (
                 <div 
                   key={project.id}
-                  className="relative rounded-2xl overflow-hidden shadow-xl group"
+                  className="relative overflow-hidden shadow-xl group"
                   onMouseEnter={() => setHoveredProject('featured')}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
@@ -134,7 +134,7 @@ export default function ProjectSection() {
       aria-label="project-detail"
       to={`/project/${project.slug}`} 
         key={project.id}
-        className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+        className="group relative bg-white  overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
         onMouseEnter={() => setHoveredProject(project.id)}
         onMouseLeave={() => setHoveredProject(null)}
       >

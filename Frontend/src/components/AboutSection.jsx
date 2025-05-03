@@ -12,7 +12,7 @@ export default function ModernAboutSection() {
     },
     {
       icon: <Users size={28} />,
-      count: "25+",
+      count: "27+",
       title: "Team Members",
     },
     {
@@ -51,15 +51,12 @@ export default function ModernAboutSection() {
   const tabContent = {
     story: (
       <div className="space-y-4">
-  <p className="text-gray-700">
-    Founded in 2005, Agarwal & Associates is an award-winning architectural firm dedicated to creating thoughtful, innovative spaces that elevate human experience. We blend aesthetic excellence with functional precision, ensuring each project meets the unique needs of our clients while pushing the boundaries of design.
+  <p className="text-gray-800">
+  We handle architectural as well as Interior design Projects. Our work entails preparation of complete architectural and interior design scheme, which are explained with the help of various drawings. Layout plans are prepared according to your needs and submitted for your kind approval. After the finalization of layout plan, detailed architectural drawings and working drawings for the purpose of construction supported by structural drawings, electrical layout, plumbing layout, sanitary layout etc. are provided.
+
   </p>
   <p className="text-gray-700">
-    Our multidisciplinary team brings together expertise in architecture, interior design, urban planning, and sustainable development to deliver comprehensive solutions for projects of all scales.
-  </p>
-  <p className="text-gray-700">
-    With a portfolio spanning residential, commercial, institutional, and public projects, we take pride in our ability to adapt to diverse contexts while maintaining a consistent commitment to design integrity and client satisfaction.
-    At Agarwal & Associates, collaboration lies at the heart of our process. 
+  For the works of interior design, all the furniture details, flooring patterns, electrical layout, ceiling design, services consultancy can also be provided. Technical and auxiliary services consultancy can also be provided. Detailed specifications of materials to be used and regular site visits till completion of project are included. Overall supervision, rigid quality control on materials used, workmanship and work monitoring timely completion is taken care of by us. 
   </p>
   
 </div>

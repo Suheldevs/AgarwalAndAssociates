@@ -79,8 +79,8 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center lg:ml-10">
-            <ul className="flex space-x-8">
+          <nav className="hidden lg:flex items-center text-lg font-medium lg:ml-10">
+            <ul className="flex space-x-6">
               {navItems.map((item, index) => (
                 <li key={index} className="relative group">
                   {item.isDropdown ? (
@@ -135,7 +135,7 @@ export default function Header() {
           {/* Contact Info - Desktop */}
           <a href='tel:9876543210' className="hidden lg:flex items-center">
             <Phone size={16} className="" />
-            <span className="ml-2 ">+91 98765 43210</span>
+            <span className="ml-2 tracking-wider">+91 9415113355</span>
           </a>
 
           {/* Mobile Menu Button */}
@@ -212,7 +212,7 @@ export default function Header() {
           {/* Contact Info - Mobile */}
           <div className="cursor-pointer flex items-center py-4 border-t border-gray-100">
             <Phone size={16} className="text-gray-900" />
-            <span className="ml-2 text-gray-900">+91 98765 43210</span>
+            <span className="ml-2 text-gray-900">+91 9415113355</span>
           </div>
         </div>
       </div>

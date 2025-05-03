@@ -177,7 +177,16 @@ const Footer = () => {
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Phone size={18} className="self-center"/> <span>+91-7499666661</span>
+                <Phone size={18} className="self-center"/> <span>+91-9415113355</span>
+              </a>
+              </li>
+              <li>
+              <a aria-label="Phone number"
+                href="tel:9335221186"
+                target="_blank"
+                className="flex items-center space-x-3"
+              >
+                <Phone size={18} className="self-center"/> <span>+91-9335221186</span>
               </a>
               </li>
               <li>
@@ -197,7 +206,7 @@ const Footer = () => {
               >
                 <MapPin size={20} className="self-center"/>{" "}
                 <span>
-                  Krishna Nagar, Lucknow, <br/> Uttar Pradesh
+                 HIG-42 Sector-E, Aliganj, Lucknow
                 </span>
               </a>
               </li>

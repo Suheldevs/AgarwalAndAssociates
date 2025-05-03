@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus, Briefcase, GraduationCap, WholeWord, LaptopMinimalCheck } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 import { Link } from "react-router-dom";
-
+import defaultImage from '../assets/about/default.webp'
 export default function AboutUsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("vision");
@@ -23,41 +23,246 @@ export default function AboutUsPage() {
   // Core team members with placeholder images
   const coreTeam = [
     {
-      name: "Amit Agarwal",
-      position: "Founder & Principal Architect",
-      image: "https://picsum.photos/id/1005/400/500",
-      education: "M.Arch, Harvard University",
-      experience: "25+ years",
-      quote: "Architecture is not just about creating buildings; it's about crafting experiences that transform lives and communities. Our mission has always been to blend innovation with functionality, creating spaces that inspire and endure."
+      name: "Ar. Rajnish Agarwal",
+      position: "Principal Architect",
+      image: defaultImage,
+      education: "B. Arch. C.O.A., I.I.A., I.I.I.D.",
+      experience: "26 Yrs.",
+      detail: "",
+      slug: "about-ar-rajnish-agarwal"
     },
     {
-      name: "Priya Sharma",
-      position: "Design Director",
-      image: "https://picsum.photos/id/1011/400/500",
-      education: "B.Arch, SPA Delhi",
-      experience: "18+ years"
+      name: "Ar. Aekta Agarwal",
+      position: "Principal Architect",
+      image: "",
+      education: "",
+      experience: "21 Yrs.",
+      detail: "",
+      slug: "about-ar-aekta-agarwal"
     },
     {
-      name: "Rajiv Mehta",
-      position: "Technical Director",
-      image: "https://picsum.photos/id/1074/400/500",
-      education: "MSc. Structural Engineering, IIT Mumbai",
-      experience: "20+ years"
+      name: "Mr. Shyam Kisore",
+      position: "Engineer Consultant",
+      image: "",
+      education: "",
+      experience: "41 Yrs.",
+      detail: "",
+      slug: "about-mr-shyam-kisore"
     },
     {
-      name: "Mohit Mishra",
-      position: "Technical Director",
-      image: "https://picsum.photos/id/1077/400/500",
-      education: "MSc. Structural Engineering, IIT Mumbai",
-      experience: "20+ years"
+      name: "Ar. Puneet Singh",
+      position: "Senior Architect",
+      image: "",
+      education: "",
+      experience: "05 Yrs.",
+      detail: "",
+      slug: "about-ar-puneet-singh"
+    },
+    {
+      name: "Ar. Avinash Verma",
+      position: "Senior Architect & Studio Co-ordinator",
+      image: "",
+      education: "",
+      experience: "03 Yrs.",
+      detail: "",
+      slug: "about-ar-avinash-verma"
+    },
+    {
+      name: "Ar. Monica Verma",
+      position: "Junior Architect",
+      image: "",
+      education: "",
+      experience: "02 Yrs.",
+      detail: "",
+      slug: "about-ar-monica-verma"
+    },
+    {
+      name: "Ar. Disha Agarwal",
+      position: "Junior Architect",
+      image: "",
+      education: "",
+      experience: "01 Yrs.",
+      detail: "",
+      slug: "about-ar-disha-agarwal"
+    },
+    {
+      name: "Ar. Sachin Agarwal",
+      position: "Junior Architect",
+      image: "",
+      education: "",
+      experience: "01 Yrs.",
+      detail: "",
+      slug: "about-ar-sachin-agarwal"
+    },
+    {
+      name: "Ar. Shelly Vaish",
+      position: "Junior Architect",
+      image: "",
+      education: "",
+      experience: "01 Yrs.",
+      detail: "",
+      slug: "about-ar-shelly-vaish"
+    },
+    {
+      name: "Ar. Sanjesh Kumar",
+      position: "Junior Architect",
+      image: "",
+      education: "",
+      experience: "00 Yrs.",
+      detail: "",
+      slug: "about-ar-sanjesh-kumar"
+    },
+    {
+      name: "Mrs. Taru Khanna",
+      position: "Interior Designer",
+      image: "",
+      education: "",
+      experience: "10 Yrs.",
+      detail: "",
+      slug: "about-mrs-taru-khanna"
+    },
+    {
+      name: "Mrs. Tanzeelah Khan",
+      position: "Interior Designer",
+      image: "",
+      education: "",
+      experience: "02 Yrs.",
+      detail: "",
+      slug: "about-mrs-tanzeelah-khan"
+    },
+    {
+      name: "Mr. Ayodhya Prasad",
+      position: "Draughtsman",
+      image: "",
+      education: "",
+      experience: "05 Yrs.",
+      detail: "",
+      slug: "about-mr-ayodhya-prasad"
+    },
+    {
+      name: "Mr. Ashwini H. Ganguede",
+      position: "Draughtsman",
+      image: "",
+      education: "",
+      experience: "05 Yrs.",
+      detail: "",
+      slug: "about-mr-ashwini-h-ganguede"
+    },
+    {
+      name: "Mr. Shyam Chand Joshi",
+      position: "Draughtsman",
+      image: "",
+      education: "",
+      experience: "20 Yrs.",
+      detail: "",
+      slug: "about-mr-shyam-chand-joshi"
+    },
+    {
+      name: "Mr. Mushtaq Ahamad",
+      position: "Draughtsman",
+      image: "",
+      education: "",
+      experience: "01 Yrs.",
+      detail: "",
+      slug: "about-mr-mushtaq-ahamad"
+    },
+    {
+      name: "Mrs. Richa Srivastava",
+      position: "Draughtsman",
+      image: "",
+      education: "",
+      experience: "10 Yrs.",
+      detail: "",
+      slug: "about-mrs-richa-srivastava"
+    },
+    {
+      name: "Er. S. S. Tiwari",
+      position: "Chief Engineer",
+      image: "",
+      education: "",
+      experience: "25 Yrs.",
+      detail: "",
+      slug: "about-er-s-s-tiwari"
+    },
+    {
+      name: "Er. Anant Rai",
+      position: "Asst. Engineer",
+      image: "",
+      education: "",
+      experience: "03 Yrs.",
+      detail: "",
+      slug: "about-er-anant-rai"
+    },
+    {
+      name: "Er. Azhan Owaisi",
+      position: "Asst. Engineer",
+      image: "",
+      education: "",
+      experience: "02 Yrs.",
+      detail: "",
+      slug: "about-er-azhan-owaisi"
+    },
+    {
+      name: "Mr. Rakesh Kumar",
+      position: "Site Supervisor (Civil)",
+      image: "",
+      education: "",
+      experience: "04 Yrs.",
+      detail: "",
+      slug: "about-mr-rakesh-kumar"
+    },
+    {
+      name: "Mr. Shyam Bahadur",
+      position: "Site Supervisor (Civil)",
+      image: "",
+      education: "",
+      experience: "11 Yrs.",
+      detail: "",
+      slug: "about-mr-shyam-bahadur"
+    },
+    {
+      name: "Mr. Naresh Singh",
+      position: "Site Supervisor (Civil)",
+      image: "",
+      education: "",
+      experience: "08 Yrs.",
+      detail: "",
+      slug: "about-mr-naresh-singh"
+    },
+    {
+      name: "Mr. Ram Mohan Singh",
+      position: "Site Supervisor (Civil)",
+      image: "",
+      education: "",
+      experience: "04 Yrs.",
+      detail: "",
+      slug: "about-mr-ram-mohan-singh"
+    },
+    {
+      name: "Er. Arvind D",
+      position: "Engineer (Electrical)",
+      image: "",
+      education: "",
+      experience: "14 Yrs.",
+      detail: "",
+      slug: "about-er-arvind-d"
+    },
+    {
+      name: "Er. S. K. Singh",
+      position: "Engineer (Electrical)",
+      image: "",
+      education: "",
+      experience: "09 Yrs.",
+      detail: "",
+      slug: "about-er-s-k-singh"
     }
   ];
-
+  
   const stats = [
-    { icon: <Users size={24} />, value: "45+", label: "Team Members" },
-    { icon: <Building size={24} />, value: "120+", label: "Completed Projects" },
+    { icon: <Users size={24} />, value: "27+", label: "Team Members" },
+    { icon: <Building size={24} />, value: "150+", label: "Completed Projects" },
     { icon: <LaptopMinimalCheck size={24} />, value: "100%", label: "Client Satisfaction" },
-    { icon: <Award size={24} />, value: "28", label: "Awards" }
+    { icon: <Award size={24} />, value: "18", label: "Awards" }
   ];
 
   return (
@@ -244,7 +449,7 @@ export default function AboutUsPage() {
               {/* Founder's Photo - Enhanced */}
               <div className="lg:w-2/5 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70 z-10"></div>
-                <div className="absolute inset-0 bg-red-500 opacity-20 z-0 transition-opacity group-hover:opacity-30"></div>
+                <div className="absolute inset-0  z-0 transition-opacity group-hover:opacity-30"></div>
                 <img 
                   src={coreTeam[0].image} 
                   alt={coreTeam[0].name}
@@ -317,7 +522,7 @@ export default function AboutUsPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {coreTeam.map((member, index) => (
-                <div key={index} className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div key={index} className="group border border-gray-200 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="relative overflow-hidden">
                     {/* Hover overlay - Enhanced */}
                     <div className="absolute inset-0 bg-gradient-to-t from-red-500/90 via-red-600/70 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
@@ -331,16 +536,16 @@ export default function AboutUsPage() {
                           <p className="text-white">{member.experience}</p>
                         </div>
                         <button className="inline-flex items-center text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-lg transition-colors">
-                          View Profile <ExternalLink size={14} className="ml-2" />
+                          View Detail <ExternalLink size={14} className="ml-2" />
                         </button>
                       </div>
                     </div>
                     
                     {/* Image */}
                     <img 
-                      src={member.image} 
+                      src={defaultImage} 
                       alt={member.name}
-                      className="w-full aspect-[3/4] h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full aspect-[3/4] h-56 p-4 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                   

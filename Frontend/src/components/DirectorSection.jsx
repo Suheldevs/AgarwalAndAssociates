@@ -10,17 +10,17 @@ function DirectorSection() {
           {/* Founder's Photo */}
           <div className="lg:w-2/5 h-full relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60 z-10"></div>
-            <div className="absolute inset-0 bg-red-500 opacity-20 z-0 transition-opacity group-hover:opacity-30"></div>
+            <div className="absolute inset-0  z-0 transition-opacity group-hover:opacity-30"></div>
             <img
               src="https://picsum.photos/id/1005/400/350"
               alt="director"
               className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 p-8 z-20">
-              <h3 className="text-white text-2xl font-bold">Director Name</h3>
-              <p className="text-red-300">Founder & Principal Architect</p>
+              <h3 className="text-white text-2xl font-bold">AR. RAJNISH AGARWAL</h3>
+              <p className="text-slate-200">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}
-              <p className="text-white/70 text-sm">25+ years</p>
+              <p className="text-white/90 text-sm">26+ years</p>
             </div>
           </div>
 
