@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';  // direct import (no lazy load)
 import PageNotFound from './pages/PageNotFound';
+import TeamDetailPage from './pages/TeamDetailPage';
 
 // Lazy loaded pages
 const BlogPage = lazy(() => import('./pages/BlogPage'));
@@ -48,6 +49,7 @@ function App() {
           <Route path='/services/:id' element={<ServicePage />} />
           <Route path='/privacy' element={<PrivacyPolicyPage />} />
           <Route path='*' element={<PageNotFound />} />
+          <Route path='/:slug' element={<TeamDetailPage />} />
         </Routes>
       </Suspense>
       <Footer />

@@ -68,20 +68,23 @@ setError('Something Went Wrong , Try Later !')
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      content: "+1 (555) 123-4567",
+      content: "+91-9415113355",
       details: "Monday to Friday, 9am to 6pm",
+      link:'tel:9415113355'
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       content: "support@yourcompany.com",
       details: "We'll respond within 24 hours",
+      link:'mailto:support@gmail.com'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      content: "100 Main Street, City",
+      content: "HIG-42 Sector-E, Aliganj, Lucknow",
       details: "Find us on Google Maps",
+      link:'https://maps.app.goo.gl/o5pdPpz7rtbvcN1N8'
     },
   ];
 
@@ -109,7 +112,8 @@ setError('Something Went Wrong , Try Later !')
         {/* Contact Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-8 gap-4 mb-10">
           {contactMethods.map((method, index) => (
-            <div
+            <a aria-label={method.title}
+            href={method.link}
               key={index}
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-red-500"
             >
@@ -123,7 +127,7 @@ setError('Something Went Wrong , Try Later !')
                 {method.content}
               </p>
               <p className="text-sm text-gray-500">{method.details}</p>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -380,7 +384,7 @@ setError('Something Went Wrong , Try Later !')
           <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden lg:h-96">
             <iframe
             className="w-full h-full"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.2906214547183!2d80.99697957468184!3d26.862506176677165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd35011967e7%3A0xc4a2515047590d2a!2sCode%20Crafter%20Web%20Solutions%20%7C%20Website%20%26%20Software%20Development%20%7C%20Popular%20IT%20Service%20Providers%20Company%20in%20Lucknow!5e0!3m2!1sen!2sin!4v1745153548894!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5013528711643!2d80.93925357468287!3d26.88757947666216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999562b42ee1ea1%3A0xc9ab179186eddb10!2sAgarwal%20and%20associates!5e0!3m2!1sen!2sin!4v1746380775936!5m2!1sen!2sin"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

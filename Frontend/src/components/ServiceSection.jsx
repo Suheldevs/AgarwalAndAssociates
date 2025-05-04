@@ -41,7 +41,7 @@ export default function ServiceSection() {
       >
         {/* Pattern background */}
         <div
-          className="absolute inset-0 opacity-20 transition-opacity duration-500 "
+          className="absolute inset-0 opacity-60 transition-opacity duration-500 "
           style={{ backgroundImage: `url(${pattern})`, zIndex: 1 }}
         ></div>
 

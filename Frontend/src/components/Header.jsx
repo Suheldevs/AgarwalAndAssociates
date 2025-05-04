@@ -133,9 +133,9 @@ export default function Header() {
           </nav>
 
           {/* Contact Info - Desktop */}
-          <a href='tel:9876543210' className="hidden lg:flex items-center">
+          <a href='tel:9415113355' className="hidden lg:flex items-center">
             <Phone size={16} className="" />
-            <span className="ml-2 tracking-wider">+91 9415113355</span>
+            <span className="ml-2 tracking-wider">+91-9415113355</span>
           </a>
 
           {/* Mobile Menu Button */}

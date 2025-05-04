@@ -3,6 +3,8 @@ import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus
 import Breadcrumb from "../components/Breadcrumb";
 import { Link } from "react-router-dom";
 import defaultImage from '../assets/about/default.webp'
+
+import coreTeam from '../Data/TeamData'
 export default function AboutUsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("vision");
@@ -21,242 +23,7 @@ export default function AboutUsPage() {
   ];
 
   // Core team members with placeholder images
-  const coreTeam = [
-    {
-      name: "Ar. Rajnish Agarwal",
-      position: "Principal Architect",
-      image: defaultImage,
-      education: "B. Arch. C.O.A., I.I.A., I.I.I.D.",
-      experience: "26 Yrs.",
-      detail: "",
-      slug: "about-ar-rajnish-agarwal"
-    },
-    {
-      name: "Ar. Aekta Agarwal",
-      position: "Principal Architect",
-      image: "",
-      education: "",
-      experience: "21 Yrs.",
-      detail: "",
-      slug: "about-ar-aekta-agarwal"
-    },
-    {
-      name: "Mr. Shyam Kisore",
-      position: "Engineer Consultant",
-      image: "",
-      education: "",
-      experience: "41 Yrs.",
-      detail: "",
-      slug: "about-mr-shyam-kisore"
-    },
-    {
-      name: "Ar. Puneet Singh",
-      position: "Senior Architect",
-      image: "",
-      education: "",
-      experience: "05 Yrs.",
-      detail: "",
-      slug: "about-ar-puneet-singh"
-    },
-    {
-      name: "Ar. Avinash Verma",
-      position: "Senior Architect & Studio Co-ordinator",
-      image: "",
-      education: "",
-      experience: "03 Yrs.",
-      detail: "",
-      slug: "about-ar-avinash-verma"
-    },
-    {
-      name: "Ar. Monica Verma",
-      position: "Junior Architect",
-      image: "",
-      education: "",
-      experience: "02 Yrs.",
-      detail: "",
-      slug: "about-ar-monica-verma"
-    },
-    {
-      name: "Ar. Disha Agarwal",
-      position: "Junior Architect",
-      image: "",
-      education: "",
-      experience: "01 Yrs.",
-      detail: "",
-      slug: "about-ar-disha-agarwal"
-    },
-    {
-      name: "Ar. Sachin Agarwal",
-      position: "Junior Architect",
-      image: "",
-      education: "",
-      experience: "01 Yrs.",
-      detail: "",
-      slug: "about-ar-sachin-agarwal"
-    },
-    {
-      name: "Ar. Shelly Vaish",
-      position: "Junior Architect",
-      image: "",
-      education: "",
-      experience: "01 Yrs.",
-      detail: "",
-      slug: "about-ar-shelly-vaish"
-    },
-    {
-      name: "Ar. Sanjesh Kumar",
-      position: "Junior Architect",
-      image: "",
-      education: "",
-      experience: "00 Yrs.",
-      detail: "",
-      slug: "about-ar-sanjesh-kumar"
-    },
-    {
-      name: "Mrs. Taru Khanna",
-      position: "Interior Designer",
-      image: "",
-      education: "",
-      experience: "10 Yrs.",
-      detail: "",
-      slug: "about-mrs-taru-khanna"
-    },
-    {
-      name: "Mrs. Tanzeelah Khan",
-      position: "Interior Designer",
-      image: "",
-      education: "",
-      experience: "02 Yrs.",
-      detail: "",
-      slug: "about-mrs-tanzeelah-khan"
-    },
-    {
-      name: "Mr. Ayodhya Prasad",
-      position: "Draughtsman",
-      image: "",
-      education: "",
-      experience: "05 Yrs.",
-      detail: "",
-      slug: "about-mr-ayodhya-prasad"
-    },
-    {
-      name: "Mr. Ashwini H. Ganguede",
-      position: "Draughtsman",
-      image: "",
-      education: "",
-      experience: "05 Yrs.",
-      detail: "",
-      slug: "about-mr-ashwini-h-ganguede"
-    },
-    {
-      name: "Mr. Shyam Chand Joshi",
-      position: "Draughtsman",
-      image: "",
-      education: "",
-      experience: "20 Yrs.",
-      detail: "",
-      slug: "about-mr-shyam-chand-joshi"
-    },
-    {
-      name: "Mr. Mushtaq Ahamad",
-      position: "Draughtsman",
-      image: "",
-      education: "",
-      experience: "01 Yrs.",
-      detail: "",
-      slug: "about-mr-mushtaq-ahamad"
-    },
-    {
-      name: "Mrs. Richa Srivastava",
-      position: "Draughtsman",
-      image: "",
-      education: "",
-      experience: "10 Yrs.",
-      detail: "",
-      slug: "about-mrs-richa-srivastava"
-    },
-    {
-      name: "Er. S. S. Tiwari",
-      position: "Chief Engineer",
-      image: "",
-      education: "",
-      experience: "25 Yrs.",
-      detail: "",
-      slug: "about-er-s-s-tiwari"
-    },
-    {
-      name: "Er. Anant Rai",
-      position: "Asst. Engineer",
-      image: "",
-      education: "",
-      experience: "03 Yrs.",
-      detail: "",
-      slug: "about-er-anant-rai"
-    },
-    {
-      name: "Er. Azhan Owaisi",
-      position: "Asst. Engineer",
-      image: "",
-      education: "",
-      experience: "02 Yrs.",
-      detail: "",
-      slug: "about-er-azhan-owaisi"
-    },
-    {
-      name: "Mr. Rakesh Kumar",
-      position: "Site Supervisor (Civil)",
-      image: "",
-      education: "",
-      experience: "04 Yrs.",
-      detail: "",
-      slug: "about-mr-rakesh-kumar"
-    },
-    {
-      name: "Mr. Shyam Bahadur",
-      position: "Site Supervisor (Civil)",
-      image: "",
-      education: "",
-      experience: "11 Yrs.",
-      detail: "",
-      slug: "about-mr-shyam-bahadur"
-    },
-    {
-      name: "Mr. Naresh Singh",
-      position: "Site Supervisor (Civil)",
-      image: "",
-      education: "",
-      experience: "08 Yrs.",
-      detail: "",
-      slug: "about-mr-naresh-singh"
-    },
-    {
-      name: "Mr. Ram Mohan Singh",
-      position: "Site Supervisor (Civil)",
-      image: "",
-      education: "",
-      experience: "04 Yrs.",
-      detail: "",
-      slug: "about-mr-ram-mohan-singh"
-    },
-    {
-      name: "Er. Arvind D",
-      position: "Engineer (Electrical)",
-      image: "",
-      education: "",
-      experience: "14 Yrs.",
-      detail: "",
-      slug: "about-er-arvind-d"
-    },
-    {
-      name: "Er. S. K. Singh",
-      position: "Engineer (Electrical)",
-      image: "",
-      education: "",
-      experience: "09 Yrs.",
-      detail: "",
-      slug: "about-er-s-k-singh"
-    }
-  ];
+ 
   
   const stats = [
     { icon: <Users size={24} />, value: "27+", label: "Team Members" },
@@ -295,7 +62,7 @@ export default function AboutUsPage() {
                   technical precision, and sustainable practices.
                 </p>
                 <div className={`mt-8 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-6'}`}>
-                  <Link to='/projects' className="px-8 py-3 bg-red-500 hover:bg-red-500 text-gray-900 font-semibold rounded-lg transition-colors shadow-lg">
+                  <Link to='/projects' className="px-8 py-3 bg-red-500 hover:bg-red-500 text-slate-100 font-semibold rounded-lg transition-colors shadow-lg">
                     Our Projects
                   </Link>
                 </div>
@@ -319,8 +86,8 @@ export default function AboutUsPage() {
                     className={`w-full text-left py-5 px-6 rounded-xl transition-all flex items-center justify-between ${activeTab === "vision" ? "bg-red-500 text-gray-900 shadow-lg" : "hover:bg-gray-800"}`}
                   >
                     <div className="flex items-center">
-                      <div className={`w-10 h-10 rounded-full ${activeTab === "vision" ? "bg-gray-900" : "bg-red-500/20"} flex items-center justify-center mr-4`}>
-                        <Building size={18} className={activeTab === "vision" ? "text-red-500" : "text-red-500"} />
+                      <div className={`w-10 h-10 rounded-full ${activeTab === "vision" ? "bg-gray-900" : "bg-white/20"} flex items-center justify-center mr-4`}>
+                        <Building size={18} className='text-white' />
                       </div>
                       <span className="font-medium">Our Vision</span>
                     </div>
@@ -332,8 +99,8 @@ export default function AboutUsPage() {
                     className={`w-full text-left py-5 px-6 rounded-xl transition-all flex items-center justify-between ${activeTab === "mission" ? "bg-red-500 text-gray-900 shadow-lg" : "hover:bg-gray-800"}`}
                   >
                     <div className="flex items-center">
-                      <div className={`w-10 h-10 rounded-full ${activeTab === "mission" ? "bg-gray-900" : "bg-red-500/20"} flex items-center justify-center mr-4`}>
-                        <Briefcase size={18} className={activeTab === "mission" ? "text-red-500" : "text-red-500"} />
+                      <div className={`w-10 h-10 rounded-full ${activeTab === "mission" ? "bg-gray-900" : "bg-white/20"} flex items-center justify-center mr-4`}>
+                        <Briefcase size={18} className='text-white' />
                       </div>
                       <span className="font-medium">Our Mission</span>
                     </div>
@@ -342,11 +109,11 @@ export default function AboutUsPage() {
                   
                   <button 
                     onClick={() => setActiveTab("values")}
-                    className={`w-full text-left py-5 px-6 rounded-xl transition-all flex items-center justify-between ${activeTab === "values" ? "bg-red-500 text-gray-900 shadow-lg" : "hover:bg-gray-800"}`}
+                    className={`w-full text-left py-5 px-6 rounded-xl transition-all flex items-center justify-between ${activeTab === "values" ? "bg-red-500 text-gray-900 shadow-lg" : "hover:bg-gray-800 "}`}
                   >
                     <div className="flex items-center">
-                      <div className={`w-10 h-10 rounded-full ${activeTab === "values" ? "bg-gray-900" : "bg-red-500/20"} flex items-center justify-center mr-4`}>
-                        <Award size={18} className={activeTab === "values" ? "text-red-500" : "text-red-500"} />
+                      <div className={`w-10 h-10 rounded-full ${activeTab === "values" ? "bg-gray-900" : "bg-white/20"} flex items-center justify-center mr-4`}>
+                        <Award size={18} className='text-white' />
                       </div>
                       <span className="font-medium">Our Values</span>
                     </div>
@@ -527,17 +294,18 @@ export default function AboutUsPage() {
                     {/* Hover overlay - Enhanced */}
                     <div className="absolute inset-0 bg-gradient-to-t from-red-500/90 via-red-600/70 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
                       <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center mb-3">
+                        <div className="flex items-center mb-2">
                           <GraduationCap size={16} className="mr-2 text-white" />
                           <p className="text-white font-medium">{member.education}</p>
                         </div>
-                        <div className="flex items-center mb-6">
+                        <div className="flex items-center mb-3">
                           <Clock size={16} className="mr-2 text-white" />
                           <p className="text-white">{member.experience}</p>
                         </div>
-                        <button className="inline-flex items-center text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-lg transition-colors">
-                          View Detail <ExternalLink size={14} className="ml-2" />
-                        </button>
+                        {index <=2 ? (<Link to={`/${member.slug}`}  className=" z-20 inline-flex items-center text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-lg transition-colors">
+                          View Detail  <ExternalLink size={14} className="ml-2" />
+                        </Link>):(<div></div>)}
+                        
                       </div>
                     </div>
                     
@@ -566,25 +334,22 @@ export default function AboutUsPage() {
           </div>
           
           {/* Company Timeline - Improved Design */}
-          <div className={`mb-12 transition-all duration-1000 delay-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          {/* <div className={`mb-12 transition-all duration-1000 delay-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold">Our Journey</h3>
               <div className="w-24 h-1 bg-red-500 mx-auto mt-4 mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">A timeline of defining moments that shaped our architectural practice and vision</p>
-            </div>
+            </div> */}
             
-            <div className="relative">
-              {/* Timeline line */}
+            {/* <div className="relative">
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-200"></div>
               
-              {/* Timeline events */}
               <div className="flex flex-col">
                 {milestones.map((milestone, index) => (
                   <div 
                     key={index} 
                     className={`flex mb-20 md:mb-16 items-center ${index % 2 === 0 ? 'md:flex-row flex-col' : 'md:flex-row-reverse flex-col'}`}
                   >
-                    {/* Content */}
                     <div className={`md:w-5/12 w-full ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} mb-6 md:mb-0`}>
                       <div className="bg-white lg:p-8 p-4 rounded-xl shadow-xl hover:shadow-2xl transition-shadow relative group transform hover:-translate-y-1 hover:bg-red-50 duration-300">
                         <div className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 hidden md:block ${
@@ -598,20 +363,20 @@ export default function AboutUsPage() {
                       </div>
                     </div>
                     
-                    {/* Timeline dot - Enhanced */}
                     <div className="md:w-2/12 w-full flex justify-center relative order-first md:order-none mb-6 md:mb-0">
                       <div className="w-14 h-14 rounded-full bg-red-500 border-4 border-white shadow-xl flex items-center justify-center z-10 transition-transform hover:scale-110 hover:rotate-12">
                         <Clock size={24} className="text-gray-900" />
                       </div>
                     </div>
                     
-                    {/* Empty space for alignment */}
                     <div className="md:w-5/12 hidden md:block"></div>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </div> */}
+
+
+          {/* </div> */}
 
           {/* Stats Counter - Enhanced Design */}
           <div className={`transition-all duration-1000 delay-1200 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>

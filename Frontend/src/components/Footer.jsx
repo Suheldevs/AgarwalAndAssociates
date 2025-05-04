@@ -200,7 +200,7 @@ const Footer = () => {
               </li>
               <li>
               <a aria-label="map"
-                href="https://maps.app.goo.gl/VXkYGdK97YTe3Xvq5"
+                href="https://maps.app.goo.gl/o5pdPpz7rtbvcN1N8"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
