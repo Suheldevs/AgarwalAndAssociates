@@ -143,7 +143,7 @@ const Footer = () => {
             <div className="space-y-4">
               {Array.isArray(BlogData) &&
                 BlogData.length > 0 &&
-                BlogData?.slice(1, 3)?.map((blog, i) => (
+                BlogData?.slice(1, 4)?.map((blog, i) => (
                   <Link aria-label="Blog-details"
                     key={i}
                     to={`/blog-detail/${blog.slug}`}
@@ -152,7 +152,7 @@ const Footer = () => {
                     <img
                       src={blog.image}
                       alt="news"
-                      className="w-16 aspect-square rounded group-hover:rounded-tl-2xl group-hover:rounded-br-2xl group-hove:scale-105 transition-all ease-in-out duration-500"
+                      className="w-14 aspect-square rounded group-hover:rounded-tl-2xl group-hover:rounded-br-2xl group-hove:scale-105 transition-all ease-in-out duration-500"
                     />
                     <div>
                       {/* <p className="text-sm text-gray-400"></p> */}

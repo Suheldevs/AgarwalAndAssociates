@@ -51,7 +51,7 @@ export default function ModernAboutSection() {
   const tabContent = {
     story: (
       <div className="space-y-4">
-  <p className="text-gray-800">
+  <p className="text-gray-700">
   We handle architectural as well as Interior design Projects. Our work entails preparation of complete architectural and interior design scheme, which are explained with the help of various drawings. Layout plans are prepared according to your needs and submitted for your kind approval. After the finalization of layout plan, detailed architectural drawings and working drawings for the purpose of construction supported by structural drawings, electrical layout, plumbing layout, sanitary layout etc. are provided.
 
   </p>

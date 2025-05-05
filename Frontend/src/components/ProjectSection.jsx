@@ -128,8 +128,7 @@ export default function ProjectSection() {
         {/* UPDATED: Projects Grid with Modern Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {filteredProjects
-    .filter(project => !project.featured || activeFilter !== 'all')
-    .map(project => (
+    .filter(project => !project.featured || activeFilter !== 'all').map(project => (
       <Link
       aria-label="project-detail"
       to={`/project/${project.slug}`} 
@@ -155,7 +154,7 @@ export default function ProjectSection() {
           
           {/* Category Badge - Always visible */}
           <div className="absolute top-4 left-4 z-20">
-            <span className="bg-red-500 text-white px-3 py-1 rounded-lg text-xs font-medium flex items-center">
+            <span className="bg-red-500 text-white border border-gray-200 px-3 py-1 rounded-lg text-xs font-medium flex items-center">
               <Tag size={12} className="mr-1.5" /> {project.category}
             </span>
           </div>
