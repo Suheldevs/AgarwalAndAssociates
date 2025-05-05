@@ -254,7 +254,7 @@ const InquiryModal = ({ isOpen, closeModal }) => {
                  aria-label='sumbit'
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-red-500 hover:bg-red-600 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-red-600 hover:bg-red-700 rounded- text-white font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>

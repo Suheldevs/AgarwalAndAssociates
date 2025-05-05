@@ -231,10 +231,10 @@ export default function ProjectDetail() {
                       <h3 className="font-semibold mb-2">Solution</h3>
                       <p>{projectDetails.solution}</p>
                     </div>
-                    <div>
+                    {/* <div>
                       <h3 className="font-semibold mb-2">Result</h3>
                       <p>{projectDetails.result}</p>
-                    </div>
+                    </div> */}
                   </div>
                 </>
               )}

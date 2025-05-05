@@ -1,4 +1,6 @@
 import React from "react";
+import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function DirectorSection() {
   return (
@@ -21,6 +23,7 @@ function DirectorSection() {
               <p className="text-slate-200">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}
               <p className="text-white/90 text-sm">26+ years</p>
+              <Link to='/about-ar-rajnish-agarwal' className="block text-white/90 bg-red-500 p-2 mt-2 text-sm">More About AR. RAJNISH AGARWAL <FaArrowRight className="inline ml-1 -rotate-45"/> </Link>
             </div>
           </div>
 

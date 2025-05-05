@@ -113,7 +113,7 @@ export default function ModernAboutSection() {
         </div>
 
         {/* Content Grid - Image and Tabs */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-10">
           {/* Left Column - Image with Overlay */}
           <div className="lg:col-span-2 relative h-96 lg:h-auto rounded-2xl overflow-hidden group">
             <div className="absolute inset-0 bg-red-500 opacity-20 group-hover:opacity-10 transition-opacity z-10"></div>
@@ -150,7 +150,7 @@ export default function ModernAboutSection() {
             </div>
 
             {/* Tab Content */}
-            <div className="flex-grow">
+            <div className="flex-grow text-justify">
               {tabContent[activeTab]}
             </div>
 

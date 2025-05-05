@@ -91,8 +91,8 @@ export default function CTASection() {
                 </div>
                 <div>
                   <h4 className="font-medium text-lg">Call Us</h4>
-                  <p className="mt-1 opacity-90">+91 98765 43210</p>
-                  <p className="opacity-90">+91 11 2345 6789</p>
+                  <a href="tel:9335221186" className="mt-1 opacity-90">+91-9335221186</a>, <br/>
+                  <a href="tel:9415113355" className="opacity-90">+91-9415113355</a>
                 </div>
               </div>
 
@@ -113,11 +113,9 @@ export default function CTASection() {
                 </div>
                 <div>
                   <h4 className="font-medium text-lg">Visit Us</h4>
-                  <p className="mt-1 opacity-90">
-                    Agarwal Tower, 42 Architectural Avenue,
-                    <br />
-                    Sector 18, Gurugram, Haryana 122001
-                  </p>
+                  <a href="https://maps.app.goo.gl/o5pdPpz7rtbvcN1N8" className="mt-1 opacity-90">
+                  HIG-42 Sector-E, Aliganj, Lucknow
+                  </a>
                 </div>
               </div>
             </div>

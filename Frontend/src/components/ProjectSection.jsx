@@ -128,7 +128,7 @@ export default function ProjectSection() {
         {/* UPDATED: Projects Grid with Modern Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {filteredProjects
-    .filter(project => !project.featured || activeFilter !== 'all').map(project => (
+    .filter(project => !project.featured || activeFilter !== 'all').slice(0,6).map(project => (
       <Link
       aria-label="project-detail"
       to={`/project/${project.slug}`} 
@@ -205,7 +205,7 @@ export default function ProjectSection() {
 </div>
 
         {/* View All Projects Button - Slightly Updated */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <Link
           aria-label="Projects"  
             to="/projects" 

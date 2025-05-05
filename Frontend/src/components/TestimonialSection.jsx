@@ -1,45 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import bg from '../assets/testimonial.webp'
+import testimonials from '../Data/TestimonialData';
 export default function TestimonialSection() {
-  const testimonials = [
-    {
-      id: 1,
-      name: "Priya Sharma",
-      position: "CEO, Horizon Development",
-      image: "https://randomuser.me/api/portraits/women/75.jpg",
-      quote: "Agarwal & Associates transformed our vision into an architectural masterpiece. Their attention to detail and innovative approach exceeded our expectations. The team's ability to blend aesthetics with functionality created spaces that truly inspire.",
-      rating: 5,
-      project: "Horizon Corporate Headquarters"
-    },
-    {
-      id: 2,
-      name: "Rajiv Mehta",
-      position: "Director, Greenfield Homes",
-      image: "https://randomuser.me/api/portraits/men/75.jpg",
-      quote: "Working with Agarwal & Associates on our residential complex was a seamless experience. Their sustainable design solutions and commitment to our project timeline made them the ideal partner. The finished project has received numerous accolades for its innovative design.",
-      rating: 5,
-      project: "Emerald Heights Residential Complex"
-    },
-    {
-      id: 3,
-      name: "Dr. Anjali Patel",
-      position: "Chairperson, National Education Trust",
-      image: "https://randomuser.me/api/portraits/women/65.jpg",
-      quote: "The team at Agarwal & Associates brought exceptional creativity to our university campus project. They understood our need for spaces that foster learning and collaboration. The result is a campus that inspires both students and faculty.",
-      rating: 5,
-      project: "Panorama University Campus"
-    },
-    {
-      id: 4,
-      name: "Vikram Singhania",
-      position: "Managing Director, Luxury Hospitality Group",
-      image: "https://randomuser.me/api/portraits/men/95.jpg",
-      quote: "From concept to completion, Agarwal & Associates delivered excellence at every stage. Their understanding of luxury hospitality design and ability to create memorable guest experiences sets them apart. Our hotel has become a landmark destination.",
-      rating: 5,
-      project: "Serenity Grand Hotel & Spa"
-    }
-  ];
+  
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(null);
