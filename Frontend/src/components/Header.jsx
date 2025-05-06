@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Building2, Phone, ListFilter } from "lucide-react";
 import logo from '../assets/logo-removebg.png'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +24,28 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleServices = () => {
-    setServicesOpen(!servicesOpen);
+  const toggleDropdown = (id) => {
+    setOpenDropdown(openDropdown === id ? null : id);
   };
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
+    { 
+      name: "About Us", 
+      path: "/about",
+      id: 'about',
+      isDropdown: true,
+      dropdownItems: [
+        { name: "About Agarwal & associates", path: "/about" },
+        { name: "Our Team", path: "/about/our-team" },
+        
+      ],
+    },
     { name: "Projects", path: "/projects" },
     {
       name: "Services",
       path: "#",
+      id: 'services',
       isDropdown: true,
       dropdownItems: [
         { name: "Architectural Consultant", path: "/services/architectural-consultant" },
@@ -62,19 +74,8 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link aria-label=" Logo" to="/" className="flex items-center">
-
-            <img src={logo} alt="logo" className="h-20" />
-
-              {/* <Building2 size={28} className="" />
-              <div className="ml-2"> */}
-                {/* <h1 className="text-xl font-bold  leading-none">
-                  AGARWAL <span className=" font-light">&</span>
-                </h1>
-                <p className="text-xs  font-light tracking-widest">
-                  ASSOCIATES
-                </p> */}
-              {/* </div> */}
+            <Link aria-label="Logo" to="/" className="flex items-center">
+              <img src={logo} alt="logo" className="h-20" />
             </Link>
           </div>
 
@@ -86,28 +87,29 @@ export default function Header() {
                   {item.isDropdown ? (
                     <div>
                       <button
-                      aria-label="dropdown"
-                        className="flex items-center  transition-colors"
-                        onClick={toggleServices}
+                        aria-label="dropdown"
+                        className="flex items-center transition-colors"
+                        onClick={() => toggleDropdown(item.id)}
+                        onMouseEnter={() => toggleDropdown(item.id)}
                       >
                         {item.name}
                         <ChevronDown size={16} className="ml-1" />
                       </button>
                       <div
-                        onMouseLeave={toggleServices}
                         className={`absolute top-full left-0 mt-2 text-black bg-white shadow-lg rounded-md py-2 w-56 transform transition-all origin-top ${
-                          servicesOpen
+                          openDropdown === item.id
                             ? "scale-y-100 opacity-100"
                             : "scale-y-0 opacity-0"
                         }`}
+                        onMouseLeave={() => toggleDropdown(null)}
                       >
                         {item.dropdownItems.map((dropdownItem, idx) => (
                           <Link
-                          aria-label="dropdwon-items"
+                            aria-label="dropdown-items"
                             key={idx}
                             to={dropdownItem.path}
-                            className="block px-4 py-1 hover:bg-slate-100 text-sm  transition-colors"
-                            onClick={() => setServicesOpen(false)}
+                            className="block px-4 py-1 hover:bg-slate-100 text-sm transition-colors"
+                            onClick={() => setOpenDropdown(null)}
                           >
                             {dropdownItem.name}
                           </Link>
@@ -116,9 +118,9 @@ export default function Header() {
                     </div>
                   ) : (
                     <Link
-                    aria-label="items"
+                      aria-label="items"
                       to={item.path}
-                      className={` transition-colors ${
+                      className={`transition-colors ${
                         item.name === "Contact Us"
                           ? "px-4 py-2 bg-red-500 text-slate-100 hover:bg-red-600 rounded-md"
                           : ""
@@ -139,7 +141,7 @@ export default function Header() {
           </a>
 
           {/* Mobile Menu Button */}
-          <button aria-label="Menu" title="Nav-Menu" className="lg:hidden " onClick={toggleMenu}>
+          <button aria-label="Menu" title="Nav-Menu" className="lg:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X size={30} /> : <ListFilter size={30} />}
           </button>
         </div>
@@ -152,37 +154,37 @@ export default function Header() {
         }`}
       >
         <div className="container mx-auto px-4 py-2">
-          <ul className=" py-4">
+          <ul className="py-4">
             {navItems.map((item, index) => (
               <li key={index}>
                 {item.isDropdown ? (
                   <div>
                     <button
-                    aria-label="Nav-item"
+                      aria-label="Nav-item"
                       className="flex items-center justify-between w-full text-gray-900 py-2 hover:text-gray-900"
-                      onClick={toggleServices}
+                      onClick={() => toggleDropdown(item.id)}
                     >
                       {item.name}
                       <ChevronDown
                         size={16}
                         className={`transition-transform ${
-                          servicesOpen ? "rotate-180" : ""
+                          openDropdown === item.id ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     <div
                       className={`pl-4 space-y-2 mt-2 transition-all ${
-                        servicesOpen ? "block" : "hidden"
+                        openDropdown === item.id ? "block" : "hidden"
                       }`}
                     >
                       {item.dropdownItems.map((dropdownItem, idx) => (
                         <Link
-                        aria-label="dropdown"
+                          aria-label="dropdown"
                           key={idx}
                           to={dropdownItem.path}
                           className="block py-0.5 text-gray-600 hover:text-gray-900"
                           onClick={() => {
-                            setServicesOpen(false);
+                            setOpenDropdown(null);
                             setIsMenuOpen(false);
                           }}
                         >
@@ -193,11 +195,11 @@ export default function Header() {
                   </div>
                 ) : (
                   <Link
-                  aria-label="Nav-item"
+                    aria-label="Nav-item"
                     to={item.path}
                     className={`block py-2 text-gray-900 hover:text-gray-900 ${
                       item.name === "Contact Us"
-                        ? "mt-4 px-4 py-2 bg-red-500  rounded-md text-center"
+                        ? "mt-4 px-4 py-2 bg-red-500 text-white rounded-md text-center"
                         : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}

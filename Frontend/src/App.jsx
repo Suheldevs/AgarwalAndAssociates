@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';  // direct import (no lazy load)
 import PageNotFound from './pages/PageNotFound';
 import TeamDetailPage from './pages/TeamDetailPage';
+import OurTeam from './pages/OurTeam';
 
 // Lazy loaded pages
 const BlogPage = lazy(() => import('./pages/BlogPage'));
@@ -50,6 +51,7 @@ function App() {
           <Route path='/privacy' element={<PrivacyPolicyPage />} />
           <Route path='*' element={<PageNotFound />} />
           <Route path='/:slug' element={<TeamDetailPage />} />
+          <Route path='/about/our-team' element={<OurTeam />} />
         </Routes>
       </Suspense>
       <Footer />

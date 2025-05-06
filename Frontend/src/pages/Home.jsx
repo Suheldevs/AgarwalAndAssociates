@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import HeroSection from '../components/HeroSection';
 import HowWeWork from '../components/HowWeWork';
 import WhyChooseUs from '../components/WhyChooseUs';
+import ProjectSection2 from '../components/ProjectSection2';
+import AboutSection2 from '../components/AboutSection2';
 
 const AboutUsSection = lazy(() => import('../components/AboutSection'));
 const DirectorSection = lazy(() => import('../components/DirectorSection'));
@@ -23,13 +25,12 @@ function Home() {
       <HeroSection />
       
       <Suspense fallback={<Spinner />}>
-        <AboutUsSection />
+        <AboutSection2 />
       </Suspense>
-
       <Suspense fallback={<Spinner />}>
-        <DirectorSection />
+        <ProjectSection2 />
       </Suspense>
-
+     
       <Suspense fallback={<Spinner />}>
         <ServiceSection />
       </Suspense>
@@ -38,8 +39,9 @@ function Home() {
       </Suspense>
 
       <Suspense fallback={<Spinner />}>
-        <ProjectSection />
+        <DirectorSection />
       </Suspense>
+
       <Suspense fallback={<Spinner />}>
         <WhyChooseUs />
       </Suspense>

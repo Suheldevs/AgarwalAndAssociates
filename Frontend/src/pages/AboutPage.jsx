@@ -22,7 +22,7 @@ export default function AboutUsPage() {
     { year: "2022", title: "Digital Transformation", description: "Pioneered VR architecture visualization" }
   ];
 
-  // Core team members with placeholder images
+ 
  
   
   const stats = [
