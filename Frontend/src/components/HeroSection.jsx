@@ -172,7 +172,7 @@ export default function VideoHeroSection() {
         <div className="relative mt-12 z-20 h-full flex items-center justify-center">
           <div className="container px-4 lg:px-8 text-center max-w-4xl mx-auto">
             {/* Animated text content */}
-            <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`transition-all mt-20 duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <h2 className="text-white text-lg md:text-xl font-light mb-2 tracking-wider">
                 AGARWAL & ASSOCIATES
               </h2>

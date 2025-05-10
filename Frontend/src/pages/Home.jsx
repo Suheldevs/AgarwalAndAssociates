@@ -4,6 +4,7 @@ import HowWeWork from '../components/HowWeWork';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ProjectSection2 from '../components/ProjectSection2';
 import AboutSection2 from '../components/AboutSection2';
+import VastuSection from '../components/VastuSection';
 
 const AboutUsSection = lazy(() => import('../components/AboutSection'));
 const DirectorSection = lazy(() => import('../components/DirectorSection'));
@@ -29,6 +30,10 @@ function Home() {
       </Suspense>
       <Suspense fallback={<Spinner />}>
         <ProjectSection2 />
+      </Suspense>
+
+      <Suspense fallback={<Spinner />}>
+        <VastuSection/>
       </Suspense>
      
       <Suspense fallback={<Spinner />}>
