@@ -23,7 +23,7 @@ function DirectorSection() {
               <p className="text-slate-200">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}
               <p className="text-white/90 text-sm">26+ years</p>
-              <Link to='/about-ar-rajnish-agarwal' className="block text-white/90 bg-red-500 p-2 mt-2 text-sm">More About AR. RAJNISH AGARWAL <FaArrowRight className="inline ml-1 -rotate-45"/> </Link>
+              <Link to='/about-ar-rajnish-agarwal' className="block text-white/90 bg-black p-2 mt-2 text-sm">More About AR. RAJNISH AGARWAL <FaArrowRight className="inline ml-1 -rotate-45"/> </Link>
             </div>
           </div>
 
@@ -31,9 +31,9 @@ function DirectorSection() {
           <div className="lg:w-3/5 md:p-8 p-4 lg:p-12">
             <div className="mb-8">
               <h3 className="text-3xl font-bold mb-6">Director's Message</h3>
-              <div className="relative pl-6 border-l-2 border-red-500">
+              <div className="relative pl-6 border-l-2 border-black">
                 <svg
-                  className="absolute top-0 left-0 transform -translate-x-4 -translate-y-3 w-8 h-8 text-red-500 opacity-50"
+                  className="absolute top-0 left-0 transform -translate-x-4 -translate-y-3 w-8 h-8 text-black opacity-50"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >

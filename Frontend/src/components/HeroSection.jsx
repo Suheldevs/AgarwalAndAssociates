@@ -81,7 +81,7 @@
 //             <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
 //                 Crafting <span className="relative">
 //                   <span className="relative z-10">Architectural</span>
-//                   <span className="absolute bottom-2 left-0 w-full h-4 bg-red-500/70 -rotate-1 z-0"></span>
+//                   <span className="absolute bottom-2 left-0 w-full h-4 bg-black/70 -rotate-1 z-0"></span>
 //                 </span> Excellence
 //               </h1>
 //             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl">
@@ -90,7 +90,7 @@
 
 //             {/* CTA Buttons */}
 //             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-//               <Link aria-label="Projects" to='/projects' className="px-6 py-3 bg-red-500 hover:bg-red-600 text-slate-200 font-medium rounded flex items-center justify-center transition-all group">
+//               <Link aria-label="Projects" to='/projects' className="px-6 py-3 bg-black hover:bg-black text-slate-200 font-medium rounded flex items-center justify-center transition-all group">
 //                 Explore Our Projects
 //                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
 //               </Link>
@@ -179,7 +179,7 @@ export default function VideoHeroSection() {
               <h1 className="text-white text-5xl md:text-6xl lg:text-6xl font-bold mb-6 leading-tight">
                 Crafting <span className="relative inline-block">
                   <span className="relative z-10">Architectural</span>
-                  <span className="absolute bottom-2 left-0 w-full h-4 bg-red-500/70 -rotate-1 z-0"></span>
+                  <span className="absolute bottom-2 left-0 w-full h-4 bg-black/70 -rotate-1 z-0"></span>
                 </span> Excellence
               </h1>
               <p className="text-gray-200 text-lg md:text-xl mb-8 mx-auto">
@@ -191,7 +191,7 @@ export default function VideoHeroSection() {
                 <Link 
                   aria-label="Projects" 
                   to='/projects' 
-                  className="px-8 py-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md flex items-center justify-center transition-all group"
+                  className="px-8 py-4 bg-black hover:bg-black text-white font-medium rounded-md flex items-center justify-center transition-all group"
                 >
                   Explore Our Projects
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />

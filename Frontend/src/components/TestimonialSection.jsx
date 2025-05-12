@@ -77,7 +77,7 @@ export default function TestimonialSection() {
       <Star 
         key={index} 
         size={16} 
-        className={index < rating ? "text-red-500 fill-red-500" : "text-gray-300"} 
+        className={index < rating ? "text-black fill-black" : "text-gray-300"} 
       />
     ));
   };
@@ -88,7 +88,7 @@ export default function TestimonialSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-3">Client Testimonials</h2>
-          {/* <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div> */}
+          {/* <div className="w-20 h-1 bg-black mx-auto mb-6"></div> */}
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Discover what our clients say about their experience working with Agarwal & Associates
           </p>
@@ -158,7 +158,7 @@ export default function TestimonialSection() {
                   </div>
 
                   {/* Quote Icon */}
-                  <div className="text-red-500 mb-4">
+                  <div className="text-black mb-4">
                     <Quote size={32} />
                   </div>
 
@@ -182,14 +182,14 @@ export default function TestimonialSection() {
             <div className="absolute lg:bottom-6 bottom-2 right-6 flex space-x-3">
               <button 
                 onClick={goToPrevious}
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-red-50 text-red-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-red-50 text-black transition-colors duration-300"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
               </button>
               <button 
                 onClick={goToNext}
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-red-50 text-red-500 transition-colors duration-300"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md hover:bg-red-50 text-black transition-colors duration-300"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />
@@ -205,7 +205,7 @@ export default function TestimonialSection() {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex 
-                    ? 'bg-red-500 w-8' 
+                    ? 'bg-black w-8' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
