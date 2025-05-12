@@ -130,7 +130,7 @@ import React, { useState, useEffect } from "react";
 import { ArrowRight, Award, Users, Clock } from "lucide-react";
 import InquiryModal from "./InquiryModal";
 import { Link } from "react-router-dom";
-
+import heroVideo from '../assets/hero.mp4'
 export default function VideoHeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -152,7 +152,7 @@ export default function VideoHeroSection() {
       <div className="relative h-screen w-full overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <div className="absolute inset-0 bg-black/20 z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
           <video
             autoPlay
             muted
@@ -161,7 +161,7 @@ export default function VideoHeroSection() {
             className="object-cover w-full h-full"
           >
             <source 
-              src="https://www.w3schools.com/html/mov_bbb.mp4" 
+              src={heroVideo}
               type="video/mp4" 
             />
             Your browser does not support the video tag.
@@ -191,7 +191,7 @@ export default function VideoHeroSection() {
                 <Link 
                   aria-label="Projects" 
                   to='/projects' 
-                  className="px-8 py-4 bg-black hover:bg-black text-white font-medium rounded-md flex items-center justify-center transition-all group"
+                  className="px-8 py-4 bg-black/10 border hover:bg-black/40 text-white font-medium flex items-center justify-center transition-all group"
                 >
                   Explore Our Projects
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -199,7 +199,7 @@ export default function VideoHeroSection() {
                 <button 
                   aria-label="get a consultation"  
                   onClick={() => setModalOpen(true)} 
-                  className="px-8 py-4 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium rounded-md transition-all"
+                  className="px-8 py-4 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium  transition-all"
                 >
                   Get a Consultation
                 </button>

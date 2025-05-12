@@ -4,6 +4,7 @@ const ServiceData = [
     {
       id: 'architectural-consultant',
       title: 'Architectural Consultant',
+      image: `https://picsum.photos/seed/architecture/600/400`,
       icon: <Ruler className="mb-2" size={28} />,
       shortDesc: 'Expert architectural guidance for your project needs',
       description: 'Our architectural consultation services provide expert guidance throughout your project lifecycle, from concept development to final construction.',
@@ -25,6 +26,7 @@ const ServiceData = [
     {
       id: 'interior-design',
       title: 'Interior Design',
+        image: `https://picsum.photos/seed/interior/600/400`,
       icon: <PenTool className="mb-2" size={28} />,
       shortDesc: 'Creating beautiful, functional interior spaces',
       description: 'Our interior design services transform spaces into beautiful, functional environments that reflect your vision and requirements.',
@@ -46,6 +48,7 @@ const ServiceData = [
     {
       id: 'engineering-services',
       title: 'Engineering Services',
+       image: `https://picsum.photos/seed/landscape/600/400`,
       icon: <Wrench className="mb-2" size={28} />,
       shortDesc: 'Comprehensive building systems engineering',
       description: 'Our service engineering team ensures all building systems are efficiently designed, integrated, and optimized for performance.',
@@ -67,6 +70,7 @@ const ServiceData = [
     {
       id: 'vastu',
       title: 'Vastu Services',
+       image: `https://picsum.photos/seed/vastu/600/400`,
       icon: <Compass className="mb-2" size={28} />,
       shortDesc: 'Ancient architectural science for harmony',
       description: 'Our Vastu consulting services incorporate ancient architectural science principles to create harmonized spaces that promote well-being.',
@@ -88,6 +92,7 @@ const ServiceData = [
     {
       id: 'project-management',
       title: 'Project Management',
+       image: `https://picsum.photos/seed/product/600/400`,
       icon: <ClipboardList className="mb-2" size={28} />,
       shortDesc: 'End-to-end project coordination and delivery',
       description: 'Our project management services ensure your architectural project is delivered on time, within budget, and to the highest quality standards.',
@@ -109,6 +114,7 @@ const ServiceData = [
     {
       id: 'urban-planning',
       title: 'Urban Planning',
+       image: `https://picsum.photos/seed/brand/600/400`,
       icon: <Building className="mb-2" size={28} />,
       shortDesc: 'Strategic planning for sustainable urban development',
       description: 'Our urban planning services create sustainable, functional, and aesthetically pleasing urban environments through strategic planning and design.',

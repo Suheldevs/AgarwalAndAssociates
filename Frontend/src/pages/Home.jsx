@@ -55,10 +55,10 @@ function Home() {
       <Suspense fallback={<Spinner />}>
         <TestimonialSection />
       </Suspense>
-
+{/* 
       <Suspense fallback={<Spinner />}>
         <CTASection />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<Spinner />}>
         <BlogSection />

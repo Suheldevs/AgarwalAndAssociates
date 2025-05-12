@@ -57,7 +57,7 @@ export default function HowWeWork() {
 
   return (
     <div
-      className="text-center py-12 px-5 bg-black z-10 text-white"
+      className="text-center py-16 px-5 bg-black z-10 text-white"
       data-aos="fade-up"
     >
       <div
@@ -76,7 +76,7 @@ export default function HowWeWork() {
           How We Work{" "}
           {/* <span className="h-[2px] w-7 bg-primary"></span> */}
         </p>
-        <h2 className=" text-lg text-gray-300 mb-6 mt-2 messiri">
+        <h2 className=" text-lg text-gray-300 mb-14 mt-2 messiri">
           Take a tour of our work process
         </h2>
       </div>

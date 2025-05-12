@@ -8,135 +8,136 @@ import {
   Linkedin,
   Twitter
 } from "lucide-react";
-
+import projects from "../Data/ProjectData";
+import { Link } from "react-router-dom";
 // Sample project data
-const projects = [
-  {
-    id: 1,
-    name: "The Plus",
-    location: "MAGNOR, NORWAY",
-    year: "2022",
-    logo: "https://picsum.photos/seed/logo1/100/100",
-    mainImage: "https://picsum.photos/seed/main1/800/500",
-    client: "VESTRE A/S",
-    typology: "INFRASTRUCTURE",
-    size: "7,000 / 75,000",
-    status: "COMPLETED",
-    architect: "BIG – Bjarke Ingels Group",
-    duration: "18 months",
-    materialsUsed: ["Local Mass Timber", "Low-Carbon Concrete", "Recycled Steel"],
-    features: ["Carbon-neutral", "Public park integration", "BREEAM Outstanding"],
-    description:
-      "Designed for furniture manufacturer Vestre, The Plus is a factory, visitor center, and 300-acre park located in Magnor, Norway. It’s the largest furniture investment in Norway in decades.",
-    additionalInfo:
-      "Constructed in just 18 months, it uses local materials and is the first Nordic industrial building with a BREEAM Outstanding rating.",
-    gallery: [
-      "https://picsum.photos/seed/p1g1/600/400",
-      "https://picsum.photos/seed/p1g2/600/400",
-      "https://picsum.photos/seed/p1g3/600/400"
-    ]
-  },
-  {
-    id: 2,
-    name: "NOT A HOTEL Setouchi",
-    location: "SAGI ISLAND, JAPAN",
-    year: "2023",
-    logo: "https://picsum.photos/seed/logo2/100/100",
-    mainImage: "https://picsum.photos/seed/main2/800/500",
-    client: "SETOUCHI HOLDINGS",
-    typology: "HOSPITALITY",
-    size: "3,200 / 45,000",
-    status: "COMPLETED",
-    architect: "Kengo Kuma & Associates",
-    duration: "24 months",
-    materialsUsed: ["Local Wood", "Concrete", "Glass"],
-    features: ["Military fort restoration", "Panoramic sea views", "Sustainable systems"],
-    description:
-      "NOT A HOTEL Setouchi transforms a historic military fortress into a unique hotel experience, blending heritage with modern design.",
-    additionalInfo:
-      "The renovation respects the original structure while introducing sustainability and luxury for immersive cultural stays.",
-    gallery: [
-      "https://picsum.photos/seed/p2g1/600/400",
-      "https://picsum.photos/seed/p2g2/600/400",
-      "https://picsum.photos/seed/p2g3/600/400"
-    ]
-  },
-  {
-    id: 3,
-    name: "Athletics Las Vegas Ballpark",
-    location: "LAS VEGAS, UNITED STATES",
-    year: "2024",
-    logo: "https://picsum.photos/seed/logo3/100/100",
-    mainImage: "https://picsum.photos/seed/main3/800/500",
-    client: "ATHLETICS ORGANIZATION",
-    typology: "SPORTS",
-    size: "35,000 / 150,000",
-    status: "IN PROGRESS",
-    architect: "Populous",
-    duration: "36 months",
-    materialsUsed: ["Steel", "ETFE Roof", "Glass"],
-    features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
-    description:
-      "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
-    additionalInfo:
-      "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
-    gallery: [
-      "https://picsum.photos/seed/p3g1/600/400",
-      "https://picsum.photos/seed/p3g2/600/400",
-      "https://picsum.photos/seed/p3g3/600/400"
-    ]
-  },
-  {
-    id: 3,
-    name: "Athletics Las Vegas Ballpark",
-    location: "LAS VEGAS, UNITED STATES",
-    year: "2024",
-    logo: "https://picsum.photos/seed/logo3/100/100",
-    mainImage: "https://picsum.photos/seed/main3/800/500",
-    client: "ATHLETICS ORGANIZATION",
-    typology: "SPORTS",
-    size: "35,000 / 150,000",
-    status: "IN PROGRESS",
-    architect: "Populous",
-    duration: "36 months",
-    materialsUsed: ["Steel", "ETFE Roof", "Glass"],
-    features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
-    description:
-      "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
-    additionalInfo:
-      "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
-    gallery: [
-      "https://picsum.photos/seed/p3g1/600/400",
-      "https://picsum.photos/seed/p3g2/600/400",
-      "https://picsum.photos/seed/p3g3/600/400"
-    ]
-  },
-  {
-    id: 3,
-    name: "Athletics Las Vegas Ballpark",
-    location: "LAS VEGAS, UNITED STATES",
-    year: "2024",
-    logo: "https://picsum.photos/seed/logo3/100/100",
-    mainImage: "https://picsum.photos/seed/main3/800/500",
-    client: "ATHLETICS ORGANIZATION",
-    typology: "SPORTS",
-    size: "35,000 / 150,000",
-    status: "IN PROGRESS",
-    architect: "Populous",
-    duration: "36 months",
-    materialsUsed: ["Steel", "ETFE Roof", "Glass"],
-    features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
-    description:
-      "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
-    additionalInfo:
-      "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
-    gallery: [
-      "https://picsum.photos/seed/p3g1/600/400",
-      "https://picsum.photos/seed/p3g2/600/400",
-      "https://picsum.photos/seed/p3g3/600/400"
-    ]
-  }
-];
+// const projects = [
+//   {
+//     id: 1,
+//     name: "The Plus",
+//     location: "MAGNOR, NORWAY",
+//     year: "2022",
+//     logo: "https://picsum.photos/seed/logo1/100/100",
+//     mainImage: "https://picsum.photos/seed/main1/800/500",
+//     client: "VESTRE A/S",
+//     typology: "INFRASTRUCTURE",
+//     size: "7,000 / 75,000",
+//     status: "COMPLETED",
+//     architect: "BIG – Bjarke Ingels Group",
+//     duration: "18 months",
+//     materialsUsed: ["Local Mass Timber", "Low-Carbon Concrete", "Recycled Steel"],
+//     features: ["Carbon-neutral", "Public park integration", "BREEAM Outstanding"],
+//     description:
+//       "Designed for furniture manufacturer Vestre, The Plus is a factory, visitor center, and 300-acre park located in Magnor, Norway. It’s the largest furniture investment in Norway in decades.",
+//     additionalInfo:
+//       "Constructed in just 18 months, it uses local materials and is the first Nordic industrial building with a BREEAM Outstanding rating.",
+//     gallery: [
+//       "https://picsum.photos/seed/p1g1/600/400",
+//       "https://picsum.photos/seed/p1g2/600/400",
+//       "https://picsum.photos/seed/p1g3/600/400"
+//     ]
+//   },
+//   {
+//     id: 2,
+//     name: "NOT A HOTEL Setouchi",
+//     location: "SAGI ISLAND, JAPAN",
+//     year: "2023",
+//     logo: "https://picsum.photos/seed/logo2/100/100",
+//     mainImage: "https://picsum.photos/seed/main2/800/500",
+//     client: "SETOUCHI HOLDINGS",
+//     typology: "HOSPITALITY",
+//     size: "3,200 / 45,000",
+//     status: "COMPLETED",
+//     architect: "Kengo Kuma & Associates",
+//     duration: "24 months",
+//     materialsUsed: ["Local Wood", "Concrete", "Glass"],
+//     features: ["Military fort restoration", "Panoramic sea views", "Sustainable systems"],
+//     description:
+//       "NOT A HOTEL Setouchi transforms a historic military fortress into a unique hotel experience, blending heritage with modern design.",
+//     additionalInfo:
+//       "The renovation respects the original structure while introducing sustainability and luxury for immersive cultural stays.",
+//     gallery: [
+//       "https://picsum.photos/seed/p2g1/600/400",
+//       "https://picsum.photos/seed/p2g2/600/400",
+//       "https://picsum.photos/seed/p2g3/600/400"
+//     ]
+//   },
+//   {
+//     id: 3,
+//     name: "Athletics Las Vegas Ballpark",
+//     location: "LAS VEGAS, UNITED STATES",
+//     year: "2024",
+//     logo: "https://picsum.photos/seed/logo3/100/100",
+//     mainImage: "https://picsum.photos/seed/main3/800/500",
+//     client: "ATHLETICS ORGANIZATION",
+//     typology: "SPORTS",
+//     size: "35,000 / 150,000",
+//     status: "IN PROGRESS",
+//     architect: "Populous",
+//     duration: "36 months",
+//     materialsUsed: ["Steel", "ETFE Roof", "Glass"],
+//     features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
+//     description:
+//       "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
+//     additionalInfo:
+//       "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
+//     gallery: [
+//       "https://picsum.photos/seed/p3g1/600/400",
+//       "https://picsum.photos/seed/p3g2/600/400",
+//       "https://picsum.photos/seed/p3g3/600/400"
+//     ]
+//   },
+//   {
+//     id: 3,
+//     name: "Athletics Las Vegas Ballpark",
+//     location: "LAS VEGAS, UNITED STATES",
+//     year: "2024",
+//     logo: "https://picsum.photos/seed/logo3/100/100",
+//     mainImage: "https://picsum.photos/seed/main3/800/500",
+//     client: "ATHLETICS ORGANIZATION",
+//     typology: "SPORTS",
+//     size: "35,000 / 150,000",
+//     status: "IN PROGRESS",
+//     architect: "Populous",
+//     duration: "36 months",
+//     materialsUsed: ["Steel", "ETFE Roof", "Glass"],
+//     features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
+//     description:
+//       "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
+//     additionalInfo:
+//       "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
+//     gallery: [
+//       "https://picsum.photos/seed/p3g1/600/400",
+//       "https://picsum.photos/seed/p3g2/600/400",
+//       "https://picsum.photos/seed/p3g3/600/400"
+//     ]
+//   },
+//   {
+//     id: 3,
+//     name: "Athletics Las Vegas Ballpark",
+//     location: "LAS VEGAS, UNITED STATES",
+//     year: "2024",
+//     logo: "https://picsum.photos/seed/logo3/100/100",
+//     mainImage: "https://picsum.photos/seed/main3/800/500",
+//     client: "ATHLETICS ORGANIZATION",
+//     typology: "SPORTS",
+//     size: "35,000 / 150,000",
+//     status: "IN PROGRESS",
+//     architect: "Populous",
+//     duration: "36 months",
+//     materialsUsed: ["Steel", "ETFE Roof", "Glass"],
+//     features: ["Climate control dome", "Fan-centric amenities", "Sustainable design"],
+//     description:
+//       "A new generation ballpark focused on immersive fan experiences and year-round usability, setting sustainability benchmarks in sports venues.",
+//     additionalInfo:
+//       "Advanced systems combat Vegas’ climate, while design ensures comfort and views from every seat.",
+//     gallery: [
+//       "https://picsum.photos/seed/p3g1/600/400",
+//       "https://picsum.photos/seed/p3g2/600/400",
+//       "https://picsum.photos/seed/p3g3/600/400"
+//     ]
+//   }
+// ];
 
 export default function ProjectSection2() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -186,37 +187,37 @@ export default function ProjectSection2() {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
         <div className="space-y-10">
           {projects.map((project) => (
-            <div
+            <Link
+            to={`/project/${project.slug}`}
               key={project.id}
               className="grid grid-cols-1 md:grid-cols-12 gap-6 cursor-pointer px-52"
-              onClick={() => openProject(project)}
-            >
+              >
               <div className="md:col-span-3 flex flex-col justify-center">
                 <div className="flex items-center mb-4">
-                  <img src={project.logo} alt={`${project.name} logo`} className="w-12 h-12 mr-4" />
+                  <img src='https://picsum.photos/100/100?random=1' alt={`${project.title} logo`} className="w-12 h-12 mr-4" />
                   <div>
-                    <h3 className="font-bold text-xl">{project.name}</h3>
+                    <h3 className="font-bold text-xl">{project.title}</h3>
                     <p className="text-sm text-gray-600">{project.location}</p>
                   </div>
                 </div>
               </div>
               <div className="md:col-span-9 overflow-hidden">
                 <img
-                  src={project.mainImage}
-                  alt={project.name}
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
       {/* Modal */}
-      {selectedProject && (
+      {/* {selectedProject && (
         <div className="fixed inset-0 bg-white z-50 overflow-hidden">
           <div className="flex w-full h-full">
-            {/* Sidebar */}
+           
             <div className="min-w-80 w-80 p-8 border-r overflow-y-auto">
               <button
                 onClick={closeProject}
@@ -262,7 +263,7 @@ export default function ProjectSection2() {
               </div>
             </div>
 
-            {/* Slides */}
+          
             <div className="relative flex-1 overflow-hidden">
               <div className="w-full h-full">
                 <img
@@ -272,7 +273,7 @@ export default function ProjectSection2() {
                 />
               </div>
 
-              {/* Description */}
+             
               {currentImageIndex === 1 && (
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-white/80">
                   <p className="text-lg mb-2">{selectedProject.description}</p>
@@ -280,7 +281,7 @@ export default function ProjectSection2() {
                 </div>
               )}
 
-              {/* Navigation Arrows */}
+              
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full"
@@ -296,7 +297,7 @@ export default function ProjectSection2() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
