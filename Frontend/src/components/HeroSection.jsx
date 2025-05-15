@@ -149,7 +149,7 @@ export default function VideoHeroSection() {
   return (
     <>
       <InquiryModal isOpen={modalOpen} closeModal={() => setModalOpen(false)} />
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative lg:h-screen h-[95vh] w-full overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute inset-0 bg-black/50 z-10" />
@@ -182,7 +182,7 @@ export default function VideoHeroSection() {
                   <span className="absolute bottom-2 left-0 w-full h-4 bg-black/70 -rotate-1 z-0"></span>
                 </span> Excellence
               </h1>
-              <p className="text-gray-200 text-lg md:text-xl mb-8 mx-auto">
+              <p className="hidden lg:block text-gray-200 text-lg md:text-xl mb-8 mx-auto">
                 We transform visions into iconic structures, blending aesthetic brilliance with functional design to create spaces that inspire.
               </p>
 

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Wind, Droplet, Sunrise, Feather, ArrowRight } from 'lucide-react';
 
+
+import v1 from '../assets/vastu-section/v1.webp'
+import v2 from '../assets/vastu-section/v2.webp'
+import v3 from '../assets/vastu-section/v3.webp'
+import v4 from '../assets/vastu-section/v4.png'
 export default function VastuSection() {
   const [activeElement, setActiveElement] = useState(0);
   
@@ -83,10 +88,10 @@ export default function VastuSection() {
             </a> */}
           </div>
           <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            <img src="https://picsum.photos/400/300?random=1" alt="Cultural design element" className="border border-white/50 h-48 object-cover" />
-            <img src="https://picsum.photos/400/300" alt="Cultural design element" className="border border-white/50 h-48 object-cover mt-8" />
-            <img src="https://picsum.photos/400/300" alt="Cultural design element" className="border border-white/50 h-48 object-cover" />
-            <img src="https://picsum.photos/400/300?random=2" alt="Cultural design element" className="border border-white/50 h-48 object-cover mt-8" />
+            <img src={v1} alt="Cultural design element" className="border border-white/50 h-48 object-cover" />
+            <img src={v2} alt="Cultural design element" className="border border-white/50 h-48 object-cover mt-8" />
+            <img src={v3} alt="Cultural design element" className="border border-white/50 h-48 object-cover" />
+            <img src={v4} alt="Cultural design element" className="border border-white/50 h-48 object-cover mt-8" />
           </div>
         </div>
       </div>

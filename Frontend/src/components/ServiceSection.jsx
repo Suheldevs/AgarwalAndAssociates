@@ -247,8 +247,8 @@ const navigate = useNavigate()
       <div className="flex items-stretch space-x-12 ">
         {/* Left Section */}
         <div className="w-1/3">
-              <h2 className="text-4xl font-bold text-black mb-4">Our Services</h2>
-          <p className="text-lg text-gray-700">
+              <h2 className="lg:text-4xl text-2xl font-bold text-black mb-4">Our Services</h2>
+          <p className="lg:text-lg text-sm text-gray-700">
             Innovative design solutions across multiple disciplines, 
             creating transformative experiences and spaces.
           </p>
@@ -270,7 +270,7 @@ const navigate = useNavigate()
                 "
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-3xl font-semibold text-gray-800 group-hover:text-black transition-colors">
+                  <h3 className="lg:text-3xl text-xl font-semibold text-gray-800 group-hover:text-black transition-colors">
                     {service.title}
                   </h3>
                   <span className="text-gray-500 group-hover:text-black transition-colors">
@@ -285,7 +285,7 @@ const navigate = useNavigate()
           {activeService && (
             <div 
               className="
-                fixed top-1/2 right-20 transform -translate-y-1/2
+                fixed hidden md:block top-1/2 right-20 transform -translate-y-1/2
                 w-[250px] h-[250px] 
                 bg-white shadow-2xl  overflow-hidden
                 transition-all duration-300 ease-in-out
@@ -295,7 +295,7 @@ const navigate = useNavigate()
               <img 
                 src={activeService.image} 
                 alt={activeService.title} 
-                className="w-full h-full object-cover grayscale"
+                className="w-full h-full object-cover grayscal"
               />
               {/* <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4">
                 <h4 className="text-xl font-semibold">{activeService.title}</h4>
