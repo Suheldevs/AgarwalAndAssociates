@@ -1,3 +1,21 @@
+import p1 from '../assets/project/mandi-gate.png'
+import p2 from '../assets/project/shoping-arcade.png'
+import p3 from '../assets/project/residence-lakhimpur.png'
+import p4 from '../assets/project/rohit-tower.png'
+import p5 from '../assets/project/rcf-lalganj.png'
+import p6 from '../assets/project/residenceatgomatinagar.png'
+import p7 from '../assets/project/shoping-complex.png'
+import p8 from '../assets/project/tample-gosaiganj.png'
+import p9 from '../assets/project/vishwnath-academy.png'
+import p10 from '../assets/project/asharam.png'
+import p11 from '../assets/project/bank-madurai.png'
+import p12 from '../assets/project/form-house.png'
+import p13 from '../assets/project/residence-gomati.png'
+import p14 from '../assets/project/five-star.png'
+import p15 from '../assets/project/mrrashtogi.png'
+import p16 from '../assets/project/resort.png'
+import p17 from '../assets/project/ice-factory.png'
+import p18 from '../assets/project/iti-college.png'
 const ProjectData = [
   {
     id: 1,
@@ -6,7 +24,7 @@ const ProjectData = [
     category: 'commercial',
     location: 'Barabanki, Uttar Pradesh',
     year: '2023',
-    image: 'https://picsum.photos/800/600?random=1',
+    image: p1,
     description: 'A beautifully designed commercial gateway for Barabanki Mandi that combines functionality with aesthetic appeal, serving as a landmark for local trade.',
     featured: true
   },
@@ -17,7 +35,7 @@ const ProjectData = [
     category: 'commercial',
     location: 'Aliganj, Lucknow',
     year: '2022',
-    image: 'https://picsum.photos/800/600?random=2',
+    image: p2,
     description: 'A vibrant shopping arcade designed with contemporary architecture to cater to urban retail needs and lifestyle experiences.'
   },
   {
@@ -27,7 +45,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Lakhimpur, Uttar Pradesh',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=3',
+    image: p3,
     description: 'Modern residential structure inspired by traditional Indian elements, offering comfort and sustainability in Lakhimpur.'
   },
   {
@@ -37,7 +55,7 @@ const ProjectData = [
     category: 'urban',
     location: 'Vikash Nagar, Lucknow',
     year: '2023',
-    image: 'https://picsum.photos/800/600?random=4',
+    image: p4,
     description: 'A multi-storey urban apartment project combining smart planning and efficient space utilization for city dwellers.'
   },
   {
@@ -47,7 +65,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Raibarelly, India',
     year: '2022',
-    image: 'https://picsum.photos/800/600?random=5',
+    image:p5,
     description: 'Residential villas designed with a green focus, developed for R.C.F. township residents in Lalganj.'
   },
   {
@@ -57,7 +75,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Gomti Nagar, Lucknow',
     year: '2022',
-    image: 'https://picsum.photos/800/600?random=6',
+    image: p6,
     description: 'High-end residential architecture promoting eco-living and modern comfort in the heart of Gomti Nagar.'
   },
   {
@@ -67,7 +85,7 @@ const ProjectData = [
     category: 'commercial',
     location: 'Kanpur, India',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=7',
+    image:p7,
     description: 'A bustling shopping destination with modern amenities and sustainable infrastructure.',
     featured: true
   },
@@ -78,7 +96,7 @@ const ProjectData = [
     category: 'institutional',
     location: 'Gosaiganj, India',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=8',
+    image: p8,
     description: 'A spiritual and cultural landmark designed to preserve heritage and offer serenity for devotees.',
     featured: true
   },
@@ -89,7 +107,7 @@ const ProjectData = [
     category: 'institutional',
     location: 'Alambagh, Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=9',
+    image: p9,
     description: 'An educational campus developed with modern facilities to foster learning and holistic development.',
     featured: true
   },
@@ -100,7 +118,7 @@ const ProjectData = [
     category: 'institutional',
     location: 'Ganeshganj, Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=10',
+    image: p10,
     description: 'An ashram designed to promote peace, spiritual activities, and community welfare.'
   },
   {
@@ -110,7 +128,7 @@ const ProjectData = [
     category: 'commercial',
     location: 'Gomti Nagar, Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=11',
+    image: p11,
     description: 'A secure and state-of-the-art bank facility integrating smart design and customer convenience.'
   },
   {
@@ -120,7 +138,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Kursi Road, Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=12',
+    image: p12,
     description: 'A peaceful farmhouse design inspired by nature and rural lifestyle with modern amenities.'
   },
   {
@@ -130,7 +148,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Gomati Nagar, Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=13',
+    image: p13,
     description: 'Elegant residential space designed for modern family living in a prime locality.'
   },
   {
@@ -140,7 +158,7 @@ const ProjectData = [
     category: 'commercial',
     location: 'Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=14',
+    image: p14,
     description: 'A luxurious hotel project in Lucknow, offering premium hospitality and grand architectural aesthetics.'
   },
   {
@@ -150,7 +168,7 @@ const ProjectData = [
     category: 'residential',
     location: 'Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=15',
+    image: p15,
     description: 'A personalized home built with attention to detail, reflecting the client’s lifestyle and design sensibility.'
   },
   {
@@ -160,7 +178,7 @@ const ProjectData = [
     category: 'hospitality',
     location: 'Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=16',
+    image: p16,
     description: 'A resort designed to bring comfort and nature together, perfect for getaways and retreats.'
   },
   {
@@ -170,7 +188,7 @@ const ProjectData = [
     category: 'industrial',
     location: 'Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=17',
+    image: p17,
     description: 'An industrial setup focused on hygiene, automation, and quality production for dairy products.'
   },
   {
@@ -180,7 +198,7 @@ const ProjectData = [
     category: 'institutional',
     location: 'Lucknow',
     year: '2021',
-    image: 'https://picsum.photos/800/600?random=18',
+    image: p18,
     description: 'Vocational training campus equipped with modern labs, classrooms, and a skill-centric environment.'
   }
 ];

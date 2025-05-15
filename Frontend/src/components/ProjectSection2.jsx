@@ -194,7 +194,7 @@ export default function ProjectSection2() {
               >
               <div className="hidden  md:col-span-3 col-span-12 lg:flex flex-col justify-center">
                 <div className="flex items-center mb-4">
-                  <img src='https://picsum.photos/300/300?random=1' alt={`${project.title} logo`} className="lg:w-12 w-96 h-96 lg:h-12 mr-4" />
+                  <img src={project.image} alt={`${project.title} logo`} className="lg:w-12 border border-black/20 w-96 h-96 lg:h-12 mr-4" />
                   <div className="hover:underline underline-offset-2">
                     <h3 className="font-bold text-xl">{project.title}</h3>
                     <p className="text-sm text-gray-600">{project.location}</p>
@@ -209,7 +209,7 @@ export default function ProjectSection2() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-80 object-cover transition-transform duration-700 hover:scale-90"
+                  className="w-full border border-black/20 h-80 object-cover transition-transform duration-700 hover:scale-90"
                 />
               </div>
             </Link>

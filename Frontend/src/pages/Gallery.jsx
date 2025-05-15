@@ -2,22 +2,46 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 
+
+import p1 from '../assets/project/mandi-gate.png'
+import p2 from '../assets/project/shoping-arcade.png'
+import p3 from '../assets/project/residence-lakhimpur.png'
+import p4 from '../assets/project/rohit-tower.png'
+import p5 from '../assets/project/rcf-lalganj.png'
+import p6 from '../assets/project/residenceatgomatinagar.png'
+import p7 from '../assets/project/shoping-complex.png'
+import p8 from '../assets/project/tample-gosaiganj.png'
+import p9 from '../assets/project/vishwnath-academy.png'
+import p10 from '../assets/project/asharam.png'
+import p11 from '../assets/project/bank-madurai.png'
+import p12 from '../assets/project/form-house.png'
+import p13 from '../assets/project/residence-gomati.png'
+import p14 from '../assets/project/five-star.png'
+import p15 from '../assets/project/mrrashtogi.png'
+import p16 from '../assets/project/resort.png'
+import p17 from '../assets/project/ice-factory.png'
+import p18 from '../assets/project/iti-college.png'
+
 // Sample image data - replace with your actual images
 const galleryImages = [
-  { id: 1, src: "https://picsum.photos/800/600?random=1", alt: "Gallery Image 1" },
-  { id: 2, src: "https://picsum.photos/800/600?random=2", alt: "Gallery Image 2" },
-  { id: 3, src: "https://picsum.photos/800/600?random=3", alt: "Gallery Image 3" },
-  { id: 4, src: "https://picsum.photos/800/600?random=4", alt: "Gallery Image 4" },
-  { id: 5, src: "https://picsum.photos/800/600?random=5", alt: "Gallery Image 5" },
-  { id: 6, src: "https://picsum.photos/800/600?random=6", alt: "Gallery Image 6" },
-  { id: 7, src: "https://picsum.photos/800/600?random=7", alt: "Gallery Image 7" },
-  { id: 8, src: "https://picsum.photos/800/600?random=8", alt: "Gallery Image 8" },
-  { id: 9, src: "https://picsum.photos/800/600?random=10", alt: "Gallery Image 9" },
-  { id: 9, src: "https://picsum.photos/800/600?random=11", alt: "Gallery Image 9" },
-  { id: 9, src: "https://picsum.photos/800/600?random=12", alt: "Gallery Image 9" },
-  { id: 9, src: "https://picsum.photos/800/600?random=13", alt: "Gallery Image 9" },
-  { id: 9, src: "https://picsum.photos/800/600?random=14", alt: "Gallery Image 9" },
-  { id: 9, src: "https://picsum.photos/800/600?random=15", alt: "Gallery Image 9" },
+  { id: 1, src:p1, alt: "Gallery Image 1" },
+  { id: 2, src:p2, alt: "Gallery Image 2" },
+  { id: 3, src:p3, alt: "Gallery Image 3" },
+  { id: 4, src:p4, alt: "Gallery Image 4" },
+  { id: 5, src:p5, alt: "Gallery Image 5" },
+  { id: 6, src:p6, alt: "Gallery Image 6" },
+  { id: 7, src:p7, alt: "Gallery Image 7" },
+  { id: 8, src:p8, alt: "Gallery Image 8" },
+  { id: 9, src:p9, alt: "Gallery Image 9" },
+  { id: 10, src:p10, alt: "Gallery Image 9" },
+  { id: 11, src:p11, alt: "Gallery Image 9" },
+  { id: 12, src:p12, alt: "Gallery Image 9" },
+  { id: 13, src:p13, alt: "Gallery Image 9" },
+  { id: 14, src:p14, alt: "Gallery Image 9" },
+  { id: 15, src:p15, alt: "Gallery Image 9" },
+  { id: 16, src:p16, alt: "Gallery Image 9" },
+  { id: 17, src:p17, alt: "Gallery Image 9" },
+  { id: 18, src:p18, alt: "Gallery Image 9" },
 ];
 
 export default function Gallery() {
@@ -56,7 +80,7 @@ export default function Gallery() {
               ]}
             // bgImage="/api/placeholder/1920/600"
           />
-    <div className="min-h-screen bg-gray-100 lg:p-8 p-4">
+    <div className="min-h-screen bg-gray-100 lg:p-8 lg:py-12 p-4">
       <div className="max-w-7xl mx-auto">
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -115,7 +139,7 @@ export default function Gallery() {
                 <img 
                   src={galleryImages[currentImageIndex].src} 
                   alt={galleryImages[currentImageIndex].alt} 
-                  className="max-h-screen max-w-full object-contain rounded-md  shadow-2xl"
+                  className="max-h-screen max-w-full object-contain rounded-md  lg:scale-200 shadow-2xl"
                 />
               </div>
             </div>

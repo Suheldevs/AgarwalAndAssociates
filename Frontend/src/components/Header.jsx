@@ -96,7 +96,7 @@ export default function Header() {
                         <ChevronDown size={16} className="ml-1" />
                       </button>
                       <div
-                        className={`absolute top-full left-0 mt-2 text-black bg-white shadow-lg rounded-md py-2 w-56 transform transition-all origin-top ${
+                        className={`absolute top-full left-0 mt-2 text-black bg-white shadow-lg py-2 w-56 transform transition-all origin-top ${
                           openDropdown === item.id
                             ? "scale-y-100 opacity-100"
                             : "scale-y-0 opacity-0"
@@ -122,7 +122,7 @@ export default function Header() {
                       to={item.path}
                       className={`transition-colors ${
                         item.name === "Contact Us"
-                          ? "px-4 py-2 bg-red-500 text-slate-100 hover:bg-red-600 rounded-md"
+                          ? "px-4 py-2 bg-red-500 text-slate-100 hover:bg-red-600 "
                           : ""
                       }`}
                     >
