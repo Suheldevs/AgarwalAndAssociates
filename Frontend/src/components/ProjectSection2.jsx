@@ -181,9 +181,9 @@ export default function ProjectSection2() {
   const slides = getAllSlides();
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative h-screen my-16 overflow-y-scroll bg-white">
       {/* Project List */}
-      <div className="container mx-auto py-16 px-4">
+      <div className="container mx-auto  px-4">
         <h2 className="text-3xl md:text-4xl font-bold lg:mb-12 mb-6 text-center">Featured Projects</h2>
         <div className="space-y-10">
           {projects.map((project) => (
