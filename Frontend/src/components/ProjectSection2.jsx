@@ -184,13 +184,13 @@ export default function ProjectSection2() {
     <div className="relative min-h-screen bg-white">
       {/* Project List */}
       <div className="container mx-auto py-16 px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+        <h2 className="text-3xl md:text-4xl font-bold lg:mb-12 mb-6 text-center">Featured Projects</h2>
         <div className="space-y-10">
           {projects.map((project) => (
             <Link
             to={`/project/${project.slug}`}
               key={project.id}
-              className="grid grid-cols-12 gap-6 cursor-pointer px-52"
+              className="md:grid grid-cols-12 gap-6 cursor-pointer lg:px-52"
               >
               <div className="hidden  md:col-span-3 col-span-12 lg:flex flex-col justify-center">
                 <div className="flex items-center mb-4">
@@ -209,7 +209,7 @@ export default function ProjectSection2() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full border border-black/20 h-80 object-cover transition-transform duration-700 hover:scale-90"
+                  className="w-full mb-4 lg:mb-0 border border-black/20 h-80 object-cover transition-transform duration-700 hover:scale-90"
                 />
               </div>
             </Link>

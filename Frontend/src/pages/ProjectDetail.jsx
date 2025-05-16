@@ -138,7 +138,7 @@ export default function ProjectDetail() {
       {/* Project Header */}
       <div className="mb-10">
         <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium capitalize">{project.category}</span>
-        <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">{project.title}</h1>
+        <h1 className="text-2xl md:text-5xl font-bold mt-4 mb-6 leading-tight">{project.title}</h1>
         
         <div className="flex flex-wrap items-center text-gray-600 gap-6 mb-8">
           <div className="flex items-center">

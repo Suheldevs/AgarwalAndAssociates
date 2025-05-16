@@ -75,7 +75,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link aria-label="Logo" to="/" className="flex items-center">
-              <img src={logo} alt="logo" className="h-20" />
+              <img src={logo} alt="logo" className="lg:h-20 h-16" />
             </Link>
           </div>
 

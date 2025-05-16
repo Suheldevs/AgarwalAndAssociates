@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function DirectorSection() {
   return (
-    <div className="container mx-auto lg:px-6 px-4">
+    <div className="container mx-auto lg:px-6 px-4 lg:py-0 py-8">
       <div
         className={` transition-all duration-1000 delay-600 transform opacity-100 translate-y-0`}
       >
@@ -18,7 +18,7 @@ function DirectorSection() {
               alt="director"
               className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute bottom-0 left-0 p-8 z-20">
+            <div className="absolute bottom-0 left-0 lg:p-8 p-4 z-20">
               <h3 className="text-white text-2xl font-bold">AR. RAJNISH AGARWAL</h3>
               <p className="text-slate-200">Founder & Principal Architect</p>
               {/* <p className="text-white/70 mt-2 text-sm">{coreTeam[0].education}</p> */}

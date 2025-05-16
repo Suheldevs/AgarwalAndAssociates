@@ -55,10 +55,10 @@ export default function WhyChooseUs() {
         
         
         {/* Alternative: Interactive Feature List */}
-        <div className="mt-10 hidden lg:block">
-          <div className="flex">
+        <div className="mt-10 block">
+          <div className="lg:flex flex-row justify-center items-center">
             {/* Navigation */}
-            <div className="w-1/3 pr-8 border-r border-gray-800">
+            <div className="lg:w-1/3 w-full lg:pr-8 border-r border-gray-800 mb-2 lg:mt-0">
               {reasons.map((reason) => (
                 <div 
                   key={reason.id}
@@ -82,13 +82,13 @@ export default function WhyChooseUs() {
             </div>
             
             {/* Content Display */}
-            <div className="w-2/3 pl-8">
+            <div className="lg:w-2/3 w-full lg:pl-8">
               {reasons.map((reason) => (
                 activeItem === reason.id && (
                   <div key={reason.id} className="animate-fadeIn">
-                    <h3 className="text-3xl font-bold text-white mb-6">{reason.title}</h3>
-                    <p className="text-xl text-gray-300 leading-relaxed mb-8">{reason.description}</p>
-                    <div className="p-6 bg-white rounded-lg border-l-4 border-white">
+                    <h3 className="lg:text-3xl text-2xl font-bold text-white lg:mb-6 mb-4">{reason.title}</h3>
+                    <p className="lg:text-xl text-lg text-gray-300 lg:leading-relaxed lg:mb-8 mb-4">{reason.description}</p>
+                    <div className="lg:p-6 p-2 bg-white rounded-lg border-l-4 border-white">
                       <p className="text-gray-900 italic">
                         "Our {reason.title.toLowerCase()} approach has transformed how clients experience the architectural process, creating both stunning outcomes and memorable journeys."
                       </p>
