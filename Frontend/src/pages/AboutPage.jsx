@@ -27,7 +27,7 @@ export default function AboutUsPage() {
   
   const stats = [
     { icon: <Users size={24} />, value: "27+", label: "Team Members" },
-    { icon: <Building size={24} />, value: "150+", label: "Completed Projects" },
+    { icon: <Building size={24} />, value: "5k+", label: "Completed Projects" },
     { icon: <LaptopMinimalCheck size={24} />, value: "100%", label: "Client Satisfaction" },
     { icon: <Award size={24} />, value: "18", label: "Awards" }
   ];

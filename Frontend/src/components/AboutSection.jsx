@@ -7,7 +7,7 @@ export default function ModernAboutSection() {
   const stats = [
     {
       icon: <Building2 size={28} />,
-      count: "150+",
+      count: "5k+",
       title: "Projects Completed",
     },
     {
