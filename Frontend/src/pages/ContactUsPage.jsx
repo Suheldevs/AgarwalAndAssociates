@@ -255,7 +255,6 @@ setError('Something Went Wrong , Try Later !')
                       <option value="engineering-services">
                         Engineering Services
                       </option>
-                      <option value="vastu-services">Vastu Services</option>
                       <option value="project-management">
                         Project Management
                       </option>
