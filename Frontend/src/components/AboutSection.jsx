@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Users, Building2, Award, Globe, ArrowRight, ChevronRight } from "lucide-react";
 import image from "../assets/about.webp";
 export default function ModernAboutSection() {
@@ -87,8 +87,12 @@ export default function ModernAboutSection() {
     ),
   };
 
+
+
   return (
     <section className="pt-12 pb-6 bg-gradient-to-b from-white to-gray-50">
+      <video id="videoPlayer" controls width="500" height={500}></video>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Modern Header with Accent Line */}
         <div className="flex flex-col items-center mb-8">
@@ -199,6 +203,9 @@ export default function ModernAboutSection() {
           </a>
         </div> */}
       </div>
+
+
+
     </section>
   );
 }

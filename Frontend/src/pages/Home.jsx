@@ -24,7 +24,7 @@ function Home() {
   return (
     <div>
       <HeroSection />
-      
+      {/* <GetWhatsapp/> */}
       <Suspense fallback={<Spinner />}>
         <AboutSection2 />
       </Suspense>

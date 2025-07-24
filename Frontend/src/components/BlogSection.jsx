@@ -131,7 +131,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function BlogPage() {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 800,
     slidesToShow: 3,
@@ -163,14 +162,14 @@ export default function BlogPage() {
 
         <Slider {...settings}>
           {blogPosts.map(post => (
-            <div key={post.id} className="px-3">
-              <div className="bg-white aspect-square flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200">
+            <div key={post.id} className="px-2">
+              <div className="bg-white  flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200">
                 {/* Image section */}
-                <div className="h-1/2 overflow-hidden">
+                <div className=" overflow-hidden">
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-[18rem] object-cover"
                   />
                 </div>
                 

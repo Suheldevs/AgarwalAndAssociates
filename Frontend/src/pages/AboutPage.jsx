@@ -15,7 +15,7 @@ export default function AboutUsPage() {
   }, []);
 
   const milestones = [
-    { year: "1998", title: "Firm Established", description: "Founded in Mumbai by Amit Agarwal" },
+    { year: "1993", title: "Firm Established", description: "Founded in Mumbai by Amit Agarwal" },
     { year: "2005", title: "First Major Project", description: "Completed the award-winning Horizon Tower" },
     { year: "2012", title: "International Expansion", description: "Opened our first international office in Dubai" },
     { year: "2018", title: "Sustainability Focus", description: "Launched eco-friendly design initiative" },

@@ -196,13 +196,12 @@ export default function VideoHeroSection() {
                   Explore Our Projects
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <button 
+                <a href="#services" 
                   aria-label="get a consultation"  
-                  onClick={() => setModalOpen(true)} 
                   className="px-8 py-4 bg-transparent hover:bg-white/10 text-white border border-white/50 font-medium  transition-all"
                 >
-                  Get a Consultation
-                </button>
+                  Explore Our Services
+                </a>
               </div>
 
               {/* Stats Row */}

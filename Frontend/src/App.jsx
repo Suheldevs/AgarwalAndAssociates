@@ -11,6 +11,7 @@ import PageNotFound from './pages/PageNotFound';
 import TeamDetailPage from './pages/TeamDetailPage';
 import OurTeam from './pages/OurTeam';
 import CookieBanner from './cookie/CookieBanner';
+import Appointment from './components/Appointment';
 
 // Lazy loaded pages
 const BlogPage = lazy(() => import('./pages/BlogPage'));
@@ -35,6 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <Appointment/>
         <CookieBanner />
       <ScrollToTop />
       <Suspense fallback={<Spinner />}>

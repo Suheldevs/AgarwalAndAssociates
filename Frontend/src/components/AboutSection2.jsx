@@ -34,7 +34,7 @@ export default function AboutSection2() {
             <div className="space-y-8">
               <div className="border-b border-gray-700 pb-8">
                 <p className="text-gray-400 text-sm mb-2">FOUNDED</p>
-                <p className="text-3xl font-semibold">1998</p>
+                <p className="text-3xl font-semibold">1993</p>
               </div>
               
               <div className="border-b border-gray-700 pb-8">
