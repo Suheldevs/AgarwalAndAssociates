@@ -12,11 +12,12 @@ import Breadcrumb from "../components/Breadcrumb";
 import axios from "axios";
 
 export default function ContactUsPage() {
-  const backend_url = import.meta.env.VITE_BACKEND_URL
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    phone:'',
+    phone: "",
+    service: "",
     message: "",
   });
 
@@ -36,26 +37,29 @@ export default function ContactUsPage() {
     }));
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
-      setFormStatus({loading:true})
-      const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formState);
-      setFormStatus({submitted:true})
-      alert('Your Form Has Been Submitted!')
-setFormState({
-  name: "",
-  email: "",
-  phone:'',
-  message: "",
-})
-    }
-    catch(err){
-setError('Something Went Wrong , Try Later !')
-    }
-    finally{
-      setFormStatus({loading:false})
+    setError(null);
+    try {
+      setFormStatus({ loading: true });
+      const response = await axios.post(
+        `${backend_url}/inquiry/agarwal/save`,
+        formState
+      );
+      setFormStatus({ submitted: true });
+      console.log(response);
+      alert("Your Form Has Been Submitted!");
+      setFormState({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    } catch (err) {
+      setError("Something Went Wrong , Try Later !");
+    } finally {
+      setFormStatus({ loading: false });
     }
   };
 
@@ -70,21 +74,21 @@ setError('Something Went Wrong , Try Later !')
       title: "Call Us",
       content: "+91-9415113355",
       details: "Monday to Friday, 9am to 6pm",
-      link:'tel:9415113355'
+      link: "tel:9415113355",
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       content: "support@yourcompany.com",
       details: "We'll respond within 24 hours",
-      link:'mailto:support@gmail.com'
+      link: "mailto:support@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
       content: "HIG-42 Sector-E, Aliganj, Lucknow",
       details: "Find us on Google Maps",
-      link:'https://maps.app.goo.gl/o5pdPpz7rtbvcN1N8'
+      link: "https://maps.app.goo.gl/o5pdPpz7rtbvcN1N8",
     },
   ];
 
@@ -112,8 +116,9 @@ setError('Something Went Wrong , Try Later !')
         {/* Contact Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-8 gap-4 mb-10">
           {contactMethods.map((method, index) => (
-            <a aria-label={method.title}
-            href={method.link}
+            <a
+              aria-label={method.title}
+              href={method.link}
               key={index}
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group border-b-4 border-transparent hover:border-red-500"
             >
@@ -163,9 +168,11 @@ setError('Something Went Wrong , Try Later !')
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {error && (<div className="text-lg font-medium text-center text-red-600">
-                  {error}
-                </div>)}
+                {error && (
+                  <div className="text-lg font-medium text-center text-red-600">
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -219,9 +226,9 @@ setError('Something Went Wrong , Try Later !')
                       id="phone"
                       name="phone"
                       required
-                      pattern="^[6-9]\d{9}$" 
-                      title="Phone Number should be 10 digits and start with 6 to 9" 
-                      inputMode="numeric" 
+                      pattern="^[6-9]\d{9}$"
+                      title="Phone Number should be 10 digits and start with 6 to 9"
+                      inputMode="numeric"
                       maxLength="10"
                       value={formState.phone}
                       onChange={handleChange}
@@ -284,13 +291,13 @@ setError('Something Went Wrong , Try Later !')
 
                 <div>
                   <button
-                  disabled={formStatus.loading}
+                    disabled={formStatus.loading}
                     type="submit"
                     className="w-full flex items-center justify-center px-6 py-3 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-all duration-300 shadow-lg"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
-                   {formStatus.loading ? 'Sending..':'Send Message'} 
+                    {formStatus.loading ? "Sending.." : "Send Message"}
                     <span
                       className={`ml-2 transition-all duration-300 ${
                         isHovered ? "translate-x-1" : ""
@@ -382,7 +389,7 @@ setError('Something Went Wrong , Try Later !')
           </h3>
           <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden lg:h-96">
             <iframe
-            className="w-full h-full"
+              className="w-full h-full"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5013528711643!2d80.93925357468287!3d26.88757947666216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999562b42ee1ea1%3A0xc9ab179186eddb10!2sAgarwal%20and%20associates!5e0!3m2!1sen!2sin!4v1746380775936!5m2!1sen!2sin"
               allowFullScreen=""
               loading="lazy"

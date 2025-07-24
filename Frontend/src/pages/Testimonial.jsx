@@ -132,14 +132,7 @@ export default function TestimonialsPage() {
       />
     <div className="min-h-screen bg-stone-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
-        <div className="text-center mb-16">
-          
-          {/* <div className="mx-auto w-24 h-1 bg-stone-300 mt-6 mb-8"></div> */}
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-            Words from our clients about their experience working with our architectural vision and design process.
-          </p>
-        </div>
+       
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 
@@ -21,33 +21,35 @@ import p15 from '../assets/project/mrrashtogi.png'
 import p16 from '../assets/project/resort.png'
 import p17 from '../assets/project/ice-factory.png'
 import p18 from '../assets/project/iti-college.png'
+import { useSearchParams } from 'react-router-dom';
 
 // Sample image data - replace with your actual images
 const galleryImages = [
-  { id: 1, src:p1, alt: "Gallery Image 1" },
-  { id: 2, src:p2, alt: "Gallery Image 2" },
-  { id: 3, src:p3, alt: "Gallery Image 3" },
-  { id: 4, src:p4, alt: "Gallery Image 4" },
-  { id: 5, src:p5, alt: "Gallery Image 5" },
-  { id: 6, src:p6, alt: "Gallery Image 6" },
-  { id: 7, src:p7, alt: "Gallery Image 7" },
-  { id: 8, src:p8, alt: "Gallery Image 8" },
-  { id: 9, src:p9, alt: "Gallery Image 9" },
-  { id: 10, src:p10, alt: "Gallery Image 9" },
-  { id: 11, src:p11, alt: "Gallery Image 9" },
-  { id: 12, src:p12, alt: "Gallery Image 9" },
-  { id: 13, src:p13, alt: "Gallery Image 9" },
-  { id: 14, src:p14, alt: "Gallery Image 9" },
-  { id: 15, src:p15, alt: "Gallery Image 9" },
-  { id: 16, src:p16, alt: "Gallery Image 9" },
-  { id: 17, src:p17, alt: "Gallery Image 9" },
-  { id: 18, src:p18, alt: "Gallery Image 9" },
+  { id: 1, src:p1, type:"event", alt: "Gallery Image 1" },
+  { id: 2, src:p2, type:"photo", alt: "Gallery Image 2" },
+  { id: 3, src:p3, type:"event", alt: "Gallery Image 3" },
+  { id: 4, src:p4, type:"photo", alt: "Gallery Image 4" },
+  { id: 5, src:p5, type:"event", alt: "Gallery Image 5" },
+  { id: 6, src:p6, type:"photo", alt: "Gallery Image 6" },
+  { id: 7, src:p7, type:"photo", alt: "Gallery Image 7" },
+  { id: 8, src:p8, type:"photo", alt: "Gallery Image 8" },
+  { id: 9, src:p9, type:"event", alt: "Gallery Image 9" },
+  { id: 10, src:p10, type:"photo", alt: "Gallery Image 9" },
+  { id: 11, src:p11, type:"event", alt: "Gallery Image 9" },
+  { id: 12, src:p12, type:"event", alt: "Gallery Image 9" },
+  { id: 13, src:p13, type:"event", alt: "Gallery Image 9" },
+  { id: 14, src:p14, type:"photo", alt: "Gallery Image 9" },
+  { id: 15, src:p15, type:"event", alt: "Gallery Image 9" },
+  { id: 16, src:p16, type:"photo", alt: "Gallery Image 9" },
+  { id: 17, src:p17, type:"photo", alt: "Gallery Image 9" },
+  { id: 18, src:p18, type:"photo", alt: "Gallery Image 9" },
 ];
 
 export default function Gallery() {
+    const [searchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+const [type, setType] = useState('photo')
   const openModal = (index) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
@@ -71,6 +73,15 @@ export default function Gallery() {
     );
   };
 
+
+    useEffect(()=>{
+  const type = searchParams.get("type");
+if(type){
+  setType(type)
+}
+    },[searchParams])
+
+    console.log(type)
   return (
     <>
      <Breadcrumb
@@ -84,7 +95,7 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto">
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {galleryImages.map((image, index) => (
+          {galleryImages.filter(img=>img.type == type).map((image, index) => (
             <div 
               key={image.id} 
               className="relative overflow-hidden  shadow-lg bg-white group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"

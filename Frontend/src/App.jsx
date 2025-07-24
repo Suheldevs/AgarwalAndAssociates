@@ -10,6 +10,7 @@ import Home from './pages/Home';  // direct import (no lazy load)
 import PageNotFound from './pages/PageNotFound';
 import TeamDetailPage from './pages/TeamDetailPage';
 import OurTeam from './pages/OurTeam';
+import CookieBanner from './cookie/CookieBanner';
 
 // Lazy loaded pages
 const BlogPage = lazy(() => import('./pages/BlogPage'));
@@ -34,6 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+        <CookieBanner />
       <ScrollToTop />
       <Suspense fallback={<Spinner />}>
         <Routes>

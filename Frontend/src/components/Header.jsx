@@ -41,7 +41,16 @@ export default function Header() {
         
       ],
     },
-    { name: "Projects", path: "/projects" },
+    { name: "Projects", path: "/projects",
+       isDropdown: true,
+      dropdownItems: [
+  { name: "All Projects", path: "/projects" },
+  { name: "Residential", path: "/projects?type=residential" },
+  { name: "Commercial", path: "/projects?type=commercial" },
+  { name: "Institutional", path: "/projects?type=institutional" },
+  { name: "Urban Planning", path: "/projects?type=urban" }
+]
+     },
     {
       name: "Services",
       path: "#",
@@ -56,7 +65,14 @@ export default function Header() {
         { name: "Urban Planning", path: "/services/urban-planning" },
       ],
     },
-    { name: "Gallery", path: "/gallery" },
+    { name: "Gallery", path: "/gallery" ,
+      id: 'gallery',
+       isDropdown: true,
+      dropdownItems: [
+  { name: "Photo Gallery", path: "/gallery?type=photo" },
+  { name: "Event Gallery", path: "/gallery?type=event" },
+]
+    },
     { name: "Testimonials", path: "/testimonials" },
     { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact" },

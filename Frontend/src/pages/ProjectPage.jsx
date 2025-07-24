@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, ExternalLink, Camera, Tag, Calendar } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaLocationPin } from 'react-icons/fa6';
 import projects from '../Data/ProjectData'
 export default function ProjectPage() {
+
+   const [searchParams] = useSearchParams();
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -16,12 +18,22 @@ export default function ProjectPage() {
     { id: 'urban', name: 'Urban Planning' }
   ];
 
-
-  
-
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
+
+
+    useEffect(()=>{
+  const type = searchParams.get("type");
+if(type){
+  setActiveFilter(type)
+}
+else{
+
+  setActiveFilter('all')
+}
+    },[searchParams])
+    
 
   return (
     <>
@@ -34,17 +46,6 @@ export default function ProjectPage() {
    
     <section className="py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Diagonal Line */}
-        {/* <div className="relative mb-16">
-          <div className="flex items-center">
-            <div className="h-px bg-red-500 flex-grow max-w-md"></div>
-            <h2 className="text-4xl font-bold text-gray-900 px-6">Our Projects</h2>
-            <div className="h-px bg-red-500 flex-grow"></div>
-          </div>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            Transforming visions into architectural masterpieces that redefine spaces and experiences.
-          </p>
-        </div> */}
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center mb-10 gap-2">
@@ -64,7 +65,7 @@ export default function ProjectPage() {
         </div>
 
         {/* Featured Project (Conditional) */}
-        {filteredProjects.some(project => project.featured) && (
+        {/* {filteredProjects.some(project => project.featured) && (
           <div className="mb-16">
             {filteredProjects
               .filter(project => project.featured)
@@ -85,7 +86,6 @@ export default function ProjectPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                       
-                      {/* Animated tags that slide up on hover */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 ease-out group-hover:translate-y-0 translate-y-4">
                         <div className="flex flex-wrap gap-3">
                           <span className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm bg-opacity-90 shadow-lg">
@@ -102,7 +102,7 @@ export default function ProjectPage() {
                     </div>
                     
                     <div className="p-8 lg:p-12 bg-white flex flex-col justify-center relative overflow-hidden">
-                      {/* Decorative element */}
+                   
                       <div className="absolute top-0 left-0 w-2 h-full bg-red-500 transform transition-all duration-500 ease-out group-hover:h-full group-hover:w-full group-hover:opacity-5"></div>
                       
                       <div className="mb-4 flex items-center">
@@ -134,13 +134,15 @@ export default function ProjectPage() {
                 </div>
               ))}
           </div>
-        )}
+        )} */}
 
         {/* Projects Grid */}
           {/* UPDATED: Projects Grid with Modern Cards */}
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
        {filteredProjects
-         .filter(project => !project.featured || activeFilter !== 'all')
+         .filter(project =>
+    activeFilter === 'all' ? true : project.category === activeFilter
+  )
          .map(project => (
           <Link
           to={`/project/${project.slug}`}  

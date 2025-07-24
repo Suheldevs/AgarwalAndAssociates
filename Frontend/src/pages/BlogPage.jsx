@@ -42,13 +42,13 @@ export default function BlogPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map(post => (
                     <div key={post.id} className="px-3">
-                      <div className="bg-white aspect-square flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200">
+                      <div className="bg-white flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200">
                         {/* Image section */}
-                        <div className="h-1/2 overflow-hidden">
+                        <div className=" overflow-hidden">
                           <img 
                             src={post.image} 
                             alt={post.title} 
-                            className="w-full h-full object-cover"
+                            className="w-full h-[15rem] object-cover"
                           />
                         </div>
                         
