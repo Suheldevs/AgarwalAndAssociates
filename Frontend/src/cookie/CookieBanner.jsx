@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getUserMeta } from "./getUserMeta"; // This should return actual user object
 
 const CookieBanner = () => {
   const [consentGiven, setConsentGiven] = useState(false);
 
-  const giveConsent = () => {
+  useEffect(() => {
+    const storedConsent = localStorage.getItem("cookieConsent");
+    if (storedConsent === "true") {
+      setConsentGiven(true);
+    }
+  }, []);
+
+  const giveConsent = async () => {
     setConsentGiven(true);
-    console.log("Cookie consent given");
-    // You can call your getUserMeta() and set cookie here
+    localStorage.setItem("cookieConsent", "true");
+
+    try {
+      const userData = await getUserMeta(); // Await actual data
+      console.log("User Data:", userData); // Show clean object in console
+    } catch (error) {
+      console.error("Failed to get user data:", error);
+    }
   };
 
   const declineConsent = () => {
-    setConsentGiven(true);
     console.log("Cookie consent declined");
+    window.history.back(); // Go back to previous page
   };
 
   if (consentGiven) return null;
