@@ -48,6 +48,10 @@ app.use('/gallery',GalleryRoutes)
 import BlogRoutes from './routes/blog.routes.js'
 app.use('/blog',BlogRoutes)
 
+//blog route
+import TeamRoutes from './routes/team.routes.js'
+app.use('/team',TeamRoutes)
+
 //inquiry route
 import InquiryRoutes from './routes/inquiry.routes.js'
 app.use('/inquiry',InquiryRoutes)
@@ -59,6 +63,10 @@ app.use('/project',ProjectRoutes)
 //application route
 import ApplicationRoutes from './routes/application.routes.js'
 app.use('/application',ApplicationRoutes)
+
+//application route
+import VisiterRoutes from './routes/visiter.routes.js'
+app.use('/visitor',VisiterRoutes)
 
 
 
@@ -73,4 +81,4 @@ console.log('DB connected')
 };
 
 startServer();
-app.listen(port, console.log(`Server is running on ${port}`))
+app.listen(port, console.log(`Server is running on http://localhost:${port}`))

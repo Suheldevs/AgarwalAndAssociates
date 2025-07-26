@@ -17,12 +17,12 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    mainImageUrl: {
-      type: String,
-      required: true,
+    mainImageUrl:{
+      type:String,
+      required:true,
     },
-    otherImages: {
-      type: [String], // Array of image URLs
+    otherImages:{
+      type: [String], 
       default: [],
     },
     category:{
@@ -32,10 +32,10 @@ const projectSchema = new mongoose.Schema(
       type:String,
     }
   },
-  { timestamps: true } // Automatically adds createdAt and updatedAt fields
+  { timestamps: true } 
 );
 
-// Middleware to generate slug before saving
+
 projectSchema.pre('save', function (next) {
   if (this.isModified('title') || this.isNew) {
     this.slug = slugify(this.title, { lower: true, strict: true });

@@ -5,7 +5,7 @@ export const createProject = async (req, res) => {
   const { title, description, mainImageUrl, location, otherImages , category } = req.body;
 
   if (!title || !description || !mainImageUrl || !location || !category) {
-    return res.status(400).json({ message: 'Title, description, and mainImageUrl are required' });
+    return res.status(400).json({ message: 'Title, description, and image are required' });
   }
 
   try {

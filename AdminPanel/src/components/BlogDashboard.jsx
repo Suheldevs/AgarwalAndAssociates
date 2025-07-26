@@ -97,12 +97,12 @@ const BlogDashboard = () => {
       <div className="mb-6 rounded p-2 bg-white">
         <div className="flex justify-between items-center  bg-gray-50 border border-gray-100 p-2">
           <div>
-            <h1 className="text-2xl font-bold mb-2">Blog Management</h1>
+            <h1 className="text-2xl font-bold mb-1">Blog Management</h1>
             {/* <p className="text-gray-600">Total Blogs: {blogs.length}</p> */}
           </div>
           <button
             onClick={handleAdd}
-            className="bg-[#ebb661] text-white font-semibold px-4 py-2 rounded hover:bg-[#ebb661] flex items-center gap-2"
+            className="bg-red-500 text-white font-semibold px-4 py-1.5 rounded hover:bg-red-500 flex items-center gap-2"
           >
             <FiPlus size={24} />
             Add New Blog
@@ -132,13 +132,13 @@ const BlogDashboard = () => {
           <table className=" w-[75rem] border-collapse border border-gray-200">
             <thead>
               <tr className="bg-gray-100 text-center text-white">
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">S.No</th>
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">Image</th>
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">Title</th>
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">Category</th>
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">Description</th>
-                <th className="border border-gray-200 px-4 py-2 bg-[#ebb661]">Posted by</th>
-                <th className="border border-gray-200 px-4 py-2 text-center bg-[#ebb661]">Actions</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">S.No</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">Image</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">Title</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">Category</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">Description</th>
+                <th className="border border-gray-200 px-4 py-2 bg-red-500">Posted by</th>
+                <th className="border border-gray-200 px-4 py-2 text-center bg-red-500">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -161,7 +161,7 @@ const BlogDashboard = () => {
                       </div>
                     </td>
                     <td className="border border-gray-200 px-4 py-2">
-                      <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">
+                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">
                         {blog.category}
                       </span>
                     </td>
@@ -172,7 +172,7 @@ const BlogDashboard = () => {
                         </div>
                         {removeHTMLTags(blog.description).length > 150 && (
                           <button
-                            className="mt-1 text-[#ebb661] hover:text-amber-800 text-sm flex items-center gap-1"
+                            className="mt-1 text-red-500 hover:text-red-800 text-sm flex items-center gap-1"
                             onClick={() => toggleDescription(blog._id)}
                           >
                             {expandedDescId === blog._id ? (
@@ -195,7 +195,7 @@ const BlogDashboard = () => {
                       <div className="flex justify-center gap-2">
                         <button
                           onClick={() => handleEdit(blog)}
-                          className="text-[#ebb661] hover:text-amber-800 p-1 rounded hover:bg-amber-50"
+                          className="text-red-500 hover:text-red-800 p-1 rounded hover:bg-red-50"
                           title="Edit"
                         >
                           <FiEdit size={16} />

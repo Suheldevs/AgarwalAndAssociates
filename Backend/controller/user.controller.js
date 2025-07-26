@@ -38,7 +38,6 @@ const userLogin = async (req, res) => {
         if (!matchPassword) {
             return res.status(400).json({ message: 'Invalide creadentials' })
         }
-
         const token = jwt.sign({ email: matchUser.email }, process.env.JWT, { expiresIn: '1h' })
         const { password: pass, _id: id, ...rest } = matchUser._doc
         

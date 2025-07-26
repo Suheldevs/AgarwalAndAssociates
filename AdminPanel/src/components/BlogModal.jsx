@@ -92,10 +92,10 @@ const BlogModal = ({ blogData, onClose }) => {
         <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4 uppercase">
           {blogData ? "Update" : "Add"} Blog
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="s">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Left Column */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Blog Title</label>
                 <input
@@ -103,7 +103,7 @@ const BlogModal = ({ blogData, onClose }) => {
                   placeholder="Enter Blog Title"
                   value={formData.title}
                   onChange={(e) => dispatch({ field: "title", value: e.target.value })}
-                  className="w-full p-3 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                  className="w-full p-1.5 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
                   required
                 />
               </div>
@@ -115,7 +115,7 @@ const BlogModal = ({ blogData, onClose }) => {
                   placeholder="Posted By"
                   value={formData.postedBy}
                   onChange={(e) => dispatch({ field: "postedBy", value: e.target.value })}
-                  className="w-full p-3 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                  className="w-full p-1.5 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
                   required
                 />
               </div>
@@ -127,7 +127,7 @@ const BlogModal = ({ blogData, onClose }) => {
                   placeholder="Category"
                   value={formData.category}
                   onChange={(e) => dispatch({ field: "category", value: e.target.value })}
-                  className="w-full p-3 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                  className="w-full p-1.5 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
                   required
                 />
               </div>
@@ -138,9 +138,9 @@ const BlogModal = ({ blogData, onClose }) => {
                   type="file"
                   onChange={uploadImage}
                   disabled={loading}
-                  className="w-full p-3 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                  className="w-full p-1.5 border-2 border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-900"
                 />
-                {loading && <p className="text-[#ebb661] text-sm">Uploading...</p>}
+                {loading && <p className="text-red-500 text-sm">Uploading...</p>}
                 
                 {formData.imageUrl && (
                   <div className="mt-2">
@@ -155,7 +155,7 @@ const BlogModal = ({ blogData, onClose }) => {
               </div>
             </div>
             
-            {/* Right Column */}
+         
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Blog Content</label>
               <SunEditor
@@ -195,7 +195,7 @@ const BlogModal = ({ blogData, onClose }) => {
             <button
               type="submit"
               disabled={loading}
-              className={`bg-[#ebb661] text-white py-2 px-6 rounded-lg hover:bg-amber-700 ${loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+              className={`bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-700 ${loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
             >
               {blogData ? "Update" : "Save"} Blog
             </button>

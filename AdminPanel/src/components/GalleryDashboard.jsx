@@ -10,15 +10,15 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
   
     return (
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+        className="fixed inset-0 bg-black/40 backdrop-blur-xs flex justify-center items-center z-50 p-4"
         onClick={onClose}
       >
         <div
-          className="bg-white rounded-md shadow-2xl w-full max-w-md transform transition-all duration-300 scale-100"
+          className="bg-white rounded shadow-2xl w-full max-w-sm transform transition-all duration-300 scale-100"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Header */}
-          <div className="bg-gradient-to-r from-[#ebb661] to-[#ebb661] text-white p-6 rounded-t-2xl">
+          <div className="bg-gradient-to-r from-red-500 to-red-500 text-white p-6">
             <h2 className="text-2xl font-bold">
               {formData._id ? "Update Image" : "Add New Image"}
             </h2>
@@ -28,7 +28,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
             {/* Preview Image */}
             {formData.imageUrl && (
               <div className="relative group">
-                <div className="relative overflow-hidden rounded-xl border-2 border-gray-200">
+                <div className="relative overflow-hidden rounded-lg border-2 border-gray-200">
                   <img 
                     src={formData.imageUrl} 
                     alt="Preview" 
@@ -38,7 +38,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
                 </div>
                 <button
                   disabled={loading}
-                  className="mt-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-lg w-full font-medium transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="mt-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-2 py-1.5 rounded-lg w-full font-medium transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                   onClick={() => setFormData({ ...formData, imageUrl: "" })}
                 >
                   Remove Image
@@ -48,18 +48,21 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
   
             {/* Form Fields */}
             <div className="space-y-4">
-              <div className='hidden'>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Posted By
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your name..."
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#ebb661] focus:ring-2 focus:ring-amber-200 transition-all duration-300 outline-none"
-                  value={formData.postedBy}
-                  onChange={(e) => setFormData({ ...formData, postedBy: e.target.value })}
-                />
-              </div>
+             <div className="">
+  <label className="block text-sm font-semibold text-gray-700 mb-2">
+    Type of Image
+  </label>
+  <select
+    className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300 outline-none"
+    value={formData.type}
+    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+  >
+    <option value=" " disabled selected>-- Select a type --</option>
+    <option value="photo">Photo</option>
+    <option value="event">Event</option>
+  </select>
+</div>
+
   
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -68,7 +71,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
                 <div className="relative">
                   <input 
                     type="file" 
-                    className="w-full px-4 py-3 border-2 border-dashed border-gray-200 rounded-xl focus:border-[#ebb661] focus:ring-2 focus:ring-amber-200 transition-all duration-300 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 disabled:opacity-50 disabled:cursor-not-allowed" 
+                    className="w-full px-2 py-1.5 border border-dashed border-gray-200 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 disabled:opacity-50 disabled:cursor-not-allowed" 
                     onChange={uploadImage} 
                     disabled={formData.imageUrl && formData.imageUrl !== ""} 
                     accept="image/*"
@@ -78,11 +81,11 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
             </div>
   
             {/* Action Buttons */}
-            <div className="flex flex-col space-y-3 pt-4">
+            <div className="flex flex-col space-y-3 pt-2">
               <button 
                 disabled={loading} 
                 onClick={onSubmit} 
-                className={`${loading ? "cursor-not-allowed opacity-75" : "cursor-pointer hover:shadow-lg"} bg-gradient-to-r from-[#ebb661] to-[#ebb661] hover:from-amber-700 hover:to-amber-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none flex items-center justify-center space-x-2`}
+                className={`${loading ? "cursor-not-allowed opacity-75" : "cursor-pointer hover:shadow-lg"} bg-gradient-to-r from-red-500 to-red-500 hover:from-red-700 hover:to-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none flex items-center justify-center space-x-2`}
               >
                 {loading && (
                   <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
@@ -94,7 +97,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
               
               <button 
                 onClick={onClose} 
-                className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02]"
+                className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02]"
               >
                 ✕ Cancel
               </button>
@@ -107,7 +110,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
 
 const GalleryDashboard = () => {
   const [gallery, setGallery] = useState([]);
-  const [formData, setFormData] = useState({ postedBy: "Redt Judge Ashok Kumar", imageUrl: "" });
+  const [formData, setFormData] = useState({ type: "Redt Judge Ashok Kumar", imageUrl: "" });
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -178,7 +181,7 @@ const GalleryDashboard = () => {
         await axios.post(`${api}/gallery/save`, formData);
         Swal.fire("Success", "Image added to gallery!", "success");
       }
-      setFormData({ postedBy: "", imageUrl: "" });
+      setFormData({ type: "", imageUrl: "" });
       setSelectedImage(null); 
       setShowModal(false);
       fetchGallery();
@@ -214,7 +217,7 @@ const GalleryDashboard = () => {
 
   const handleUpdate = (item) => {
     setFormData({
-      postedBy: item.postedBy,
+      type: item.type,
       imageUrl: item.imageUrl,
       _id: item._id, 
     });
@@ -223,12 +226,12 @@ const GalleryDashboard = () => {
   };
 
   const handleCloseModal = () => {
-    setFormData({ postedBy: "", imageUrl: "" });
+    setFormData({ type: "", imageUrl: "" });
     setShowModal(false);
   };
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-50 via-white to-amber-50">
+    <div className="p-6 bg-gradient-to-br from-gray-50 via-white to-red-50">
 
     
     <div className="min-h-screen  ">
@@ -240,7 +243,7 @@ const GalleryDashboard = () => {
           </div>
           <button
                 onClick={() => setShowModal(true)} 
-            className="bg-[#ebb661] text-white font-semibold px-4 py-2 rounded hover:bg-[#ebb661] flex items-center gap-2"
+            className="bg-red-500 text-white font-semibold px-4 py-2 rounded hover:bg-red-500 flex items-center gap-2"
           >
             <FiPlus size={24} />
             Add New Images
@@ -275,7 +278,7 @@ const GalleryDashboard = () => {
                     <button 
                       disabled={loading} 
                       onClick={() => handleUpdate(item)} 
-                      className="bg-white/90 backdrop-blur-sm hover:bg-white text-[#ebb661] px-3 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-1 text-sm"
+                      className="bg-white/90 backdrop-blur-sm hover:bg-white text-red-500 px-3 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-1 text-sm"
                     >
                       <span><Edit2/></span>
                     </button>
@@ -291,9 +294,9 @@ const GalleryDashboard = () => {
                   <div className="absolute  bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <div className="bg-white/90 backdrop-blur-sm rounded-lg p-2">
                       <p className="text-sm text-gray-700">
-                        <span className="font-medium">Posted by:</span>
+                        <span className="font-medium">Type : </span>
                       </p>
-                      <p className="font-bold text-sm text-gray-900 truncate">{item.postedBy}</p>
+                      <p className="font-bold text-sm text-gray-900 truncate">{item.type}</p>
                     </div>
                   </div>
                 </div>

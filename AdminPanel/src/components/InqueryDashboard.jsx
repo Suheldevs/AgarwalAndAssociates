@@ -66,7 +66,7 @@ const InquiryDashboard = () => {
     return (
       <div className="p-8">
         <div className="text-center">
-          <div className="animate-spin w-8 h-8 border-4 border-amber-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <div className="animate-spin w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full mx-auto mb-4"></div>
           <p>Loading inquiries...</p>
         </div>
       </div>
@@ -101,7 +101,7 @@ const InquiryDashboard = () => {
         <div className="overflow-x-auto">
           <table className="w w-[75rem] border-collapse border border-gray-300">
             <thead>
-              <tr className=" bg-[#ebb661] text-white">
+              <tr className=" bg-red-500 text-white">
                 <th className="border  border-gray-300 px-4 py-2 text-center">S.No</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Name</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Email</th>
@@ -125,7 +125,7 @@ const InquiryDashboard = () => {
                       </div>
                       {inquiry.message.length > 100 && (
                         <button
-                          className="mt-1 text-amber-600 hover:text-amber-800 text-sm flex items-center gap-1"
+                          className="mt-1 text-red-600 hover:text-red-800 text-sm flex items-center gap-1"
                           onClick={() => toggleMessage(inquiry._id)}
                         >
                           {expandedMessageId === inquiry._id ? (
@@ -163,7 +163,7 @@ const InquiryDashboard = () => {
           {loadCount < inquiries.length && (
             <div className="mt-4 text-center">
               <button
-                className="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600"
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                 onClick={() => setLoadCount((prev) => Math.min(prev + 10, inquiries.length))}
               >
                 Load More ({inquiries.length - loadCount} remaining)

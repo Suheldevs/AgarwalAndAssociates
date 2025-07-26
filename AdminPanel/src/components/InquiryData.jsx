@@ -94,23 +94,23 @@ const InquiryData = () => {
         {/* Header */}
         <div className="mb-4 bg-white shadow-sm p-1 ">
           <h1 className="text-2xl font-bold bg-gray-50 text-gray-900 px-4 py-1 m-1 border border-gray-200">Recent Customer Inquiries</h1>
-          {/* <p className="text-amber-700">Manage customer messages and requests</p> */}
+          {/* <p className="text-red-700">Manage customer messages and requests</p> */}
         </div>
 
         {/* Search & Refresh */}
         {/* <div className="mb-6 flex gap-4 items-center">
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-500" size={20} />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" size={20} />
             <input
               type="text"
               placeholder="Search inquiries..."
-              className="w-full pl-10 pr-4 py-3 border-2 border-amber-200 rounded-lg focus:border-amber-400 focus:outline-none bg-white"
+              className="w-full pl-10 pr-4 py-3 border-2 border-red-200 rounded-lg focus:border-red-400 focus:outline-none bg-white"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <button
-            className="flex items-center gap-2 px-4 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
             onClick={fetchInquiries}
           >
             <RefreshCw size={18} />
@@ -122,7 +122,7 @@ const InquiryData = () => {
         <div className="bg-white overflow-auto  shadow-lg border-2 border-gray-100">
              <table className="w-[75rem] border-collapse border border-gray-300">
                      <thead>
-                       <tr className="bg-gray100 bg-[#ebb661] text-white text-center">
+                       <tr className="bg-gray100 bg-red-500 text-white text-center">
                          <th className="border border-gray-300 px-4 py-2 ">S.No</th>
                          <th className="border border-gray-300 px-4 py-2 ">Name</th>
                          <th className="border border-gray-300 px-4 py-2 ">Email</th>
@@ -146,7 +146,7 @@ const InquiryData = () => {
                                </div>
                                {inquiry.message.length > 100 && (
                                  <button
-                                   className="mt-1 text-amber-600 hover:text-amber-800 text-sm flex items-center gap-1"
+                                   className="mt-1 text-red-600 hover:text-red-800 text-sm flex items-center gap-1"
                                    onClick={() => toggleMessage(inquiry._id)}
                                  >
                                    {expandedMessageId === inquiry._id ? (
@@ -183,7 +183,7 @@ const InquiryData = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-4  text-amber-600">
+        <div className="mt-4  text-red-600">
           Showing {filteredInquiries.length} inquiries
         </div>
       </div>

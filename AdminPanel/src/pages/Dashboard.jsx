@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaUsers } from "react-icons/fa";
 import ProjectDashboard from "../components/ProjectDashboard";
 import BlogDashboard from "../components/BlogDashboard";
 import Home from "../components/Home";
@@ -25,15 +25,18 @@ import {
   ChevronDown,
   Settings,
   HelpCircle,
-  BarChart2
+  BarChart2,
+  Cookie
 } from "lucide-react";
 import ApplicationDashboard from "../components/ApplicationDashboard";
 import CopyRight from "../components/CopyRight";
+import CookieDataDashboard from "../components/CookieDataDashboard";
+import TeamDashboard from "../components/TeamDashboard";
 
 const SidebarItem = ({ name, icon, active, onClick, collapsed }) => {
   return (
     <div
-      className={`flex items-center ${active ? 'bg-[#ebb661] text-white' : 'text-neutral-300 hover:bg-neutral-700'} rounded-lg cursor-pointer transition-all duration-200 mb-0.5 px-2 py-2 group`}
+      className={`flex items-center ${active ? 'bg-red-500 text-white' : 'text-neutral-300 hover:bg-neutral-700'} rounded-lg cursor-pointer transition-all duration-200 mb-0.5 px-2 py-2 group`}
       onClick={() => onClick(name)}
     >
       <div className={`${active ? 'text-white' : 'text-neutral-400 group-hover:text-white'} mr-3 transition-colors`}>{icon}</div>
@@ -51,14 +54,18 @@ const DashboardContent = ({ section }) => {
   switch (section) {
     case "Dashboard":
       return <Home />;
-    // case "Project":
-    //   return <ProjectDashboard />;
+    case "Project":
+      return <ProjectDashboard />;
     case "Blog":
       return <BlogDashboard />;
     case "Gallery":
       return <GalleryDashboard />;
+    case 'Team':
+      return <TeamDashboard/>;
     case "Inquiry Data":
       return <InquiryDashboard />;
+    case "Cookie Data":
+      return <CookieDataDashboard/> 
     // case "Job Application":
     //   return <ApplicationDashboard />;
     default:
@@ -154,7 +161,7 @@ const Dashboard = () => {
               //   <img src={cclogo} alt="CodeCrafter Logo" className="h-12" />
               // </a>
                <div className="">
-              <h1 className=" font-semibold text-neutral-800">Retd. Judge Ashok Kumar</h1>
+              <h1 className=" font-semibold text-neutral-800">Agarwal & Associates</h1>
             </div>
             )}
             <button 
@@ -188,13 +195,6 @@ const Dashboard = () => {
               onClick={setSection} 
               collapsed={sidebarCollapsed} 
             />
-            {/* <SidebarItem 
-              name="Project" 
-              icon={<FolderOpenDot size={20} />} 
-              active={section === "Project"} 
-              onClick={setSection} 
-              collapsed={sidebarCollapsed} 
-            /> */}
             <SidebarItem 
               name="Gallery" 
               icon={<Images size={20} />} 
@@ -202,13 +202,21 @@ const Dashboard = () => {
               onClick={setSection} 
               collapsed={sidebarCollapsed} 
             />
-            {/* <SidebarItem 
-              name="Job Application" 
-              icon={<BadgeInfo size={20} />} 
-              active={section === "Job Application"} 
+            <SidebarItem 
+              name="Project" 
+              icon={<FolderOpenDot size={20} />} 
+              active={section === "Project"} 
               onClick={setSection} 
               collapsed={sidebarCollapsed} 
-            /> */}
+            />
+              <SidebarItem name="Team" icon={<FaUsers />}  active={section === "Team"}  collapsed={sidebarCollapsed}  onClick={setSection} />
+            <SidebarItem 
+              name="Cookie Data" 
+              icon={<Cookie size={20} />} 
+              active={section === "Cookie Data"} 
+              onClick={setSection} 
+              collapsed={sidebarCollapsed} 
+            />
           </div>
           
           {/* Bottom section */}

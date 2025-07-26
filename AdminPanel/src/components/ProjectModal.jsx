@@ -110,73 +110,91 @@ const ProjectModal = ({ projectData, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50">
-      <div className="bg-white shadow-xl rounded-xl p-6 w-full max-w-4xl max-h-[95vh] overflow-y-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">{projectData ? "Update" : "Add"} Project</h2>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-xs z-50 p-3">
+      <div className="bg-white shadow-2xl rounded-md p-5 w-full max-w-2xl max-h-[95vh] overflow-y-auto border border-gray-100">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-5">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800">
+              {projectData ? "Update" : "Add New"} Project
+            </h2>
+            <div className="w-12 h-1 bg-red-600 rounded-full mt-1"></div>
+          </div>
           <button 
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all duration-200"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Left Column */}
-            <div className="space-y-3">
+            <div className="space-y-1">
+              {/* Title */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Project Title
+                </label>
                 <input
                   type="text"
                   value={formData.title}
                   placeholder="Enter project title"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full h-11 px-3 border-2 border-gray-200 rounded-md focus:border-red-500 focus:outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
                   onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
                   required
                 />
               </div>
               
+              {/* Location */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Location
+                </label>
                 <input
                   type="text"
                   value={formData.location}
                   placeholder="Enter project location"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full h-11 px-3 border-2 border-gray-200 rounded-md focus:border-red-500 focus:outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
                   onChange={(e) => setFormData((prev) => ({ ...prev, location: e.target.value }))}
                   required
                 />
               </div>
               
+              {/* Category */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Category
+                </label>
                 <select
                   name="category"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white transition-all"
+                  className="w-full h-11 px-3 border-2 border-gray-200 rounded-md focus:border-red-500 focus:outline-none bg-white transition-colors duration-200 text-gray-700"
                   value={formData.category}
                   onChange={(e) => setFormData((prev) => ({ ...prev, category: e.target.value }))}
                   required
                 >
-                  <option value="">Select Category</option>
+                  <option value="" disabled className="text-gray-400">Select Category</option>
                   <option value="Residential">Residential</option>
                   <option value="Commercial">Commercial</option>
                   <option value="Institutional">Institutional</option>
                   <option value="Landscape">Landscape</option>
-                  <option value="Public">Public</option>
+                  <option value="Urban-Planning">Urban Planning</option>
                 </select>
               </div>
               
+              {/* Description */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Description
+                </label>
                 <textarea
                   value={formData.description}
-                  placeholder="Enter project description..."
+                  placeholder="Enter detailed project description..."
                   rows="4"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none"
+                  className="w-full px-3 py-2 border-2 border-gray-200 rounded-md focus:border-red-500 focus:outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 resize-none"
                   onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
                   required
                 />
@@ -184,65 +202,74 @@ const ProjectModal = ({ projectData, onClose }) => {
             </div>
             
             {/* Right Column */}
-            <div className="space-y-3">
-              <div className="space-y-3">
-                <label className="block text-sm font-medium text-gray-700">Main Image</label>
-                <div className="flex items-center justify-center w-full">
-                  <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-all">
-                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                      {uploadingMain ? (
-                        <div className="animate-pulse text-blue-500">Uploading...</div>
-                      ) : formData.mainImageUrl ? (
-                        <img src={formData.mainImageUrl} alt="Main" className="h-24 object-contain" />
-                      ) : (
-                        <>
-                          <svg className="w-8 h-8 mb-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                          </svg>
-                          <p className="text-sm text-gray-500">Click to upload main image</p>
-                        </>
-                      )}
-                    </div>
+            <div className="space-y-2">
+              {/* Main Image */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Main Image
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-md overflow-hidden">
+                  <label className="flex flex-col items-center justify-center h-32 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
+                    {uploadingMain ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="w-5 h-5 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+                        <span className="text-red-600 font-medium">Uploading...</span>
+                      </div>
+                    ) : formData.mainImageUrl ? (
+                      <img src={formData.mainImageUrl} alt="Main" className="h-28 w-full object-contain" />
+                    ) : (
+                      <div className="text-center">
+                        <svg className="w-8 h-8 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        <p className="text-sm text-gray-500 font-medium">Click to upload main image</p>
+                        <p className="text-xs text-gray-400">PNG, JPG up to 10MB</p>
+                      </div>
+                    )}
                     <input 
                       type="file" 
                       className="hidden" 
+                      accept="image/*"
                       onChange={(e) => uploadImage(e, "mainImageUrl")} 
                       disabled={uploadingMain}
                     />
                   </label>
                 </div>
                 {formData.mainImageUrl && (
-                  <div className="flex justify-end">
-                    <button
-                      type="button"
-                      className="bg-red-100 text-red-600 px-3 py-1 rounded-lg text-sm hover:bg-red-200 transition-colors"
-                      onClick={() => setFormData((prev) => ({ ...prev, mainImageUrl: "" }))}
-                    >
-                      Remove Image
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    className="mt-2 text-sm text-red-600 hover:text-red-800 font-medium"
+                    onClick={() => setFormData((prev) => ({ ...prev, mainImageUrl: "" }))}
+                  >
+                    Remove Image
+                  </button>
                 )}
               </div>
               
-              <div className="space-y-1">
-                <label className="block text-sm font-medium text-gray-700">Other Images</label>
-                <div className="flex items-center justify-center w-full">
-                  <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-all">
-                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                      {uploadingOther ? (
-                        <div className="animate-pulse text-blue-500">Uploading...</div>
-                      ) : (
-                        <>
-                          <svg className="w-8 h-8 mb-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                          </svg>
-                          <p className="text-sm text-gray-500">Click to upload additional images</p>
-                        </>
-                      )}
-                    </div>
+              {/* Other Images */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Gallery Images ({formData.otherImages.length})
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-md overflow-hidden">
+                  <label className="flex flex-col items-center justify-center h-24 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
+                    {uploadingOther ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+                        <span className="text-red-600 text-sm font-medium">Uploading...</span>
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <svg className="w-6 h-6 mx-auto mb-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        <p className="text-sm text-gray-500 font-medium">Add gallery images</p>
+                      </div>
+                    )}
                     <input 
                       type="file" 
-                      className="hidden" 
+                      className="hidden"
+                      accept="image/*" 
                       onChange={(e) => uploadImage(e, "otherImages")} 
                       disabled={uploadingOther}
                     />
@@ -250,18 +277,21 @@ const ProjectModal = ({ projectData, onClose }) => {
                 </div>
                 
                 {formData.otherImages.length > 0 && (
-                  <div className="mt-3">
-                    <p className="text-sm text-gray-500 mb-2">Gallery Images ({formData.otherImages.length})</p>
+                  <div className="mt-2">
                     <div className="grid grid-cols-4 gap-2">
                       {formData.otherImages.map((img, idx) => (
                         <div key={idx} className="relative group">
-                          <img src={img} alt={`Other ${idx}`} className="w-full h-16 object-cover rounded-lg border border-gray-200" />
+                          <img 
+                            src={img} 
+                            alt={`Gallery ${idx + 1}`} 
+                            className="w-full h-16 object-cover rounded-lg border-2 border-gray-200" 
+                          />
                           <button
                             type="button"
-                            className="absolute top-1 right-1 bg-red-500 text-white text-xs p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
                             onClick={() => removeOtherImage(idx)}
                           >
-                            ✕
+                            ×
                           </button>
                         </div>
                       ))}
@@ -272,10 +302,11 @@ const ProjectModal = ({ projectData, onClose }) => {
             </div>
           </div>
           
-          <div className="flex justify-between pt-4">
+          {/* Action Buttons */}
+          <div className="flex space-x-3 pt-4 border-t border-gray-100">
             <button 
               type="button" 
-              className="bg-gray-100 text-gray-700 py-2.5 px-5 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex-1 h-11 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-md transition-all duration-200 transform  focus:outline-none focus:ring-4 focus:ring-gray-200"
               onClick={onClose}
             >
               Cancel
@@ -283,18 +314,15 @@ const ProjectModal = ({ projectData, onClose }) => {
             <button 
               type="submit" 
               disabled={uploadingMain || uploadingOther || submitting}
-              className={`bg-blue-600 text-white py-2.5 px-5 rounded-lg hover:bg-blue-700 transition-colors flex items-center ${(uploadingMain || uploadingOther || submitting) ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className="flex-1 cursor-pointer h-11 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-md transition-all duration-200 transform focus:outline-none focus:ring-4 focus:ring-red-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {submitting ? (
-                <>
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Processing...
-                </>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Processing...</span>
+                </div>
               ) : (
-                `${projectData ? "Update" : "Save"} Project`
+                <span>{projectData ? "Update Project" : "Save Project"}</span>
               )}
             </button>
           </div>

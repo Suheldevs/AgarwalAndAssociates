@@ -74,14 +74,17 @@ const ProjectDashboard = () => {
 
   return (
     <div className="p-6 min-h-screen bg-gray-100">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-800">Project Dashboard</h2>
-        <button
+      
+ <div className="mb-6 bg-white p-2">
+        <div className=" flex justify-between border border-gray-200 bg-gray-50 px-4 py-1">
+          <h1 className="text-2xl  font-semibold">Project Dashboard Dashboard</h1>
+            <button
           onClick={handleAdd}
-          className="bg-amber-600 hover:bg-yellow-500 text-white px-5 py-2 rounded-lg shadow-md font-semibold transition-all"
+          className="bg-red-600 hover:bg-red-500 text-white px-3 py-1.5 rounded-lg shadow-md font-semibold transition-all"
         >
           + Add Project
         </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -108,7 +111,7 @@ const ProjectDashboard = () => {
                     <FiEye /> View
                   </button>
                   <button
-                    className="bg-yellow-500 hover:bg-yellow-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
+                    className="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
                     onClick={() => handleEdit(project)}
                   >
                     <FiEdit /> Edit
