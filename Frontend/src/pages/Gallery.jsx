@@ -22,34 +22,45 @@ import p16 from '../assets/project/resort.png'
 import p17 from '../assets/project/ice-factory.png'
 import p18 from '../assets/project/iti-college.png'
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGalleryData } from '../redux/dataSlice';
 
 // Sample image data - replace with your actual images
 const galleryImages = [
-  { id: 1, src:p1, type:"event", alt: "Gallery Image 1" },
-  { id: 2, src:p2, type:"photo", alt: "Gallery Image 2" },
-  { id: 3, src:p3, type:"event", alt: "Gallery Image 3" },
-  { id: 4, src:p4, type:"photo", alt: "Gallery Image 4" },
-  { id: 5, src:p5, type:"event", alt: "Gallery Image 5" },
-  { id: 6, src:p6, type:"photo", alt: "Gallery Image 6" },
-  { id: 7, src:p7, type:"photo", alt: "Gallery Image 7" },
-  { id: 8, src:p8, type:"photo", alt: "Gallery Image 8" },
-  { id: 9, src:p9, type:"event", alt: "Gallery Image 9" },
-  { id: 10, src:p10, type:"photo", alt: "Gallery Image 9" },
-  { id: 11, src:p11, type:"event", alt: "Gallery Image 9" },
-  { id: 12, src:p12, type:"event", alt: "Gallery Image 9" },
-  { id: 13, src:p13, type:"event", alt: "Gallery Image 9" },
-  { id: 14, src:p14, type:"photo", alt: "Gallery Image 9" },
-  { id: 15, src:p15, type:"event", alt: "Gallery Image 9" },
-  { id: 16, src:p16, type:"photo", alt: "Gallery Image 9" },
-  { id: 17, src:p17, type:"photo", alt: "Gallery Image 9" },
-  { id: 18, src:p18, type:"photo", alt: "Gallery Image 9" },
+  { id: 1, imageUrl:p1, type:"event", alt: "Gallery Image 1" },
+  { id: 2, imageUrl:p2, type:"photo", alt: "Gallery Image 2" },
+  { id: 3, imageUrl:p3, type:"event", alt: "Gallery Image 3" },
+  { id: 4, imageUrl:p4, type:"photo", alt: "Gallery Image 4" },
+  { id: 5, imageUrl:p5, type:"event", alt: "Gallery Image 5" },
+  { id: 6, imageUrl:p6, type:"photo", alt: "Gallery Image 6" },
+  { id: 7, imageUrl:p7, type:"photo", alt: "Gallery Image 7" },
+  { id: 8, imageUrl:p8, type:"photo", alt: "Gallery Image 8" },
+  { id: 9, imageUrl:p9, type:"event", alt: "Gallery Image 9" },
+  { id: 10, imageUrl:p10, type:"photo", alt: "Gallery Image 9" },
+  { id: 11, imageUrl:p11, type:"event", alt: "Gallery Image 9" },
+  { id: 12, imageUrl:p12, type:"event", alt: "Gallery Image 9" },
+  { id: 13, imageUrl:p13, type:"event", alt: "Gallery Image 9" },
+  { id: 14, imageUrl:p14, type:"photo", alt: "Gallery Image 9" },
+  { id: 15, imageUrl:p15, type:"event", alt: "Gallery Image 9" },
+  { id: 16, imageUrl:p16, type:"photo", alt: "Gallery Image 9" },
+  { id: 17, imageUrl:p17, type:"photo", alt: "Gallery Image 9" },
+  { id: 18, imageUrl:p18, type:"photo", alt: "Gallery Image 9" },
 ];
+
 
 export default function Gallery() {
     const [searchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 const [type, setType] = useState('photo')
+
+const dispatch = useDispatch()
+const {galleryData, error , status} = useSelector((state)=>state.data)
+
+useEffect(()=>{
+dispatch(fetchGalleryData())
+},[dispatch])
+
   const openModal = (index) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
@@ -62,14 +73,14 @@ const [type, setType] = useState('photo')
   const goToPrevious = (e) => {
     e.stopPropagation();
     setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+      prevIndex === 0 ? galleryData.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = (e) => {
     e.stopPropagation();
     setCurrentImageIndex((prevIndex) => 
-      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+      prevIndex === galleryData.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -81,7 +92,6 @@ if(type){
 }
     },[searchParams])
 
-    console.log(type)
   return (
     <>
      <Breadcrumb
@@ -95,14 +105,14 @@ if(type){
       <div className="max-w-7xl mx-auto">
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {galleryImages.filter(img=>img.type == type).map((image, index) => (
+          {galleryData.filter(img=>img.type == type).map((image, index) => (
             <div 
               key={image.id} 
               className="relative overflow-hidden  shadow-lg bg-white group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
               onClick={() => openModal(index)}
             >
               <img 
-                src={image.src} 
+                src={image.imageUrl} 
                 alt={image.alt} 
                 className="w-full lg:h-64 object-cover"
               />
@@ -118,10 +128,10 @@ if(type){
         {/* Modal */}
         {isModalOpen && (
           <div 
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+            className="fixed inset-0  bg-black/80 flex items-center justify-center z-50"
             onClick={closeModal}
           >
-            <div className="relative max-w-5xl w-full max-h-screen p-4 flex items-center justify-center">
+            <div className="relative max-w-5xl  w-full h-[90vh] p-4 flex items-center justify-center">
               <button 
                 onClick={closeModal}
                 className="absolute top-4 right-4 text-white p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition-all z-10"
@@ -148,8 +158,8 @@ if(type){
               {/* Image */}
               <div className="w-full flex items-center justify-center">
                 <img 
-                  src={galleryImages[currentImageIndex].src} 
-                  alt={galleryImages[currentImageIndex].alt} 
+                  src={galleryData[currentImageIndex].imageUrl} 
+                  alt={galleryData[currentImageIndex].alt} 
                   className="max-h-screen max-w-full object-contain rounded-md  lg:scale-200 shadow-2xl"
                 />
               </div>

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const inquirySchema = new mongoose.Schema(
   {
-    name: {
+    name: {                                      
       type: String,
       required: true,
     },
@@ -14,13 +14,31 @@ const inquirySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    message: {
-      type: String,
-      required: true,
+    location:{
+      type:String,
+      default:null
     },
     service: {
       type: String,
+      default:null
     },
+    projectType: {
+      type: String,
+      default:null
+    },
+    plotSize: {
+      type: String,
+      default:null
+    },
+    budget: {
+      type: String,
+      default:null
+    },
+     message: {
+      type: String,
+      required: true,
+    },
+
   },
   { timestamps: true }
 );

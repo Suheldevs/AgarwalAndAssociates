@@ -39,7 +39,9 @@ const ProjectDashboard = () => {
     if (!result.isConfirmed) return;
 
     try {
-      await axios.delete(`${api}/project/delete/${id}`,{withCredentials:true});
+      await axios.delete(`${api}/project/delete/${id}`, {
+        withCredentials: true,
+      });
       setProjects(projects.filter((p) => p._id !== id));
       Swal.fire("Deleted!", "The project has been deleted.", "success");
     } catch (error) {
@@ -74,22 +76,25 @@ const ProjectDashboard = () => {
 
   return (
     <div className="p-6 min-h-screen bg-gray-100">
-      
- <div className="mb-6 bg-white p-2">
+      <div className="mb-6 bg-white p-2">
         <div className=" flex justify-between border border-gray-200 bg-gray-50 px-4 py-1">
-          <h1 className="text-2xl  font-semibold">Project Dashboard Dashboard</h1>
-            <button
-          onClick={handleAdd}
-          className="bg-red-600 hover:bg-red-500 text-white px-3 py-1.5 rounded-lg shadow-md font-semibold transition-all"
-        >
-          + Add Project
-        </button>
+          <h1 className="text-2xl  font-semibold">
+            Project Dashboard Dashboard
+          </h1>
+          <button
+            onClick={handleAdd}
+            className="bg-red-600 hover:bg-red-500 text-white px-3 py-1.5 rounded-lg shadow-md font-semibold transition-all"
+          >
+            + Add Project
+          </button>
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {projects.length === 0 ? (
-          <div className="text-red-400 text-2xl text-center col-span-full py-6">No Projects Yet!</div>
+          <div className="text-red-400 text-2xl text-center col-span-full py-6">
+            No Projects Yet!
+          </div>
         ) : (
           projects.map((project) => (
             <div
@@ -102,7 +107,9 @@ const ProjectDashboard = () => {
                 className="w-full h-52 object-cover"
               />
               <div className="p-4">
-                <h3 className="font-semibold text-lg text-gray-900">{project.title}</h3>
+                <h3 className="font-semibold text-lg text-gray-900">
+                  {project.title}
+                </h3>
                 <div className="mt-4 flex justify-between gap-2">
                   <button
                     className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
@@ -129,8 +136,15 @@ const ProjectDashboard = () => {
         )}
       </div>
 
-      {isFormOpen && <ProjectModal projectData={selectedProject} onClose={handleCloseForm} />}
-      {isDetailModalOpen && <ProjectDetailModal projectId={selectedProject} onClose={handleCloseDetailModal} />}
+      {isFormOpen && (
+        <ProjectModal projectData={selectedProject} onClose={handleCloseForm} />
+      )}
+      {isDetailModalOpen && (
+        <ProjectDetailModal
+          projectId={selectedProject}
+          onClose={handleCloseDetailModal}
+        />
+      )}
     </div>
   );
 };

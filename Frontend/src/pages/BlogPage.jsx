@@ -3,11 +3,70 @@ import { Clock, Tag, ArrowRight, Heart, MessageSquare, Share2, Bookmark } from "
 import { Link } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import blogPosts from '../Data/BlogData'
+import {useDispatch, useSelector} from 'react-redux'
+import { fetchBlogData } from "../redux/dataSlice";
+import { useEffect } from "react";
 export default function BlogPage() {
   const [hoveredId, setHoveredId] = useState(null);
 
+const dispatch = useDispatch()
+const {blogData,error, status} = useSelector((state)=>state.data)
+useEffect(()=>{
+dispatch(fetchBlogData())
+},[dispatch])
 
-  
+  console.log(blogData)
+
+if(status=='loading'){
+  return(
+    <>
+    <Breadcrumb 
+        title="Latest Blogs" 
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Blog', link: '/blog' }
+        ]}
+      />
+    <div className='text-xl h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>Loading..</div>
+  </>
+  )
+}
+if(blogData.length == 0){
+  return(
+    <>
+    <Breadcrumb 
+        title="Latest Blogs" 
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Blog', link: '/blog' }
+        ]}
+      />
+    <div className='text-red-600 text-lg h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>Blog Data Not Found!</div>
+  </>
+  )
+}
+if(error){
+  return(
+    <>
+    <Breadcrumb 
+        title="Latest Blogs" 
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Blog', link: '/blog' }
+        ]}
+      />
+    <div className='text-red-600 text-lg h-[50vh] justify-center items-center flex font-medium textx-center shadow-2xl rounded p-2'>{error}</div>
+    </>
+  )
+}
+  const formattedDate = (date) => {
+    return new Date(date).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
   return (
     <>
     <Breadcrumb 
@@ -40,13 +99,14 @@ export default function BlogPage() {
       {/* Blog posts */}
       {/* <h2 className="text-3xl font-bold mb-8 text-gray-800">Latest Articles</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map(post => (
+            {Array.isArray(blogData) && blogData.length > 0 ? (
+                      blogData.map(post => (
                     <div key={post.id} className="px-3">
                       <div className="bg-white flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200">
                         {/* Image section */}
                         <div className=" overflow-hidden">
                           <img 
-                            src={post.image} 
+                            src={post.imageUrl} 
                             alt={post.title} 
                             className="w-full h-[15rem] object-cover"
                           />
@@ -58,7 +118,7 @@ export default function BlogPage() {
                           <div className="flex justify-between items-center mb-3 text-xs">
                             <div className="flex items-center text-gray-500">
                               <Clock className="h-3 w-3 mr-1" />
-                              {post.date}
+                            { formattedDate(post.updatedAt)}
                             </div>
                             <div className="inline-flex items-center bg-black px-2 py-1 rounded-sm text-xs font-medium text-white">
                               <Tag className="h-3 w-3 mr-1" />
@@ -73,7 +133,10 @@ export default function BlogPage() {
                           
                           {/* Description */}
                           <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">
-                            {post.description}
+                          {
+              new DOMParser().parseFromString(post.description, "text/html").body
+                .textContent
+            }
                           </p>
                           
                           {/* Read More button */}
@@ -89,7 +152,9 @@ export default function BlogPage() {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))):(
+                      <p>No blogs available.</p>
+                    )}
       </div>
       
       {/* Load more button */}

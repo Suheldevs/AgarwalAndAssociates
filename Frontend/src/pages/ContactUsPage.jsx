@@ -43,7 +43,7 @@ export default function ContactUsPage() {
     try {
       setFormStatus({ loading: true });
       const response = await axios.post(
-        `${backend_url}/inquiry/agarwal/save`,
+        `${backend_url}/inquiry/save`,
         formState
       );
       setFormStatus({ submitted: true });

@@ -105,14 +105,19 @@ const TeamDashboard = () => {
 
   return (
     <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">Team Management</h2>
-        <button
+
+       <div className="mb-6 bg-white p-2">
+        <div className=" flex justify-between border border-gray-200 bg-gray-50 px-4 py-1">
+          <h1 className="text-2xl  font-semibold">
+            Team Management
+          </h1>
+         <button
           onClick={handleAdd}
           className="bg-red-600 hover:bg-red-500 text-white px-3 py-1.5 rounded-lg shadow-md font-semibold transition-all"
         >
           + Add Team Member
         </button>
+        </div>
       </div>
  {isFormOpen && (
         <div className="h-full w-full">
@@ -128,19 +133,19 @@ const TeamDashboard = () => {
           <table className="w-full min-w-[75rem] border-collapse border border-gray-300">
             <thead>
               <tr className="bg-red-500 text-white">
-                <th className="border border-gray-300 px-4 py-2 text-center">S.No</th>
-                <th className="border border-gray-300 px-4 py-2 text-center">Photo</th>
-                <th className="border border-gray-300 px-4 py-2 text-center">Name</th>
-                <th className="border border-gray-300 px-4 py-2 text-center">Department</th>
-                <th className="border border-gray-300 px-4 py-2 text-center">Date of Birth</th>
-                <th className="border border-gray-300 px-4 py-2 text-center">Action</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">S.No</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">Photo</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">Name</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">Department</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">Date of Birth</th>
+                <th className="border border-gray-300 px-2 py-1.5 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               {team.slice(0, loadCount).map((member, index) => (
                 <tr key={member._id} className="hover:bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 text-center">{index + 1}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
+                  <td className="border border-gray-300 px-3 py-1.5 text-center">{index + 1}</td>
+                  <td className="border border-gray-300 px-3 py-1.5 text-center">
                     <div className="flex justify-center">
                       {member.imageUrl ? (
                         <img 
@@ -161,21 +166,21 @@ const TeamDashboard = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="border w-64 border-gray-300 px-4 py-2 font-medium">
+                  <td className="border w-64 border-gray-300 px-3 py-1.5 font-medium">
                     {member.name}
                   </td>
-                  <td className="border w-44 border-gray-300 px-4 py-2 text-center">
+                  <td className="border w-44 border-gray-300 px-3 py-1.5 text-center">
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDepartmentColor(member.department)}`}>
                       {member.department}
                     </span>
                   </td>
-                  <td className="border w-44 border-gray-300 px-4 py-2 text-center">
+                  <td className="border w-44 border-gray-300 px-3 py-1.5 text-center">
                     <div className="flex items-center justify-center gap-1">
                       <Calendar size={14} className="text-gray-500" />
                       {formatDate(member.dob)}
                     </div>
                   </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
+                  <td className="border border-gray-300 px-3 py-1.5 text-center">
                     <div className="flex gap-2 justify-center">
                       <button
                         onClick={() => handleEdit(member)}
@@ -201,7 +206,7 @@ const TeamDashboard = () => {
           {loadCount < team.length && (
             <div className="mt-4 text-center">
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                className="bg-red-500 text-white px-3 py-1.5 rounded hover:bg-red-600"
                 onClick={() => setLoadCount((prev) => Math.min(prev + 10, team.length))}
               >
                 Load More ({team.length - loadCount} remaining)

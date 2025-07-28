@@ -16,7 +16,7 @@ import {
 import axios from "axios";
 
 export default function Appointment() {
-      const backend_url = import.meta.env.VITE_BACKEND_URL
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -34,11 +34,47 @@ export default function Appointment() {
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+      switch (name) {
+        case "name":
+          newErrors.name = value.trim() ? "" : "Full name is required";
+          break;
+        case "email":
+          if (!value.trim()) {
+            newErrors.email = "Email address is required";
+          } else if (!/\S+@\S+\.\S+/.test(value)) {
+            newErrors.email = "Email address is invalid";
+          } else {
+            newErrors.email = "";
+          }
+          break;
+        case "phone":
+          if (!value.trim()) {
+            newErrors.phone = "Phone number is required";
+          } else if (!/^[6-9]\d{9}$/.test(value)) {
+            newErrors.phone = "Phone must start with 6-9 and be 10 digits";
+          } else {
+            newErrors.phone = "";
+          }
+          break;
+        case "message":
+          newErrors.message = value.trim() ? "" : "Message is required";
+          break;
+        default:
+          break;
+      }
+      return newErrors;
     });
   };
+
   const validateForm = () => {
     let formErrors = {};
     let isValid = true;
@@ -80,8 +116,11 @@ export default function Appointment() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(`${backend_url}/inquiry/agarwal/save`, formData);
-
+      const response = await axios.post(
+        `${backend_url}/inquiry/save`,
+        formData
+      );
+console.log(response)
       if (response) {
         setIsSubmitted(true);
       } else {
@@ -106,25 +145,24 @@ export default function Appointment() {
       budget: "",
       message: "",
     });
+    setErrors({});
     setIsSubmitted(false);
     setIsModalOpen(false);
   };
 
   return (
     <div>
-      {/* Fixed Consultation Button */}
       <div className="fixed -right-20 top-1/2 transform -translate-y-1/2 z-50 rotate-90">
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white
-           px-3 py-2 rounded-full cursor-pointer shadow-2xl transform  transition-all duration-300 flex items-center "
+           px-3 py-2 rounded-full shadow-2xl transform transition-all duration-300 flex items-center"
         >
           <Calendar className="h-5 w-5 mr-2" />
           <span className="font-semibold">Book Free Consulting</span>
         </button>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div
           onClick={() => setIsModalOpen(false)}
@@ -160,9 +198,13 @@ export default function Appointment() {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Enter Your Full Name"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
-                        required
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       />
+                      {errors.name && (
+                        <p className="text-sm text-red-600 mt-1">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -174,9 +216,13 @@ export default function Appointment() {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="email@example.com"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
-                        required
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       />
+                      {errors.email && (
+                        <p className="text-sm text-red-600 mt-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -191,9 +237,13 @@ export default function Appointment() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="Enter Your 10 Digit Number"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
-                        required
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       />
+                      {errors.phone && (
+                        <p className="text-sm text-red-600 mt-1">
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -205,7 +255,7 @@ export default function Appointment() {
                         value={formData.location}
                         onChange={handleInputChange}
                         placeholder="City, Country"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       />
                     </div>
                   </div>
@@ -219,7 +269,7 @@ export default function Appointment() {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       >
                         <option value="">Select a Service</option>
                         <option value="residential">Residential Design</option>
@@ -237,7 +287,7 @@ export default function Appointment() {
                         name="projectType"
                         value={formData.projectType}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       >
                         <option value="">Select Project Type</option>
                         <option value="new-construction">
@@ -261,7 +311,7 @@ export default function Appointment() {
                         value={formData.plotSize}
                         onChange={handleInputChange}
                         placeholder="e.g., 1000 sq ft"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       />
                     </div>
                     <div>
@@ -272,7 +322,7 @@ export default function Appointment() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                       >
                         <option value="">Select Budget Range</option>
                         <option value="5-10-lakh">₹5-10 Lakh</option>
@@ -293,9 +343,13 @@ export default function Appointment() {
                       onChange={handleInputChange}
                       placeholder="Tell us about your project or inquiry..."
                       rows="2"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors resize-none"
-                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 resize-none"
                     ></textarea>
+                    {errors.message && (
+                      <p className="text-sm text-red-600 mt-1">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   <button

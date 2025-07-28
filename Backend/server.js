@@ -15,6 +15,8 @@ const corsOptions = {
         "https://adv-ashok-kumar.netlify.app/",
         "https://adv-ashok-kumar-admin.netlify.app",
         "https://adv-ashok-kumar-admin.netlify.app/",
+        "https://agarwal-associates.netlify.app",
+        "https://agarwal-associates-admin.netlify.app"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],

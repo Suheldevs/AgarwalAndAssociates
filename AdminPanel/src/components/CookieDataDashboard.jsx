@@ -20,7 +20,7 @@ export default function VisitorDashboard() {
   const fetchVisitors = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${api}/visitor/all`);
+      const res = await axios.get(`${api}/visitor/get/all`);
       setVisitorData(res.data.data || []);
     } catch (error) {
       toast.error("Failed to fetch visitors");
@@ -60,11 +60,18 @@ export default function VisitorDashboard() {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Visitor Data</h2>
+       <div className="mb-6 bg-white p-2">
+        <div className=" flex justify-between border border-gray-200 bg-gray-50 px-4 py-1">
+          <h1 className="text-2xl  font-semibold">
+           Visitor Data
+          </h1>
+          
+        </div>
+      </div>
 
-      <div className="overflow-x-auto rounded-lg shadow">
-        <table className="w-full text-left border">
-          <thead className="bg-gray-200 text-gray-700 text-sm">
+      <div className="overflow-x-auto rounded shadow">
+        <table className="w-full text-left border border-gray-200">
+          <thead className="bg-red-500 text-gray-100 text-sm">
             <tr>
               <th className="px-4 py-2">Visitor ID</th>
               <th className="px-4 py-2">IP</th>
@@ -79,7 +86,7 @@ export default function VisitorDashboard() {
           </thead>
           <tbody>
             {visitorData.map((data) => (
-              <tr key={data._id} className="border-b hover:bg-gray-100">
+              <tr key={data._id} className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="px-4 py-2">{data.visitorId}</td>
                 <td className="px-4 py-2">{data.ip}</td>
                 <td className="px-4 py-2">{data.city}</td>
@@ -127,7 +134,7 @@ export default function VisitorDashboard() {
             <div className="flex justify-between items-center p-4 border-b">
               <h3 className="text-lg font-semibold">Visitor Location</h3>
               <button onClick={closeMap} className="text-gray-500 hover:text-red-500">
-                ×
+                X
               </button>
             </div>
             <div className="h-[400px] w-full">

@@ -99,13 +99,20 @@ const InquiryDashboard = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w w-[75rem] border-collapse border border-gray-300">
+          <table className="w w-[100rem] border-collapse border border-gray-300">
             <thead>
               <tr className=" bg-red-500 text-white">
                 <th className="border  border-gray-300 px-4 py-2 text-center">S.No</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Name</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Email</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Phone</th>
+                
+                <th className="border border-gray-300 px-4 py-2 ">Location</th>
+                <th className="border border-gray-300 px-4 py-2 ">Service</th>
+                <th className="border border-gray-300 px-4 py-2 ">
+                  Project Type
+                </th>
+                <th className="border border-gray-300 px-4 py-2 ">Plot Size</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Message</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Date</th>
                 <th className="border border-gray-300 px-4 py-2 text-center">Action</th>
@@ -118,6 +125,18 @@ const InquiryDashboard = () => {
                   <td className="border w-44  border-gray-300 px-4 py-2 font-medium">{inquiry.name}</td>
                   <td className="border border-gray-300 px-4 py-2">{inquiry.email}</td>
                   <td className="border w-44 border-gray-300 px-4 py-2">{inquiry.phone}</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {inquiry.service}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {inquiry.location?inquiry.location:'--'}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {inquiry.projectType?inquiry.projectType:'--'}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {inquiry.plotSize?inquiry.plotSize:'--'}
+                  </td>
                   <td className="border w-52 border-gray-300 px-4 py-2 max-w-xs">
                     <div className="relative">
                       <div className={`${expandedMessageId === inquiry._id ? '' : 'line-clamp-2'}`}>
