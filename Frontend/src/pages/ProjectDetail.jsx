@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { MapPin, Calendar, ChevronLeft, ArrowRight, ExternalLink, Share2 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
-import projectsData from '../Data/ProjectData';
+import projectData from '../Data/ProjectData';
 import Breadcrumb from '../components/Breadcrumb';
 import InquiryModal from '../components/InquiryModal';
-// Mock project data - in a real app, this would come from a data source
-// const projectsData = [
+import { fetchProjectData } from '../redux/dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
+// const projectData = [
 //   {
 //     id: 1,
 //     title: 'Urban Renewal Center',
@@ -32,7 +34,7 @@ import InquiryModal from '../components/InquiryModal';
 //     //   challenge: 'Creating a corporate environment that promotes employee wellbeing and productivity while meeting ambitious sustainability goals in a dense urban context.',
 //     //   solution: 'Our approach centered on biophilic design principles that bring nature into the workplace. The campus features extensive green spaces, natural materials, abundant daylight, and living walls throughout the complex. The building's orientation maximizes natural light while minimizing heat gain, and advanced smart building systems optimize energy and water usage.',
 //     //   result: 'The completed project achieved LEED Platinum certification and has become a landmark example of sustainable commercial architecture in Bangalore. Post-occupancy surveys show a 27% increase in employee satisfaction and a 15% reduction in absenteeism compared to the client's previous facilities.',
-//     //   images: [
+//     //   otherImages: [
 //     //     'https://picsum.photos/800/600?random=21',
 //     //     'https://picsum.photos/800/600?random=22',
 //     //     'https://picsum.photos/800/600?random=23',
@@ -70,24 +72,32 @@ export default function ProjectDetail() {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-  
+  const dispatch = useDispatch()
+const { projectData, error, status } = useSelector((state) => state.data);
+
+console.log(projectData)
+useEffect(()=>{
+  dispatch(fetchProjectData())
+},[dispatch])
+
   useEffect(() => {
     // Find the current project by slug
-    const currentProject = projectsData.find(project => project.slug === slug);
+    const currentProject = projectData.find(project => project.slug === slug);
     setProject(currentProject);
+    console.log(currentProject)
     
     // Reset active image when project changes
     setActiveImageIndex(0);
     
-    // Get related projects from the same category
+   
     if (currentProject) {
-      const otherProjects = projectsData
+      const otherProjects = projectData
         .filter(item => item.id !== currentProject.id && item.category === currentProject.category)
         .slice(0, 3);
         
       if (otherProjects.length < 3) {
         // If not enough projects in the same category, add some from other categories
-        const moreProjects = projectsData
+        const moreProjects = projectData
           .filter(item => item.id !== currentProject.id && item.category !== currentProject.category)
           .slice(0, 3 - otherProjects.length);
           
@@ -96,7 +106,7 @@ export default function ProjectDetail() {
         setRelatedProjects(otherProjects);
       }
     }
-  }, [slug]);
+  }, [slug, projectData]);
 
   if (!project) {
     return (
@@ -113,9 +123,14 @@ export default function ProjectDetail() {
     challenge: 'Information not available',
     solution: 'Information not available',
     result: 'Information not available',
-    images: [project.image]
+    otherImages: [project.otherImages]
   };
- 
+ const formattedDate = (date) =>
+  new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
   return (
     <>
       <InquiryModal isOpen={modalOpen} closeModal={() => setModalOpen(false)} />
@@ -147,16 +162,9 @@ export default function ProjectDetail() {
           </div>
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-1" />
-            <span>{project.year}</span>
+            <span>{formattedDate(project.updatedAt)}</span>
           </div>
-          <div className="flex items-center">
-            <span className="font-medium">Client:</span>
-            <span className="ml-2">{projectDetails.client}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="font-medium">Size:</span>
-            <span className="ml-2">{projectDetails.size}</span>
-          </div>
+         
         </div>
       </div>
       
@@ -165,17 +173,18 @@ export default function ProjectDetail() {
         {/* Project Gallery - Takes 2/3 of the space on desktop */}
         <div className="lg:col-span-2">
           <div className="rounded-xl overflow-hidden mb-6">
+            {console.log(projectDetails.otherImages[activeImageIndex])}
             <img 
-              src={projectDetails.images[activeImageIndex]} 
+              src={projectDetails.otherImages[activeImageIndex][0]} 
               alt={`${project.title} - Image ${activeImageIndex + 1}`} 
               className="w-full h-96 md:h-[500px] object-cover"
             />
           </div>
           
           {/* Thumbnail Gallery */}
-          {projectDetails.images.length > 1 && (
+          {projectDetails.otherImages.length > 1 && (
             <div className="grid grid-cols-5 gap-3">
-              {projectDetails.images.map((image, index) => (
+              {projectDetails.otherImages.map((image, index) => (
                 <button 
                   key={index}
                   className={`rounded-lg overflow-hidden ${activeImageIndex === index ? 'ring-2 ring-red-500' : 'opacity-70 hover:opacity-100'}`}

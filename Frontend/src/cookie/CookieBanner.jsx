@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getUserMeta } from "./getUserMeta"; // This should return actual user object
-
+import axios from 'axios'
 const CookieBanner = () => {
   const [consentGiven, setConsentGiven] = useState(false);
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL
   useEffect(() => {
     const storedConsent = localStorage.getItem("cookieConsent");
     if (storedConsent === "true") {
@@ -15,17 +15,35 @@ const CookieBanner = () => {
     setConsentGiven(true);
     localStorage.setItem("cookieConsent", "true");
 
-    try {
-      const userData = await getUserMeta(); // Await actual data
-      console.log("User Data:", userData); // Show clean object in console
-    } catch (error) {
-      console.error("Failed to get user data:", error);
+  try {
+  const userData = await getUserMeta();
+  console.log("Raw User Data:", userData);
+
+  const formattedData = {
+    visitorId: userData.visitorId || "",
+    city: userData.city || "",
+    ip: userData.ip || "",
+    region: userData.region || "",
+    country: userData.country || "",
+    postal: userData.postal || "",
+    utmSource: userData.utmSource || "Direct",
+    location: {
+      lat: userData.latitude?.toString() || "",
+      long: userData.longitude?.toString() || ""
     }
+  };
+
+  const res = await axios.post(`${backendUrl}/visitor/add`, formattedData);
+  console.log("Visitor saved:", res.data);
+} catch (error) {
+  console.error("Failed to send visitor data:", error);
+}
+
   };
 
   const declineConsent = () => {
     console.log("Cookie consent declined");
-    window.history.back(); // Go back to previous page
+    window.history.back(); 
   };
 
   if (consentGiven) return null;

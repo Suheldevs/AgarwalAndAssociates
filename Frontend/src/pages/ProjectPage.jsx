@@ -4,12 +4,25 @@ import Breadcrumb from '../components/Breadcrumb';
 import { Link, useSearchParams } from 'react-router-dom';
 import { FaLocationPin } from 'react-icons/fa6';
 import projects from '../Data/ProjectData'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProjectData } from '../redux/dataSlice';
 export default function ProjectPage() {
-
+const dispatch = useDispatch()
    const [searchParams] = useSearchParams();
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
 
+const {projectData , error , state} = useSelector((state)=>state.data)
+
+useEffect(()=>{
+  dispatch(fetchProjectData())
+},[dispatch])
+const formattedDate = (date) =>
+  new Date(date).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
   const categories = [
     { id: 'all', name: 'All Projects' },
     { id: 'residential', name: 'Residential' },
@@ -19,17 +32,16 @@ export default function ProjectPage() {
   ];
 
   const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    ? projectData 
+    : projectData.filter(project => project.category === activeFilter);
 
-
+console.log(filteredProjects)
     useEffect(()=>{
   const type = searchParams.get("type");
 if(type){
   setActiveFilter(type)
 }
 else{
-
   setActiveFilter('all')
 }
     },[searchParams])
@@ -64,80 +76,7 @@ else{
           ))}
         </div>
 
-        {/* Featured Project (Conditional) */}
-        {/* {filteredProjects.some(project => project.featured) && (
-          <div className="mb-16">
-            {filteredProjects
-              .filter(project => project.featured)
-              .slice(0, 1)
-              .map(project => (
-                <div 
-                  key={project.id}
-                  className="relative overflow-hidden shadow-xl group"
-                  onMouseEnter={() => setHoveredProject('featured')}
-                  onMouseLeave={() => setHoveredProject(null)}
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="relative h-96 overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-110" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                      
-                      <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 ease-out group-hover:translate-y-0 translate-y-4">
-                        <div className="flex flex-wrap gap-3">
-                          <span className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm bg-opacity-90 shadow-lg">
-                            <Tag size={14} className="mr-2" /> {project.category}
-                          </span>
-                          <span className="bg-gray-900 bg-opacity-80 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm shadow-lg">
-                            <Calendar size={14} className="mr-2" /> {project.year}
-                          </span>
-                          <span className="bg-white bg-opacity-90 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium flex items-center backdrop-blur-sm shadow-lg">
-                            <FaLocationPin size={14} className="mr-2"/> {project.location}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-8 lg:p-12 bg-white flex flex-col justify-center relative overflow-hidden">
-                   
-                      <div className="absolute top-0 left-0 w-2 h-full bg-red-500 transform transition-all duration-500 ease-out group-hover:h-full group-hover:w-full group-hover:opacity-5"></div>
-                      
-                      <div className="mb-4 flex items-center">
-                        <div className="h-px w-12 bg-red-500 mr-4"></div>
-                        <h3 className="text-sm font-medium text-red-500 uppercase tracking-wider">Featured Project</h3>
-                      </div>
-                      
-                      <h2 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">{project.title}</h2>
-                      
-                      <p className="text-gray-600 mb-6 text-lg line-clamp-3">{project.description}</p>
-                      
-                      <p className="text-gray-500 mb-8 flex items-center">
-                        <FaLocationPin className="mr-2" size={16} />
-                        <span className="font-medium">{project.location}</span>
-                      </p>
-                      
-                      <Link 
-                        to={`/project/${project.slug}`} 
-                        className="self-start flex items-center font-medium text-gray-800 hover:text-red-500 transition-all duration-300 relative group/btn"
-                      >
-                        <span className="relative z-10">View Project Details</span>
-                        <span className="ml-2 transition-all duration-300 group-hover/btn:translate-x-1 relative z-10">
-                          <ArrowRight size={18} />
-                        </span>
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover/btn:w-full"></span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        )} */}
-
-        {/* Projects Grid */}
-          {/* UPDATED: Projects Grid with Modern Cards */}
+        
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
        {filteredProjects
          .filter(project =>
@@ -146,16 +85,16 @@ else{
          .map(project => (
           <Link
           to={`/project/${project.slug}`}  
-             key={project.id}
+             key={project._id}
              className="group relative bg-white border border-gray-200 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-             onMouseEnter={() => setHoveredProject(project.id)}
+             onMouseEnter={() => setHoveredProject(project._id)}
              onMouseLeave={() => setHoveredProject(null)}
            >
              {/* Card content wrapper */}
              <div className="relative h-96">
                {/* Image */}
                <img 
-                 src={project.image} 
+                 src={project.mainImageUrl} 
                  alt={project.title} 
                  className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110" 
                />
@@ -186,7 +125,7 @@ else{
                  {/* Project Details */}
                  <div className="flex flex-wrap gap-2 mb-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
                    <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-xs flex items-center">
-                     <Calendar size={12} className="mr-1.5" /> {project.year}
+                     <Calendar size={12} className="mr-1.5" /> {formattedDate(project.updatedAt)}
                    </span>
                    <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-xs flex items-center">
                      <FaLocationPin size={12} className="mr-1.5"/> {project.location}

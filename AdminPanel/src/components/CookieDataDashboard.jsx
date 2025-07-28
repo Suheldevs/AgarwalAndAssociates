@@ -70,7 +70,7 @@ export default function VisitorDashboard() {
       </div>
 
       <div className="overflow-x-auto rounded shadow">
-        <table className="w-full text-left border border-gray-200">
+        <table className="w-[200vh] text-left border border-gray-200">
           <thead className="bg-red-500 text-gray-100 text-sm">
             <tr>
               <th className="px-4 py-2">Visitor ID</th>
@@ -79,6 +79,8 @@ export default function VisitorDashboard() {
               <th className="px-4 py-2">Region</th>
               <th className="px-4 py-2">Country</th>
               <th className="px-4 py-2">Postal</th>
+              <th className="px-4 py-2">Location Lat</th>
+              <th className="px-4 py-2">Location Long</th>
               <th className="px-4 py-2">UTM Source</th>
               <th className="px-4 py-2">Visited At</th>
               <th className="px-4 py-2">Actions</th>
@@ -87,12 +89,14 @@ export default function VisitorDashboard() {
           <tbody>
             {visitorData.map((data) => (
               <tr key={data._id} className="border-b border-gray-200 hover:bg-gray-100">
-                <td className="px-4 py-2">{data.visitorId}</td>
+                <td className="px-4 py-2">{data.visitorId.slice(0,6)}</td>
                 <td className="px-4 py-2">{data.ip}</td>
                 <td className="px-4 py-2">{data.city}</td>
                 <td className="px-4 py-2">{data.region}</td>
                 <td className="px-4 py-2">{data.country}</td>
                 <td className="px-4 py-2">{data.postal}</td>
+                <td className="px-4 py-2">{data.location?.lat}</td>
+                <td className="px-4 py-2">{data.location?.long}</td>
                 <td className="px-4 py-2">
                   <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
                     {data.utmSource}
@@ -102,7 +106,7 @@ export default function VisitorDashboard() {
                   {data.createdAt ? formatDate(data.createdAt) : "N/A"}
                 </td>
                 <td className="px-4 py-2 flex items-center gap-2">
-                  <button
+                  {/* <button
                     className="p-1 bg-green-100 text-green-700 rounded hover:bg-green-200"
                     onClick={() =>
                       openMap(
@@ -113,7 +117,7 @@ export default function VisitorDashboard() {
                     }
                   >
                     <MapPin size={16} />
-                  </button>
+                  </button> */}
                   <button
                     className="p-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
                     onClick={() => handleDelete(data._id)}

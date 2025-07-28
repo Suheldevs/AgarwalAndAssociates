@@ -4,10 +4,11 @@ import Gallery from "../model/gallery.model.js";
 export const createGallery = async (req, res) => {
     try {
         const { imageUrl, type } = req.body;
+        console.log(req.body)
         if (!imageUrl || imageUrl.trim() === '') {
             return res.status(400).json({ message: "Image URL is required." });
         }
-        const newGallery = new Gallery({ imageUrl, type });
+        const newGallery = new Gallery(req.body);
         await newGallery.save();
         res.status(201).json({ message: "Gallery item added successfully!", gallery: newGallery });
     } catch (error) {
