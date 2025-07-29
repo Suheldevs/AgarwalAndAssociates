@@ -143,44 +143,11 @@ export default function TestimonialsPage() {
               onMouseEnter={() => setActiveTestimonial(testimonial.id)}
               onMouseLeave={() => setActiveTestimonial(null)}
             >
-              {/* Card Header */}
-              <div className="relative h-56 bg-stone-800">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
-                  className="w-full h-full object-cover opacity-70 transition-opacity duration-300 group-hover:opacity-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-stone-900"></div>
-                
-                {/* Quote Icon */}
-                <Quote 
-                  size={32} 
-                  className="absolute top-4 right-4 text-white opacity-50"
-                />
-                
-                {/* Client Info */}
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="text-xl font-medium">{testimonial.name}</h3>
-                  <div className="flex items-center text-sm mt-1">
-                    <User size={14} className="mr-1" />
-                    <span>{testimonial.position}</span>
-                  </div>
-                </div>
-              </div>
+          
               
               {/* Card Body */}
               <div className="p-6">
-                {/* Project Details */}
-                <div className="flex justify-between items-center mb-4 text-sm text-stone-600">
-                  <div className="flex items-center">
-                    <Building size={14} className="mr-1" />
-                    <span>{testimonial.project}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Calendar size={14} className="mr-1" />
-                    <span>{testimonial.date}</span>
-                  </div>
-                </div>
+               
                 
                 {/* Rating */}
                 <div className="flex mb-4">
@@ -195,16 +162,15 @@ export default function TestimonialsPage() {
 
               {/* Hover Effect */}
               <div 
-                className={`absolute inset-0 bg-stone-900/90 flex items-center justify-center p-8 transition-all duration-500 ${
+                className={`absolute inset-0 bg-stone-900/90 flex items-center justify-center p-4 transition-all duration-500 ${
                   activeTestimonial === testimonial.id ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
               >
                 <div className="text-center">
-                  <Quote size={40} className="mx-auto mb-4 text-stone-300" />
-                  <p className="text-white text-lg italic mb-6">{testimonial.text}</p>
-                  <div className="w-16 h-1 bg-stone-400 mx-auto mb-4"></div>
+                  <Quote size={20} className="mx-auto mb-2 text-stone-300" />
+                  <p className="text-white  italic mb-2">{testimonial.text}</p>
+                  <div className="w-16 h-1 bg-stone-400 mx-auto "></div>
                   <h4 className="text-xl font-medium text-white">{testimonial.name}</h4>
-                  <p className="text-stone-300">{testimonial.position}</p>
                 </div>
               </div>
             </div>

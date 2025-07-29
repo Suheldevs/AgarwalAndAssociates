@@ -193,45 +193,7 @@ import ServiceData from '../Data/ServiceData';
 // }
 
 import React, { useState } from 'react';
-
-// const ServiceData = [
-//   {
-//     id: 'architecture',
-//     title: 'Architecture',
-//     description: 'Innovative architectural solutions that blend creativity, functionality, and sustainability.',
-//     image: `https://picsum.photos/seed/architecture/600/400`,
-//     link: '/services/architecture'
-//   },
-//   {
-//     id: 'landscape-architecture',
-//     title: 'Landscape Architecture',
-//     description: 'Transforming outdoor spaces into harmonious, functional, and beautiful environments.',
-//     image: `https://picsum.photos/seed/landscape/600/400`,
-//     link: '/services/landscape-architecture'
-//   },
-//   {
-//     id: 'interior-architecture',
-//     title: 'Interior Architecture',
-//     description: 'Creating immersive interior spaces that tell a story and enhance human experience.',
-//     image: `https://picsum.photos/seed/interior/600/400`,
-//     link: '/services/interior-architecture'
-//   },
-//   {
-//     id: 'product-design',
-//     title: 'Product Design',
-//     description: 'Innovative product design that combines aesthetics, functionality, and user-centric approach.',
-//     image: `https://picsum.photos/seed/product/600/400`,
-//     link: '/services/product-design'
-//   },
-//   {
-//     id: 'brand-experience',
-//     title: 'Brand & Experience',
-//     description: 'Crafting unique brand identities and immersive experiences that resonate with your audience.',
-//     image: `https://picsum.photos/seed/brand/600/400`,
-//     link: '/services/brand-experience'
-//   }
-// ];
-
+import bg from '../assets/services/architectural.webp'
 export default function ServicesList() {
   const [activeService, setActiveService] = useState(null);
 const navigate = useNavigate()
@@ -244,18 +206,26 @@ const navigate = useNavigate()
      
 
       {/* Main Content */}
-      <div className="flex items-stretch space-x-12 ">
-        {/* Left Section */}
-        <div className="w-1/3">
-              <h2 className="lg:text-4xl text-2xl font-bold text-black mb-4">Our Services</h2>
-          <p className="lg:text-lg text-sm text-gray-700">
-            Innovative design solutions across multiple disciplines, 
-            creating transformative experiences and spaces.
-          </p>
-        </div>
+      <div className="flex  space-x-12 justify-center items-center ">
+       {/* Left Section */}
+<div
+  className="w-1/3 min-h-[350px] bg-cover bg-center flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${bg})`
+  }}
+>
+  <div className="bg-black bg-opacity-80 p-6 rounded text-white max-w-[90%]">
+    <h2 className="lg:text-4xl text-2xl font-bold mb-4">Our Services</h2>
+    <p className="lg:text-lg text-sm">
+      Innovative design solutions across multiple disciplines, creating transformative experiences and spaces.
+    </p>
+  </div>
+</div>
+
+
 
         {/* Right Section */}
-        <div className="w-2/3 relative">
+        <div className="w-2/3 relative ">
           <div className="space-y-4">
             {ServiceData.map((service) => (
               <div 

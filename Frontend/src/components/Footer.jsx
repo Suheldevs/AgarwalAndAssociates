@@ -3,7 +3,15 @@ import { FaFacebook, FaLinkedin, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import BlogData from "../Data/BlogData";
 import cclogo from "../assets/ccogo-suhel.webp";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchBlogData } from "../redux/dataSlice";
 const Footer = () => {
+  const dispatch = useDispatch();
+  const { blogData, error, status } = useSelector((state) => state.data);
+  useEffect(() => {
+    dispatch(fetchBlogData());
+  }, [dispatch]);
   return (
     <>
       <footer className="bg-black text-gray-200 lg:pt-14 md:pt-12 py-10 px-6">
@@ -105,22 +113,14 @@ const Footer = () => {
                 Engineering Services
               </Link>
               </li>
+             
               <li>
-              <Link aria-label=" Vastu Services"
-                to="/services/vastu"
-                className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
-              >
-                <ChevronRight className="inline-block " />
-                Vastu Services
-              </Link>
-              </li>
-              <li>
-              <Link aria-label="Vastu Services"
+              <Link aria-label="Project Management Services"
                 to="/services/project-management"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
                 <ChevronRight className="inline-block " />
-                Vastu Services
+                Project Management
               </Link>
               </li>
               <li>
@@ -141,16 +141,16 @@ const Footer = () => {
               Latest Blogs
             </h3>
             <div className="space-y-4">
-              {Array.isArray(BlogData) &&
-                BlogData.length > 0 &&
-                BlogData?.slice(1, 4)?.map((blog, i) => (
+              {Array.isArray(blogData) &&
+                blogData.length > 0 &&
+                blogData?.slice(1, 4)?.map((blog, i) => (
                   <Link aria-label="Blog-details"
                     key={i}
                     to={`/blog-detail/${blog.slug}`}
                     className="flex items-start space-x-3 group cursor-pointer"
                   >
                     <img
-                      src={blog.image}
+                      src={blog.imageUrl}
                       alt="news"
                       className="w-14 aspect-square rounded group-hover:rounded-tl-2xl group-hover:rounded-br-2xl group-hove:scale-105 transition-all ease-in-out duration-500"
                     />

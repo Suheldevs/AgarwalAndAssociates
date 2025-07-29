@@ -3,10 +3,35 @@ import { ArrowRight, ExternalLink, Camera, Tag, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import projects from '../Data/ProjectData';
 import { FaLocationPin } from 'react-icons/fa6';
-
+import {useDispatch, useSelector} from 'react-redux'
+import { fetchProjectData } from '../redux/dataSlice';
 export default function ProjectSection() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
+
+const dispatch = useDispatch()
+const { projectData, error, status } = useSelector((state) => state.data);
+
+console.log(projectData)
+useEffect(()=>{
+  dispatch(fetchProjectData())
+},[dispatch])
+
+  if (!projectData) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl font-medium">Loading...</p>
+      </div>
+    );
+  }
+
+  if(error){
+    return(
+     <div className="flex justify-center items-center h-screen">
+        <p className="text-xl font-medium">Project Not Found</p>
+      </div>
+  )}
+
 
   const categories = [
     { id: 'all', name: 'All Projects' },
@@ -15,10 +40,10 @@ export default function ProjectSection() {
     { id: 'institutional', name: 'Institutional' },
     { id: 'urban', name: 'Urban Planning' }
   ];
-  
+  console.log(projectData)
   const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    ? projectData 
+    : projectData.filter(project => project.category === activeFilter);
 
   return (
     <section className="py-8 lg:py-12 md:py-10">

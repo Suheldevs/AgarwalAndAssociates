@@ -16,12 +16,22 @@ export default function TestimonialSection() {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
+
     
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setActiveIndex((current) => (current + 1) % testimonials.length);
+  }, 2000); // Auto-slide every 500ms
+
+  return () => clearInterval(interval); // Clean up on unmount
+}, [testimonials.length]);
+
 
   const isMobile = windowWidth < 768;
 
@@ -108,7 +118,7 @@ export default function TestimonialSection() {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <div className={`transition-all duration-300 ${
+            <div className={`transition-all duration-1000 ${
               slideDirection === 'left' 
                 ? 'transform -translate-x-8 opacity-0' 
                 : slideDirection === 'right'

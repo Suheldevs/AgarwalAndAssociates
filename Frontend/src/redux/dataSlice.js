@@ -7,6 +7,7 @@ const initialState = {
     projectData:[],
     blogData:[],
     galleryData:[],
+    teamData:[],
     status: false,
     error:null,
 }
@@ -24,6 +25,10 @@ export const fetchBlogData = createAsyncThunk('data/fetchBlogData',async()=>{
 })
 export const fetchGalleryData = createAsyncThunk('data/fetchGalleryData',async()=>{
     const response = await axios.get(`${backendUrl}/gallery/getall`)
+    return response.data
+})
+export const fetchTeamData = createAsyncThunk('data/fetchTeamData',async()=>{
+    const response = await axios.get(`${backendUrl}/team/getall`)
     return response.data
 })
 
@@ -59,6 +64,15 @@ const dataSlice = createSlice({
              (state, action)=>{state.galleryData = action.payload ; state.status = 'success'; state.error = null})
 
         .addCase(fetchGalleryData.rejected,
+             (state, action)=>{ state.status = 'failed'; state.error = 'Error Fetching Blog Data'})
+ //team             
+        .addCase(fetchTeamData.pending, 
+            (state)=>{state.status = 'loading'; state.error = null})
+
+        .addCase(fetchTeamData.fulfilled,
+             (state, action)=>{state.teamData = action.payload ; state.status = 'success'; state.error = null})
+
+        .addCase(fetchTeamData.rejected,
              (state, action)=>{ state.status = 'failed'; state.error = 'Error Fetching Blog Data'})
     }
 })

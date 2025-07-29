@@ -25,10 +25,10 @@ const formattedDate = (date) =>
   });
   const categories = [
     { id: 'all', name: 'All Projects' },
-    { id: 'residential', name: 'Residential' },
-    { id: 'commercial', name: 'Commercial' },
-    { id: 'institutional', name: 'Institutional' },
-    { id: 'urban', name: 'Urban Planning' }
+    { id: 'Residential', name: 'Residential' },
+    { id: 'Commercial', name: 'Commercial' },
+    { id: 'Institutional', name: 'Institutional' },
+    { id: 'Urban-Planning', name: 'Urban Planning' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -78,7 +78,7 @@ else{
 
         
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-       {filteredProjects
+       {filteredProjects?.length > 0 ? filteredProjects
          .filter(project =>
     activeFilter === 'all' ? true : project.category === activeFilter
   )
@@ -152,7 +152,7 @@ else{
                </div>
              </div>
            </Link>
-         ))}
+         )):(<div className='text-red-500 text-center w-full'>Project Not Found</div>)}
      </div>
      
 

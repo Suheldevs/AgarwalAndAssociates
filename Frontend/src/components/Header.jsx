@@ -45,10 +45,10 @@ export default function Header() {
        isDropdown: true,
       dropdownItems: [
   { name: "All Projects", path: "/projects" },
-  { name: "Residential", path: "/projects?type=residential" },
-  { name: "Commercial", path: "/projects?type=commercial" },
-  { name: "Institutional", path: "/projects?type=institutional" },
-  { name: "Urban Planning", path: "/projects?type=urban" }
+  { name: "Residential", path: "/projects?type=Residential" },
+  { name: "Commercial", path: "/projects?type=Commercial" },
+  { name: "Institutional", path: "/projects?type=Institutional" },
+  { name: "Urban Planning", path: "/projects?type=Urban-Planning" }
 ]
      },
     {
@@ -60,7 +60,6 @@ export default function Header() {
         { name: "Architectural Consultant", path: "/services/architectural-consultant" },
         { name: "Interior Design", path: "/services/interior-design" },
         { name: "Engineering Services", path: "/services/engineering-services" },
-        { name: "Vastu Services", path: "/services/vastu" },
         { name: "Project Management", path: "/services/project-management" },
         { name: "Urban Planning", path: "/services/urban-planning" },
       ],

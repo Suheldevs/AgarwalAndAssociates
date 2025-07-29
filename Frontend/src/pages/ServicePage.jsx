@@ -8,7 +8,6 @@ export default function ServicePage() {
   const [hoveredService, setHoveredService] = useState(null);
   const [activeService, setActiveService] = useState(null);
 
-  // Service data with icons, descriptions, and details
  
 
   const {id} = useParams();
@@ -21,8 +20,6 @@ export default function ServicePage() {
   }, [id]);
   
 
-
-  // Handle service card click
   const handleServiceClick = (serviceId) => {
     if(serviceId){
       setActiveService(services.find(service => service.id === serviceId));
@@ -59,7 +56,6 @@ export default function ServicePage() {
     </div>
   );
 
-  // Service detail page component
   const ServiceDetail = ({ service }) => (
     <div className="bg-white rounded-lg lg:p-8 p-4 shadow-lg max-w-5xl mx-auto">
       <button 
@@ -111,13 +107,7 @@ export default function ServicePage() {
         </div>
       </div>
       
-      <div className="bg-red-50 p-6 rounded-lg border border-red-100">
-        <h3 className="text-xl font-semibold mb-3 text-red-800">Ready to Get Started?</h3>
-        <p className="mb-4">Contact our team to discuss how our {service.title.toLowerCase()} services can bring your vision to life.</p>
-        <Link to='/contact' className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
-          Request Consultation
-        </Link>
-      </div>
+    
     </div>
   );
 
@@ -134,7 +124,43 @@ export default function ServicePage() {
 
       <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {activeService ? (
-          <ServiceDetail service={activeService} />
+         <div className="">
+  {/* Main Service Detail */}
+  <div className='flex flex-col lg:flex-row gap-8'>
+  <div className="w-full lg:w-2/3">
+    <ServiceDetail service={activeService} />
+  </div>
+
+  {/* Sidebar - Other Services */}
+  <div className="w-full lg:w-1/3 space-y-6">
+    <h3 className="text-xl font-semibold mb-4 text-gray-800">Other Services</h3>
+    {services
+      .filter(service => service.id !== activeService.id)
+      .map(service => (
+        <div
+          key={service.id}
+          className="bg-white p-4 rounded-lg shadow hover:shadow-md transition cursor-pointer"
+          onClick={() => {
+            handleServiceClick(service.id);
+            navigate(`/services/${service.id}`);
+          }}
+        >
+          <div className="text-red-600 mb-2">{service.icon}</div>
+          <h4 className="text-lg font-semibold">{service.title}</h4>
+          <p className="text-gray-600 text-sm line-clamp-3">{service.shortDesc}</p>
+        </div>
+      ))}
+  </div>
+  </div>
+    <div className="bg-red-50 p-6  mt-6 rounded-lg border border-red-100">
+        <h3 className="text-xl font-semibold mb-3 text-red-800">Ready to Get Started?</h3>
+        <p className="mb-4">Contact our team to discuss how our services can bring your vision to life.</p>
+        <Link to='/contact' className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg transition-colors duration-300">
+          Request Consultation
+        </Link>
+      </div>
+</div>
+
         ) : (
           <>
             {/* Services Hero Section */}

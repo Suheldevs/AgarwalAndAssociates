@@ -3,8 +3,9 @@ import { Users, Award, Clock, Building, MapPin, ChevronRight, ExternalLink, Plus
 import Breadcrumb from "../components/Breadcrumb";
 import { Link } from "react-router-dom";
 import defaultImage from '../assets/about/default.webp'
-
+import { useDispatch, useSelector } from 'react-redux';
 import coreTeam from '../Data/TeamData'
+import { fetchTeamData } from "../redux/dataSlice";
 export default function OurTeam() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("vision");
@@ -13,9 +14,15 @@ export default function OurTeam() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+ 
+  const dispatch = useDispatch()
+  const {teamData, error , status} = useSelector((state)=>state.data)
 
-
-
+useEffect(()=>{
+  dispatch(fetchTeamData())
+},[dispatch])
+const team = teamData.payload
+console.log(teamData)
   return (
     <>
       <Breadcrumb 
@@ -40,11 +47,11 @@ export default function OurTeam() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {coreTeam.map((member, index) => (
+              {team.map((member, index) => (
                 <div key={index} className="group border border-gray-200 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="relative overflow-hidden">
                     {/* Hover overlay - Enhanced */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-500/90 via-red-600/70 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-red-500/90 via-red-600/70 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
                       <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                         <div className="flex items-center mb-2">
                           <GraduationCap size={16} className="mr-2 text-white" />
@@ -60,19 +67,19 @@ export default function OurTeam() {
                         
                       </div>
                     </div>
-                    
+                     */}
                     {/* Image */}
                     <img 
-                      src={defaultImage} 
+                      src={member.imageUrl} 
                       alt={member.name}
-                      className="w-full aspect-[3/4] h-56 p-4 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                   
                   {/* Info box - Enhanced */}
-                  <div className="p-6">
+                  <div className="px-4 py-2 text-center flex-col w-full justify-center items-center">
                     <h4 className="font-bold text-xl text-gray-900">{member.name}</h4>
-                    <p className="text-red-600 font-medium">{member.position}</p>
+                    <p className="text-red-600 font-medium">{member.department}</p>
                   </div>
                 </div>
               ))}

@@ -180,7 +180,6 @@ const ProjectModal = ({ projectData, onClose }) => {
                   <option value="Residential">Residential</option>
                   <option value="Commercial">Commercial</option>
                   <option value="Institutional">Institutional</option>
-                  <option value="Landscape">Landscape</option>
                   <option value="Urban-Planning">Urban Planning</option>
                 </select>
               </div>

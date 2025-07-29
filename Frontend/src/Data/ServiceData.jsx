@@ -73,28 +73,28 @@ const ServiceData = [
         'Commissioning support'
       ]
     },
-    {
-      id: 'vastu',
-      title: 'Vastu Services',
-       image: s4,
-      icon: <Compass className="mb-2" size={28} />,
-      shortDesc: 'Ancient architectural science for harmony',
-      description: 'Our Vastu consulting services incorporate ancient architectural science principles to create harmonized spaces that promote well-being.',
-      features: [
-        'Site selection and layout analysis',
-        'Building orientation optimization',
-        'Room placement and zoning',
-        'Element balance and energy flow',
-        'Remedial solutions for existing structures'
-      ],
-      process: [
-        'Vastu assessment and analysis',
-        'Detailed recommendations report',
-        'Integration with modern design principles',
-        'Implementation guidance',
-        'Post-implementation evaluation'
-      ]
-    },
+    // {
+    //   id: 'vastu',
+    //   title: 'Vastu Services',
+    //    image: s4,
+    //   icon: <Compass className="mb-2" size={28} />,
+    //   shortDesc: 'Ancient architectural science for harmony',
+    //   description: 'Our Vastu consulting services incorporate ancient architectural science principles to create harmonized spaces that promote well-being.',
+    //   features: [
+    //     'Site selection and layout analysis',
+    //     'Building orientation optimization',
+    //     'Room placement and zoning',
+    //     'Element balance and energy flow',
+    //     'Remedial solutions for existing structures'
+    //   ],
+    //   process: [
+    //     'Vastu assessment and analysis',
+    //     'Detailed recommendations report',
+    //     'Integration with modern design principles',
+    //     'Implementation guidance',
+    //     'Post-implementation evaluation'
+    //   ]
+    // },
     {
       id: 'project-management',
       title: 'Project Management',

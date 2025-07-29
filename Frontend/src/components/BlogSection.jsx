@@ -4,7 +4,6 @@ import { useState } from "react";
 import Slider from "react-slick";
 import { Clock, Tag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import blogPosts from '../Data/BlogData';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
