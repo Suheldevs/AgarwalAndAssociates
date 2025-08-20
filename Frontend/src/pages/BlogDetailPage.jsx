@@ -84,7 +84,7 @@ const BlogDetailPage = () => {
             ) : (
               relatedBlogs?.map((relatedBlog) => (
                 <Link
-                  to={`/blog/${relatedBlog.slug}`}
+                  to={`/blog-detail/${relatedBlog.slug}`}
                   key={relatedBlog.slug}
                   className="block p-4  border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-300"
                 >

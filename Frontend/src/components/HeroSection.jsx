@@ -161,7 +161,8 @@ export default function VideoHeroSection() {
             className="object-cover w-full h-full"
           >
             <source 
-              src={heroVideo}
+              // src={heroVideo}
+              src="https://res.cloudinary.com/dksaqtj7w/video/upload/v1738841208/crop22_vhrvia.mp4"
               type="video/mp4" 
             />
             Your browser does not support the video tag.

@@ -1,14 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Twitter
-} from "lucide-react";
-import projects from "../Data/ProjectData";
 import { Link } from "react-router-dom";
 import { fetchProjectData } from "../redux/dataSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -45,16 +35,16 @@ useEffect(()=>{
       {/* Project List */}
       <div className="container mx-auto  px-4">
         <h2 className="text-3xl md:text-4xl font-bold lg:mb-12 mb-6 text-center">Featured Projects</h2>
-        <div className="space-y-10">
+        <div className="space-y-10 max-w-4xl mx-auto">
           {projectData.map((project) => (
             <Link
             to={`/project/${project.slug}`}
               key={project._id}
-              className="md:grid grid-cols-12 gap-6 cursor-pointer lg:px-52"
+              className="md:grid grid-cols-12 gap-6 cursor-pointer "
               >
               <div className="hidden  md:col-span-3 col-span-12 lg:flex flex-col justify-center">
                 <div className="flex items-center mb-4">
-                  <img src={project.otherImages[0]} alt={`${project.title} logo`} className="lg:w-12 border border-black/20 w-96 h-96 lg:h-12 mr-4" />
+                  <img src={project.otherImages[0] || project.mainImageUrl} alt={`${project.title} logo`} className="lg:w-12 border border-black/20 w-96 h-96 lg:h-12 mr-4" />
                   <div className="hover:underline underline-offset-2">
                     <h3 className="font-bold text-xl">{project.title}</h3>
                     <p className="text-sm text-gray-600">{project.location}</p>

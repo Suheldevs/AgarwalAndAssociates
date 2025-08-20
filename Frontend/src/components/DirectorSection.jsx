@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import user from "../assets/about/default.webp"
 function DirectorSection() {
   return (
     <div className="container mx-auto lg:px-6 px-4 lg:py-0 py-8">
@@ -14,7 +14,7 @@ function DirectorSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60 z-10"></div>
             <div className="absolute inset-0  z-0 transition-opacity group-hover:opacity-30"></div>
             <img
-              src="https://picsum.photos/id/1005/400/350"
+              src={user}
               alt="director"
               className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-105"
             />

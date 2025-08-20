@@ -123,6 +123,7 @@ useEffect(()=>{
     challenge: 'Information not available',
     solution: 'Information not available',
     result: 'Information not available',
+    mainImageUrl: project.mainImageUrl,
     otherImages: [project.otherImages]
   };
  const formattedDate = (date) =>
@@ -173,9 +174,9 @@ useEffect(()=>{
         {/* Project Gallery - Takes 2/3 of the space on desktop */}
         <div className="lg:col-span-2">
           <div className="rounded-xl overflow-hidden mb-6">
-            {console.log(projectDetails.otherImages[activeImageIndex])}
+            {console.log(projectDetails)}
             <img 
-              src={projectDetails.otherImages[activeImageIndex][0]} 
+              src={projectDetails.mainImageUrl} 
               alt={`${project.title} - Image ${activeImageIndex + 1}`} 
               className="w-full h-96 md:h-[500px] object-cover"
             />
@@ -205,25 +206,14 @@ useEffect(()=>{
         <div className="lg:col-span-1">
           <div className="sticky top-24">
             {/* Tabs */}
-            <div className="flex border-b mb-6">
+            <div className="flex justify-center border-b border-gray-200 mb-4">
               <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'overview' ? 'text-red-600 border-b-2 border-red-600' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`px-4 py-2 text-2xl font-medium ${activeTab === 'overview' ? 'text-red-600 border-b-2 border-red-600' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={() => setActiveTab('overview')}
               >
                 Overview
               </button>
-              <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'details' ? 'text-red-600 border-b-2 border-red-600' : 'text-gray-600 hover:text-gray-900'}`}
-                onClick={() => setActiveTab('details')}
-              >
-                Details
-              </button>
-              <button 
-                className={`px-4 py-2 font-medium ${activeTab === 'services' ? 'text-red-600 border-b-2 border-red-600' : 'text-gray-600 hover:text-gray-900'}`}
-                onClick={() => setActiveTab('services')}
-              >
-                Services
-              </button>
+              
             </div>
             
             {/* Tab Content */}
@@ -231,61 +221,21 @@ useEffect(()=>{
               {activeTab === 'overview' && (
                 <>
                   <p className="text-lg leading-relaxed">{project.description}</p>
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="font-semibold mb-2">Challenge</h3>
-                      <p>{projectDetails.challenge}</p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Solution</h3>
-                      <p>{projectDetails.solution}</p>
-                    </div>
-                    {/* <div>
-                      <h3 className="font-semibold mb-2">Result</h3>
-                      <p>{projectDetails.result}</p>
-                    </div> */}
-                  </div>
-                </>
-              )}
-              
-              {activeTab === 'details' && (
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="font-semibold mb-1">Client</h3>
-                    <p>{projectDetails.client}</p>
-                  </div>
+                   <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
                     <p>{project.location}</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Year</h3>
-                    <p>{project.year}</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Size</h3>
-                    <p>{projectDetails.size}</p>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Category</h3>
                     <p className="capitalize">{project.category}</p>
                   </div>
                 </div>
+                  
+                </>
               )}
               
-              {activeTab === 'services' && (
-                <div>
-                  <h3 className="font-semibold mb-3">Services Provided</h3>
-                  <ul className="space-y-2">
-                    {projectDetails.services.map((service, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="mt-1 mr-2 h-2 w-2 rounded-full bg-red-600"></div>
-                        {service}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              
             </div>
             
             {/* Action Buttons */}

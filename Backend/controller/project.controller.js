@@ -1,5 +1,4 @@
 import Project from '../model/project.model.js';
-
 // Create a new project
 export const createProject = async (req, res) => {
   const { title, description, mainImageUrl, location, otherImages , category } = req.body;
@@ -25,6 +24,21 @@ export const createProject = async (req, res) => {
     res.status(500).json({ message: 'Error creating project', error });
   }
 };
+
+// export const BulkCreate = async (req, res)=>{
+//  const { title, description, mainImageUrl, location, otherImages , category } = req.body;
+
+//   if (!title || !description || !mainImageUrl || !location || !category) {
+//     return res.status(400).json({ message: 'Title, description, and image are required' });
+//   }
+
+//   try {
+//     await Project.insertMany(ProjectData); 
+//     res.json({ message: "Projects seeded" });
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// }
 
 // Get all projects
 export const getAllProjects = async (req, res) => {

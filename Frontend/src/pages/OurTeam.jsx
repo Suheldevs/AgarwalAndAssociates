@@ -47,32 +47,22 @@ console.log(teamData)
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
+              {team?.map((member, index) => (
                 <div key={index} className="group border border-gray-200 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="relative overflow-hidden">
                     {/* Hover overlay - Enhanced */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-red-500/90 via-red-600/70 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
-                      <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center mb-2">
-                          <GraduationCap size={16} className="mr-2 text-white" />
-                          <p className="text-white font-medium">{member.education}</p>
-                        </div>
-                        <div className="flex items-center mb-3">
-                          <Clock size={16} className="mr-2 text-white" />
-                          <p className="text-white">{member.experience}</p>
-                        </div>
-                        {index <=2 ? (<Link to={`/${member.slug}`}  className=" z-20 inline-flex items-center text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-lg transition-colors">
+                    <div className="  absolute inset-0 to-transparent opacity-0 group-hover:opacity-95 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
+                     
+                        {member.name == 'Rajnish Agarwal' ? (<Link to={`/about-ar-rajnish-agarwal`}  className="flex justify-center  z-20  items-center text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-lg transition-colors">
                           View Detail  <ExternalLink size={14} className="ml-2" />
                         </Link>):(<div></div>)}
                         
-                      </div>
                     </div>
-                     */}
-                    {/* Image */}
+                  
                     <img 
                       src={member.imageUrl} 
                       alt={member.name}
-                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-64  object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
                   

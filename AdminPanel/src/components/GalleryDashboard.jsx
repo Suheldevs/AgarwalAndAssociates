@@ -111,7 +111,7 @@ const GalleryModal = ({ isOpen, onClose, onSubmit, formData, setFormData, upload
 
 const GalleryDashboard = () => {
   const [gallery, setGallery] = useState([]);
-  const [formData, setFormData] = useState({ type: "Redt Judge Ashok Kumar", imageUrl: "" });
+  const [formData, setFormData] = useState({ type: "", imageUrl: "" });
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
