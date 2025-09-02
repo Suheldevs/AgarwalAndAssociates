@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import user from "../assets/about/default.webp"
+import user from "../assets/about/rajneesh.jpg"
 function DirectorSection() {
   return (
     <div className="container mx-auto lg:px-6 px-4 lg:py-0 py-8">

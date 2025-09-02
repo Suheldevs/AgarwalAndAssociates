@@ -47,7 +47,7 @@ console.log(teamData)
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {team?.map((member, index) => (
+              {team?.slice().reverse().map((member, index) => (
                 <div key={index} className="group border border-gray-200 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="relative overflow-hidden">
                     {/* Hover overlay - Enhanced */}

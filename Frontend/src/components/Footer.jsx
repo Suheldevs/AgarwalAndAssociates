@@ -132,6 +132,16 @@ const Footer = () => {
                 Urban Planning
               </Link>
               </li>
+              <li>
+              <a aria-label="Urban Planning"
+                href="https://agarwal-associates-admin.netlify.app"
+                target="_blank"
+                className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
+              >
+                <ChevronRight className="inline-block " />
+               Admin Login
+              </a>
+              </li>
             </ul>
           </div>
 
