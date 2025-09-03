@@ -142,7 +142,7 @@ const TeamDashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {team.slice(0, loadCount).map((member, index) => (
+              {team.slice(0, loadCount).reverse().map((member, index) => (
                 <tr key={member._id} className="hover:bg-gray-50">
                   <td className="border border-gray-300 px-3 py-1.5 text-center">{index + 1}</td>
                   <td className="border border-gray-300 px-3 py-1.5 text-center">
