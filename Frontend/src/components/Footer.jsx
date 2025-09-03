@@ -224,28 +224,22 @@ const Footer = () => {
               <li>
                 <div className="flex space-x-3">
                   <a aria-label="facebook"
-                    href="#"
+                    href="https://www.facebook.com/profile.php?id=100081272239706"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
                     <FaFacebook size={18} />
                   </a>
-                  <a aria-label="Twitter"
-                    href="#"
-                    target="_blank"
-                    className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
-                  >
-                    <FaXTwitter size={18} />
-                  </a>
+                 
                   <a aria-label="Linkedin"
-                    href="#"
+                    href="https://www.linkedin.com/in/architectrajnishagarwal/"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >
                     <FaLinkedin size={18} />
                   </a>
                   <a  aria-label="Phone"
-                    href="#"
+                    href="tel:0522-4062110"
                     target="_blank"
                     className="p-2 bg-white hover:bg-white/70 hover:scale-105 hover:rotate-12 transition-all duration-300 rounded-full text-black"
                   >

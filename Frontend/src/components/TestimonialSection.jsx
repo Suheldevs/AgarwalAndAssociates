@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import bg from '../assets/testimonial.webp'
 import testimonials from '../Data/TestimonialData';
+import avtar from '../assets/about/default.webp'
 export default function TestimonialSection() {
   
 
@@ -138,7 +139,7 @@ export default function TestimonialSection() {
                   <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
                     <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden mb-4">
                       <img 
-                        src={testimonials[activeIndex].image} 
+                        src={avtar} 
                         alt={testimonials[activeIndex].name} 
                         className="w-full h-full object-cover" 
                       />
