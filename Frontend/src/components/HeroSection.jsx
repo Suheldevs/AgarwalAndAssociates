@@ -152,7 +152,7 @@ export default function VideoHeroSection() {
       <div className="relative lg:h-screen h-[95vh] w-full overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/10 z-10" />
           <video
             autoPlay
             muted
@@ -162,7 +162,7 @@ export default function VideoHeroSection() {
           >
             <source 
               // src={heroVideo}
-              src="https://res.cloudinary.com/dksaqtj7w/video/upload/v1738841208/crop22_vhrvia.mp4"
+              src="https://res.cloudinary.com/diz0v7rws/video/upload/v1756900382/asuyempwma2hzyrrcwid.mp4"
               type="video/mp4" 
             />
             Your browser does not support the video tag.
