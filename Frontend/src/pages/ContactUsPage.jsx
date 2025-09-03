@@ -79,9 +79,9 @@ export default function ContactUsPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      content: "support@yourcompany.com",
+      content: "associatesagarwallko@gmail.com",
       details: "We'll respond within 24 hours",
-      link: "mailto:support@gmail.com",
+      link: "mailto:associatesagarwallko@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6" />,

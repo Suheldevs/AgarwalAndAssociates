@@ -202,11 +202,11 @@ const Footer = () => {
               </li> */}
               <li>
               <a aria-label="gmail"
-                href="mailto:sgssandassociates@gmail.com"
+                href="mailto:associatesagarwallko@gmail.com"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Mail size={18} className="self-center"/> <span>agarwal@gmail.com</span>
+                <Mail size={18} className="self-center"/> <span>associatesagarwallko@gmail.com </span>
               </a>
               </li>
               <li>
