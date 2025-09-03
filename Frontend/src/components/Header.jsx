@@ -150,9 +150,10 @@ export default function Header() {
           </nav>
 
           {/* Contact Info - Desktop */}
-          <a href='tel:9415113355' className="hidden lg:flex items-center">
+          <a href='tel:0522 4062110' className="hidden lg:flex items-center">
             <Phone size={16} className="" />
-            <span className="ml-2 tracking-wider">+91-9415113355</span>
+            {/* <span className="ml-2 tracking-wider">+91-9415113355</span> */}
+            <span className="ml-2 tracking-wider">0522-4062110</span>
           </a>
 
           {/* Mobile Menu Button */}
@@ -227,10 +228,10 @@ export default function Header() {
           </ul>
 
           {/* Contact Info - Mobile */}
-          <div className="cursor-pointer flex items-center py-4 border-t border-gray-100">
+          <a target="_blank" href="tel:0522 4062110" className="cursor-pointer flex items-center py-4 border-t border-gray-100">
             <Phone size={16} className="text-gray-900" />
-            <span className="ml-2 text-gray-900">+91 9415113355</span>
-          </div>
+            <span className="ml-2 text-gray-900">0522-4062110</span>
+          </a>
         </div>
       </div>
     </header>

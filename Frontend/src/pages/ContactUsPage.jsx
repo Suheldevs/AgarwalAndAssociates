@@ -72,9 +72,9 @@ export default function ContactUsPage() {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      content: "+91-9415113355",
+      content: "0522-4062110",
       details: "Monday to Friday, 9am to 6pm",
-      link: "tel:9415113355",
+      link: "tel:0522 4062110",
     },
     {
       icon: <Mail className="w-6 h-6" />,

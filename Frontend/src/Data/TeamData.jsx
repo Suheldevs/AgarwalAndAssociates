@@ -1,9 +1,10 @@
 import defaultImage from '../assets/about/default.webp'
+import image from '../assets/team/staff 15.jpg'
  const TeamData = [
     {
       name: "Ar. Rajnish Agarwal",
       position: "Principal Architect",
-      image: defaultImage,
+      image: image,
       education: "B. Arch. C.O.A., I.I.A., I.I.I.D.",
       experience: "26 Yrs.",
       detail: [

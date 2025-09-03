@@ -183,14 +183,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
               <a aria-label="Phone number"
-                href="tel:7499666661"
+                href="tel:0522 4062110"
                 target="_blank"
                 className="flex items-center space-x-3"
               >
-                <Phone size={18} className="self-center"/> <span>+91-9415113355</span>
+                {/* <Phone size={18} className="self-center"/> <span>+91-9415113355</span> */}
+                <Phone size={18} className="self-center"/> <span>0522-4062110</span>
               </a>
               </li>
-              <li>
+              {/* <li>
               <a aria-label="Phone number"
                 href="tel:9335221186"
                 target="_blank"
@@ -198,7 +199,7 @@ const Footer = () => {
               >
                 <Phone size={18} className="self-center"/> <span>+91-9335221186</span>
               </a>
-              </li>
+              </li> */}
               <li>
               <a aria-label="gmail"
                 href="mailto:sgssandassociates@gmail.com"
