@@ -28,6 +28,14 @@ useEffect(()=>{
       </div>
   )}
 
+  if(status == "loading"){
+    return(
+     <div className="h-[20rem] py-10">
+      <h2 className="text-3xl md:text-4xl font-bold  text-center">Featured Projects</h2>
+        <p className="text-xl font-medium text-center mt-2">Loading..</p>
+      </div>
+  )}
+
 
 
   return (

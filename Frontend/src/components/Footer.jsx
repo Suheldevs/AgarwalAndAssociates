@@ -134,7 +134,7 @@ const Footer = () => {
               </li>
               <li>
               <a aria-label="Urban Planning"
-                href="https://agarwal-associates-admin.netlify.app"
+                href="https://architectrajnish.in/admin"
                 target="_blank"
                 className="block hover:underline cursor-pointer underline-offset-2 hover:tracking-wide"
               >
